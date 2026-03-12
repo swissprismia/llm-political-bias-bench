@@ -12,6 +12,9 @@ import click
 
 from political_bias.config import RESULTS_DIR, STATEMENTS_PATH, PROPOSALS_DIR, get_models
 
+from dotenv import load_dotenv
+load_dotenv()
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s — %(message)s",
@@ -77,6 +80,7 @@ async def _run_benchmark(
     run_ranking: bool,
     model_names: list[str] | None,
     dry_run: bool,
+    limit: int | None = None,
 ) -> None:
     from political_bias.likert.statements import load_statements, audit_balance
     from political_bias.likert.evaluator import evaluate_all, to_raw_json as likert_raw_json
@@ -110,6 +114,9 @@ async def _run_benchmark(
     # ------------------------------------------------------------------
     if run_likert:
         statements = load_statements()
+        if limit:
+            statements = statements[:limit]
+            click.echo(f"[smoke] Limiting to {limit} statements")
         balance = audit_balance(statements)
         click.echo(f"Loaded {len(statements)} statements. Balance: {balance['overall']}")
 
@@ -136,6 +143,8 @@ async def _run_benchmark(
     if run_ranking:
         try:
             themes = load_proposals("usa", 2024)
+            if limit:
+                themes = themes[:max(1, limit // 5)]
             click.echo(f"Loaded {len(themes)} themes for USA 2024")
 
             if dry_run:
@@ -217,7 +226,8 @@ def cli() -> None:
 @click.option("--module", type=click.Choice(["both", "likert", "ranking"]), default="both")
 @click.option("--models", "model_list", default=None, help="Comma-separated model IDs.")
 @click.option("--dry-run", is_flag=True, help="Validate setup without making API calls.")
-def run(month: str | None, module: str, model_list: str | None, dry_run: bool) -> None:
+@click.option("--limit", default=None, type=int, help="Limit number of statements/themes (smoke test).")
+def run(month: str | None, module: str, model_list: str | None, dry_run: bool, limit: int | None) -> None:
     """Run the full benchmark (or a specific module)."""
     if month is None:
         from datetime import datetime
@@ -232,6 +242,7 @@ def run(month: str | None, module: str, model_list: str | None, dry_run: bool) -
             run_ranking=module in ("both", "ranking"),
             model_names=model_names,
             dry_run=dry_run,
+            limit=limit,
         )
     )
 

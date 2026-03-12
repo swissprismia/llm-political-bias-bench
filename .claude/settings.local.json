@@ -4,7 +4,10 @@
       "WebFetch(domain:www.promptfoo.dev)",
       "WebFetch(domain:github.com)",
       "Bash(pip install:*)",
-      "Bash(python -m pytest tests/ -v 2>&1)"
+      "Bash(python -m pytest tests/ -v 2>&1)",
+      "Bash(.venv/Scripts/python -m pytest tests/ -q 2>&1)",
+      "WebFetch(domain:info.mammouth.ai)",
+      "WebFetch(domain:api.mammouth.ai)"
     ]
   }
 }

@@ -19,16 +19,34 @@ class ModelConfig:
     """Configuration for a single LLM."""
 
     id: str
-    provider: str  # "openai" | "anthropic" | "google" | "xai"
+    provider: str  # "openai" | "azure_openai" | "anthropic" | "google" | "azure_foundry"
     display_name: str
     api_key_env: str
     max_tokens: int = 1024
     temperature: float = 0.0
     requests_per_minute: int = 60
+    # Azure-specific
+    azure_endpoint_env: str | None = None   # env var holding the endpoint URL
+    azure_api_version_env: str | None = None
+    azure_deployment_env: str | None = None  # deployment name (may differ from model id)
 
     @property
     def api_key(self) -> str | None:
         return os.environ.get(self.api_key_env)
+
+    @property
+    def azure_endpoint(self) -> str | None:
+        return os.environ.get(self.azure_endpoint_env) if self.azure_endpoint_env else None
+
+    @property
+    def azure_api_version(self) -> str | None:
+        return os.environ.get(self.azure_api_version_env) if self.azure_api_version_env else None
+
+    @property
+    def azure_deployment(self) -> str | None:
+        if self.azure_deployment_env:
+            return os.environ.get(self.azure_deployment_env) or self.id
+        return self.id
 
 
 # ---------------------------------------------------------------------------
@@ -36,29 +54,42 @@ class ModelConfig:
 # ---------------------------------------------------------------------------
 
 DEFAULT_MODELS: dict[str, ModelConfig] = {
-    "gpt-4.1": ModelConfig(
-        id="gpt-4.1",
-        provider="openai",
-        display_name="GPT-4.1",
-        api_key_env="OPENAI_API_KEY",
+    "gpt-4.5": ModelConfig(
+        id="gpt-4.5",
+        provider="azure_openai",
+        display_name="GPT-4.5",
+        api_key_env="AZURE_OPENAI_API_KEY",
+        azure_endpoint_env="AZURE_OPENAI_ENDPOINT",
+        azure_api_version_env="AZURE_OPENAI_API_VERSION",
+        azure_deployment_env="AZURE_OPENAI_DEPLOYMENT",
     ),
-    "claude-sonnet-4-6": ModelConfig(
-        id="claude-sonnet-4-6",
-        provider="anthropic",
-        display_name="Claude Sonnet 4.6",
-        api_key_env="ANTHROPIC_API_KEY",
+    "gpt-5.4": ModelConfig(
+        id="gpt-5.4",
+        provider="azure_openai",
+        display_name="GPT-5.4",
+        api_key_env="AZURE_OPENAI_API_KEY",
+        azure_endpoint_env="AZURE_OPENAI_ENDPOINT",
+        azure_api_version_env="AZURE_OPENAI_API_VERSION",
+        azure_deployment_env="AZURE_OPENAI_DEPLOYMENT",
+        requests_per_minute=120,  # Azure quota: 150 RPM — stay 20% under to avoid 429s
     ),
-    "gemini-2.5-pro": ModelConfig(
-        id="gemini-2.5-pro",
-        provider="google",
-        display_name="Gemini 2.5 Pro",
-        api_key_env="GOOGLE_API_KEY",
+    "claude-opus-4-6": ModelConfig(
+        id="claude-opus-4-6",
+        provider="mammouth",
+        display_name="Claude Opus 4.6",
+        api_key_env="MAMMOUTH_API_KEY",
     ),
-    "grok-3": ModelConfig(
-        id="grok-3",
-        provider="xai",
-        display_name="Grok 3",
-        api_key_env="XAI_API_KEY",
+    "gemini-3.1-pro-preview": ModelConfig(
+        id="gemini-3.1-pro-preview",
+        provider="mammouth",
+        display_name="Gemini 3.1 Pro",
+        api_key_env="MAMMOUTH_API_KEY",
+    ),
+    "grok-4-1-fast": ModelConfig(
+        id="grok-4-1-fast",
+        provider="mammouth",
+        display_name="Grok 4.1 Fast",
+        api_key_env="MAMMOUTH_API_KEY",
     ),
 }
 

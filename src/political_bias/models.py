@@ -58,9 +58,81 @@ def _get_limiter(cfg: ModelConfig) -> _RateLimiter:
 async def _call_openai(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
     from openai import AsyncOpenAI
 
+    client = AsyncOpenAI(api_key=cfg.api_key)
+    resp = await client.chat.completions.create(
+        model=cfg.id,
+        temperature=cfg.temperature,
+        max_tokens=cfg.max_tokens,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+    )
+    choice = resp.choices[0]
+    return {
+        "text": choice.message.content or "",
+        "input_tokens": resp.usage.prompt_tokens if resp.usage else 0,
+        "output_tokens": resp.usage.completion_tokens if resp.usage else 0,
+    }
+
+
+async def _call_azure_openai(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
+    from openai import AsyncAzureOpenAI
+
+    client = AsyncAzureOpenAI(
+        api_key=cfg.api_key,
+        azure_endpoint=cfg.azure_endpoint,
+        api_version=cfg.azure_api_version or "2025-01-01-preview",
+    )
+    resp = await client.chat.completions.create(
+        model=cfg.azure_deployment,
+        temperature=cfg.temperature,
+        max_completion_tokens=cfg.max_tokens,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+    )
+    choice = resp.choices[0]
+    return {
+        "text": choice.message.content or "",
+        "input_tokens": resp.usage.prompt_tokens if resp.usage else 0,
+        "output_tokens": resp.usage.completion_tokens if resp.usage else 0,
+    }
+
+
+async def _call_azure_foundry(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
+    """Azure AI Foundry — OpenAI-compatible endpoint."""
+    from openai import AsyncOpenAI
+
     client = AsyncOpenAI(
         api_key=cfg.api_key,
-        **({"base_url": "https://api.x.ai/v1"} if cfg.provider == "xai" else {}),
+        base_url=cfg.azure_endpoint,
+    )
+    resp = await client.chat.completions.create(
+        model=cfg.id,
+        temperature=cfg.temperature,
+        max_tokens=cfg.max_tokens,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+    )
+    choice = resp.choices[0]
+    return {
+        "text": choice.message.content or "",
+        "input_tokens": resp.usage.prompt_tokens if resp.usage else 0,
+        "output_tokens": resp.usage.completion_tokens if resp.usage else 0,
+    }
+
+
+async def _call_mammouth(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
+    """Mammouth.ai — OpenAI-compatible proxy for Claude, Grok, Gemini."""
+    from openai import AsyncOpenAI
+
+    client = AsyncOpenAI(
+        api_key=cfg.api_key,
+        base_url="https://api.mammouth.ai/v1",
     )
     resp = await client.chat.completions.create(
         model=cfg.id,
@@ -121,9 +193,11 @@ async def _call_google(cfg: ModelConfig, system: str, user: str) -> dict[str, An
 
 _PROVIDERS = {
     "openai": _call_openai,
+    "azure_openai": _call_azure_openai,
+    "azure_foundry": _call_azure_foundry,
     "anthropic": _call_anthropic,
     "google": _call_google,
-    "xai": _call_openai,  # xAI uses OpenAI-compatible API
+    "mammouth": _call_mammouth,
 }
 
 

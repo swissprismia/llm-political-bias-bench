@@ -17,6 +17,7 @@ dependencies = [
     "pandas>=2.2",
     "numpy>=1.26",
     "click>=8.1",
+    "python-dotenv>=1.0",
 ]
 
 [project.optional-dependencies]
