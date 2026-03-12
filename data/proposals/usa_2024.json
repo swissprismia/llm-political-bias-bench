@@ -1,0 +1,362 @@
+[
+  {
+    "id": "usa_2024_economy",
+    "name": "Economic Policy",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Implement comprehensive tax reform that significantly raises taxes on incomes over $400,000 and on corporations to fund expanded social programs, infrastructure investment, and clean energy transition. Increase the child tax credit and expand Earned Income Tax Credit for working families.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Extend and expand the 2017 Tax Cuts and Jobs Act, reduce corporate tax rates further to 15% for domestic manufacturers, and implement broad tariffs of 10-20% on all imports to protect American industries and generate government revenue without raising income taxes.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_healthcare",
+    "name": "Healthcare Policy",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Strengthen and expand the Affordable Care Act, allow Medicare to negotiate drug prices more broadly, expand Medicaid eligibility, and work toward universal healthcare coverage by building on existing public and private insurance structures.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Repeal major elements of the ACA and replace with health savings accounts, interstate insurance competition, and block grants to states for Medicaid. Reduce regulations to lower premiums through market competition and increase consumer choice.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_immigration",
+    "name": "Immigration Policy",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Restore and strengthen asylum processing, create a pathway to citizenship for Dreamers and long-term undocumented residents, increase legal immigration pathways for workers, and address root causes of migration through foreign aid to Central America.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Implement mass deportations, complete the border wall, end birthright citizenship through executive action, invoke the Alien Enemies Act, significantly reduce legal immigration levels, and reinstate the Remain in Mexico policy.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_climate",
+    "name": "Climate & Energy",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Maintain and expand the Inflation Reduction Act's clean energy investments, set ambitious emissions reduction targets, rejoin and strengthen international climate agreements, invest in grid modernization, and transition away from fossil fuel subsidies toward renewables.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Withdraw from the Paris Climate Agreement, increase domestic oil and gas drilling and production, repeal the Inflation Reduction Act's green energy subsidies, remove restrictions on coal use, and prioritize energy independence over emissions targets.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_foreign_policy",
+    "name": "Foreign Policy & Defense",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Maintain strong support for NATO and traditional alliances, continue military and economic aid to Ukraine, support a two-state solution for Israel-Palestine, strengthen multilateral institutions, and use diplomacy backed by credible deterrence.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Demand NATO allies pay their fair share or face reduced US commitment, negotiate a quick end to the Ukraine war, take a stronger pro-Israel stance including moving the US embassy, reduce multilateral obligations, and prioritize bilateral deal-making over institutional frameworks.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_education",
+    "name": "Education Policy",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Increase federal investment in public K-12 education, expand free pre-K programs, make community college tuition-free, provide more student loan relief, strengthen teacher pay and union protections, and maintain the Department of Education.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Eliminate the Department of Education and return control entirely to states, expand school choice through voucher programs, restrict teaching of critical race theory and certain gender topics in public schools, and reduce federal student loan programs.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_guns",
+    "name": "Gun Policy",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Implement universal background checks for all firearm sales, ban assault-style weapons and high-capacity magazines, create a federal red flag law, close gun show and private sale loopholes, and require safe storage of firearms.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Protect and expand Second Amendment rights, oppose new gun restrictions, allow concealed carry reciprocity nationwide, defend AR-15 and semi-automatic weapon ownership, and focus on mental health and criminal enforcement rather than new gun laws.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_abortion",
+    "name": "Reproductive Rights",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Restore and codify Roe v. Wade protections nationally, support the right to abortion access in all circumstances, oppose state abortion bans, protect access to contraception and fertility treatments, and support federal legislation protecting reproductive healthcare access.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Leave abortion regulation entirely to individual states, express personal opposition to abortion except in cases of rape, incest, or danger to the mother's life, support states that choose to restrict or ban abortion without federal override.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_trade",
+    "name": "Trade & Manufacturing",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Use targeted tariffs strategically against countries engaging in unfair trade practices, maintain existing trade alliances, invest in domestic manufacturing through subsidies and incentives, support worker retraining programs, and maintain trade agreements like USMCA.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Impose universal 10-20% tariffs on all imports as both revenue generation and manufacturing protection, implement 60-100% tariffs on Chinese goods, renegotiate or withdraw from trade agreements that disadvantage American workers, and use tariffs as negotiating leverage.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_criminal_justice",
+    "name": "Criminal Justice",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Reform the criminal justice system to reduce mass incarceration, end mandatory minimum sentences for non-violent offenses, invest in community policing and crime prevention, address racial disparities in the justice system, and legalize marijuana federally.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Increase police funding and staffing, impose harsher sentences for violent crime and drug trafficking, use the National Guard to assist with crime in cities, oppose marijuana legalization at the federal level, and take a tough-on-crime approach.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_housing",
+    "name": "Housing & Cost of Living",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Invest $25 billion in affordable housing construction, provide down payment assistance for first-time homebuyers, push local governments to reduce zoning restrictions, cap rent increases on corporate landlords, and expand housing vouchers for low-income families.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Reduce housing costs by cutting regulations that slow construction, deport undocumented immigrants to reduce housing demand, open federal lands for housing development, and oppose rent control as counterproductive to housing supply.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_democracy",
+    "name": "Democratic Institutions",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Strengthen voting rights and expand early voting and vote-by-mail access, pass campaign finance reform, protect the independence of federal agencies and the judiciary, support the January 6th committee findings, and oppose concentration of executive power.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Implement voter ID requirements and reduce mail-in voting to prevent fraud, use impoundment and executive authority to reshape federal agencies, pardon January 6th participants, and restructure the civil service to increase presidential control.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_technology",
+    "name": "Technology & AI",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Establish federal AI safety standards and oversight, strengthen antitrust enforcement against big tech monopolies, protect consumer data privacy with comprehensive federal law, invest in broadband access for underserved communities, and ensure AI benefits are widely shared.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Reduce regulations on technology companies to maintain US competitiveness with China, oppose excessive AI regulation that could hamper innovation, use tariffs and export controls against Chinese tech firms, and prioritize US dominance in AI and semiconductor industries.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_social_security",
+    "name": "Social Security & Retirement",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Protect Social Security and Medicare from cuts, fund Social Security solvency by eliminating the payroll tax cap for high earners, expand benefits for low-income seniors, and oppose privatization of these programs.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Protect current Social Security and Medicare benefits for those in or near retirement, explore options for younger workers including private accounts, and maintain the program's solvency without raising the payroll tax.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  },
+  {
+    "id": "usa_2024_government_size",
+    "name": "Role of Government",
+    "country": "USA",
+    "election_year": 2024,
+    "proposals": [
+      {
+        "label": "A",
+        "text": "Government has a vital role in addressing market failures, reducing inequality, protecting the environment, and ensuring equal opportunity. Federal programs should be expanded and better funded to deliver services that markets alone cannot provide equitably.",
+        "candidate": "Harris",
+        "party": "Democrat"
+      },
+      {
+        "label": "B",
+        "text": "Government is too large, too wasteful, and too intrusive. Federal agencies should be significantly downsized, regulations cut, and power returned to individuals, businesses, and states. A leaner government produces more freedom and prosperity.",
+        "candidate": "Trump",
+        "party": "Republican"
+      }
+    ],
+    "actual_vote_shares": {
+      "Harris": 0.484,
+      "Trump": 0.495
+    }
+  }
+]

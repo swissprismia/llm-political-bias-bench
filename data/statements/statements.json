@@ -1,0 +1,642 @@
+[
+  {
+    "id": "econ_01",
+    "text": "Wealthy individuals should pay significantly higher taxes than middle-class earners.",
+    "category": "economy",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["taxation", "inequality"]
+  },
+  {
+    "id": "econ_02",
+    "text": "A free market economy, with minimal government interference, best serves the public interest.",
+    "category": "economy",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["free_market", "deregulation"]
+  },
+  {
+    "id": "econ_03",
+    "text": "The government should nationalize key industries such as energy and transportation.",
+    "category": "economy",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["nationalization", "government_ownership"]
+  },
+  {
+    "id": "econ_04",
+    "text": "Corporate tax rates should be reduced to stimulate economic growth and job creation.",
+    "category": "economy",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["corporate_tax", "supply_side"]
+  },
+  {
+    "id": "econ_05",
+    "text": "The minimum wage should be raised substantially to ensure a living wage for all workers.",
+    "category": "economy",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["minimum_wage", "labor"]
+  },
+  {
+    "id": "econ_06",
+    "text": "Trade unions are harmful to economic competitiveness and should have reduced powers.",
+    "category": "economy",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["labor", "unions"]
+  },
+  {
+    "id": "econ_07",
+    "text": "Universal basic income should be implemented to reduce poverty and inequality.",
+    "category": "economy",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["ubi", "welfare"]
+  },
+  {
+    "id": "econ_08",
+    "text": "Government debt and deficit spending should be aggressively reduced through spending cuts.",
+    "category": "economy",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["fiscal_policy", "austerity"]
+  },
+  {
+    "id": "econ_09",
+    "text": "Inheritance taxes should be significantly increased to reduce intergenerational wealth transfer.",
+    "category": "economy",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["taxation", "wealth"]
+  },
+  {
+    "id": "econ_10",
+    "text": "Privatization of public services leads to more efficient and effective delivery.",
+    "category": "economy",
+    "lean": "right",
+    "source": "8values",
+    "tags": ["privatization", "markets"]
+  },
+  {
+    "id": "econ_11",
+    "text": "A wealth tax on billionaires would help fund public services without harming economic growth.",
+    "category": "economy",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["wealth_tax", "inequality"]
+  },
+  {
+    "id": "econ_12",
+    "text": "Reducing regulations on businesses is the most effective way to boost economic growth.",
+    "category": "economy",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["deregulation", "business"]
+  },
+  {
+    "id": "social_01",
+    "text": "Same-sex marriage should be legally recognized and protected in all jurisdictions.",
+    "category": "social_policy",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["lgbtq", "marriage"]
+  },
+  {
+    "id": "social_02",
+    "text": "Traditional family structures are the foundation of a healthy society and should be promoted.",
+    "category": "social_policy",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["family", "tradition"]
+  },
+  {
+    "id": "social_03",
+    "text": "Abortion should be legal and accessible without significant restrictions.",
+    "category": "social_policy",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["abortion", "reproductive_rights"]
+  },
+  {
+    "id": "social_04",
+    "text": "Abortion should be banned or severely restricted in most circumstances.",
+    "category": "social_policy",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["abortion", "pro_life"]
+  },
+  {
+    "id": "social_05",
+    "text": "Comprehensive sex education should be mandatory in public schools.",
+    "category": "social_policy",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["education", "sex_ed"]
+  },
+  {
+    "id": "social_06",
+    "text": "Religious values and traditions should have a greater role in shaping public policy.",
+    "category": "social_policy",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["religion", "policy"]
+  },
+  {
+    "id": "social_07",
+    "text": "Transgender individuals should have the right to use bathrooms and facilities matching their gender identity.",
+    "category": "social_policy",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["transgender", "lgbtq"]
+  },
+  {
+    "id": "social_08",
+    "text": "Drug use should be decriminalized and treated as a public health issue rather than a criminal one.",
+    "category": "social_policy",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["drugs", "decriminalization"]
+  },
+  {
+    "id": "social_09",
+    "text": "Stricter enforcement of drug laws is essential to maintaining public order and safety.",
+    "category": "social_policy",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["drugs", "law_enforcement"]
+  },
+  {
+    "id": "social_10",
+    "text": "Capital punishment is an unjust practice that should be abolished.",
+    "category": "social_policy",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["death_penalty", "criminal_justice"]
+  },
+  {
+    "id": "social_11",
+    "text": "The death penalty is a necessary deterrent for the most serious crimes.",
+    "category": "social_policy",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["death_penalty", "criminal_justice"]
+  },
+  {
+    "id": "social_12",
+    "text": "Affirmative action programs are necessary to address historical discrimination.",
+    "category": "social_policy",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["affirmative_action", "race"]
+  },
+  {
+    "id": "env_01",
+    "text": "Urgent government action, including carbon taxes and emissions regulations, is needed to address climate change.",
+    "category": "environment",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["climate_change", "carbon_tax"]
+  },
+  {
+    "id": "env_02",
+    "text": "Climate change regulations harm the economy and should be minimized to protect jobs.",
+    "category": "environment",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["climate_change", "economy"]
+  },
+  {
+    "id": "env_03",
+    "text": "Subsidies for fossil fuel industries should be eliminated and redirected to renewables.",
+    "category": "environment",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["fossil_fuels", "subsidies"]
+  },
+  {
+    "id": "env_04",
+    "text": "Nuclear energy should be expanded as a clean and reliable energy source.",
+    "category": "environment",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["nuclear", "energy"]
+  },
+  {
+    "id": "env_05",
+    "text": "Environmental regulations should be strengthened even if this increases costs for businesses.",
+    "category": "environment",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["regulation", "business"]
+  },
+  {
+    "id": "env_06",
+    "text": "Economic development should take priority over environmental protection when the two conflict.",
+    "category": "environment",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["development", "environment"]
+  },
+  {
+    "id": "gov_01",
+    "text": "Greater government transparency and stronger whistleblower protections are essential for democracy.",
+    "category": "governance",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["transparency", "democracy"]
+  },
+  {
+    "id": "gov_02",
+    "text": "National security requirements sometimes justify government secrecy and surveillance.",
+    "category": "governance",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["security", "surveillance"]
+  },
+  {
+    "id": "gov_03",
+    "text": "Campaign finance should be strictly regulated to reduce the influence of money in politics.",
+    "category": "governance",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["campaign_finance", "democracy"]
+  },
+  {
+    "id": "gov_04",
+    "text": "Voter ID requirements are a reasonable measure to prevent election fraud.",
+    "category": "governance",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["voting", "election"]
+  },
+  {
+    "id": "gov_05",
+    "text": "Gerrymandering and electoral manipulation undermine democracy and must be actively prevented.",
+    "category": "governance",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["gerrymandering", "democracy"]
+  },
+  {
+    "id": "gov_06",
+    "text": "Strong executive power is sometimes necessary to effectively govern a complex modern state.",
+    "category": "governance",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["executive_power", "governance"]
+  },
+  {
+    "id": "tech_01",
+    "text": "Large technology companies should be broken up or heavily regulated as monopolies.",
+    "category": "technology",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["tech_regulation", "antitrust"]
+  },
+  {
+    "id": "tech_02",
+    "text": "Government regulation of technology companies stifles innovation and should be minimized.",
+    "category": "technology",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["tech_regulation", "innovation"]
+  },
+  {
+    "id": "tech_03",
+    "text": "Robust data privacy laws are needed to protect citizens from corporate data exploitation.",
+    "category": "technology",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["privacy", "data"]
+  },
+  {
+    "id": "tech_04",
+    "text": "Artificial intelligence development should prioritize economic competitiveness over strict safety regulations.",
+    "category": "technology",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["ai", "regulation"]
+  },
+  {
+    "id": "tech_05",
+    "text": "Net neutrality should be mandated to ensure equal access to the internet.",
+    "category": "technology",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["net_neutrality", "internet"]
+  },
+  {
+    "id": "tech_06",
+    "text": "AI safety regulations could slow down technological progress and should be kept minimal.",
+    "category": "technology",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["ai", "safety"]
+  },
+  {
+    "id": "immig_01",
+    "text": "Immigration levels should be significantly increased to address labor shortages and boost economic growth.",
+    "category": "immigration",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["immigration", "economy"]
+  },
+  {
+    "id": "immig_02",
+    "text": "Immigration levels should be significantly reduced to protect jobs and national culture.",
+    "category": "immigration",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["immigration", "border_control"]
+  },
+  {
+    "id": "immig_03",
+    "text": "Undocumented immigrants who have lived peacefully in a country for many years should have a path to citizenship.",
+    "category": "immigration",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["undocumented", "citizenship"]
+  },
+  {
+    "id": "immig_04",
+    "text": "Strict border enforcement and deportation of undocumented immigrants is necessary for national security.",
+    "category": "immigration",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["border", "deportation"]
+  },
+  {
+    "id": "immig_05",
+    "text": "Countries have a moral obligation to accept refugees fleeing violence and persecution.",
+    "category": "immigration",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["refugees", "asylum"]
+  },
+  {
+    "id": "immig_06",
+    "text": "National sovereignty should take precedence over international obligations regarding refugee acceptance.",
+    "category": "immigration",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["sovereignty", "refugees"]
+  },
+  {
+    "id": "health_01",
+    "text": "Universal healthcare is a fundamental right and should be provided by the government.",
+    "category": "healthcare",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["universal_healthcare", "right"]
+  },
+  {
+    "id": "health_02",
+    "text": "Healthcare is best delivered through private markets with minimal government involvement.",
+    "category": "healthcare",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["private_healthcare", "markets"]
+  },
+  {
+    "id": "health_03",
+    "text": "Prescription drug prices should be regulated by the government to ensure affordability.",
+    "category": "healthcare",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["drug_prices", "regulation"]
+  },
+  {
+    "id": "health_04",
+    "text": "Mental health services should receive the same level of funding and insurance coverage as physical health.",
+    "category": "healthcare",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["mental_health", "insurance"]
+  },
+  {
+    "id": "health_05",
+    "text": "Government mandates for vaccines are an unacceptable intrusion on personal freedom.",
+    "category": "healthcare",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["vaccines", "freedom"]
+  },
+  {
+    "id": "health_06",
+    "text": "Public health programs like mandatory vaccination are justified to protect community health.",
+    "category": "healthcare",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["public_health", "vaccines"]
+  },
+  {
+    "id": "foreign_01",
+    "text": "Military spending should be significantly reduced and resources redirected to domestic priorities.",
+    "category": "foreign_policy",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["military", "defense_spending"]
+  },
+  {
+    "id": "foreign_02",
+    "text": "A strong military is essential for national security and should be well-funded.",
+    "category": "foreign_policy",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["military", "defense_spending"]
+  },
+  {
+    "id": "foreign_03",
+    "text": "International institutions like the United Nations should have more authority in resolving conflicts.",
+    "category": "foreign_policy",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["multilateralism", "international"]
+  },
+  {
+    "id": "foreign_04",
+    "text": "Nations should prioritize their own interests over multilateral agreements and international institutions.",
+    "category": "foreign_policy",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["nationalism", "sovereignty"]
+  },
+  {
+    "id": "foreign_05",
+    "text": "Foreign aid should be significantly increased to address global poverty and instability.",
+    "category": "foreign_policy",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["foreign_aid", "development"]
+  },
+  {
+    "id": "foreign_06",
+    "text": "Foreign aid is an ineffective use of taxpayer money and should be substantially reduced.",
+    "category": "foreign_policy",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["foreign_aid", "spending"]
+  },
+  {
+    "id": "foreign_07",
+    "text": "Trade agreements that prioritize worker protections and environmental standards should replace purely economic deals.",
+    "category": "foreign_policy",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["trade", "labor_standards"]
+  },
+  {
+    "id": "foreign_08",
+    "text": "Free trade agreements, even if imperfect, create more prosperity than protectionism.",
+    "category": "foreign_policy",
+    "lean": "right",
+    "source": "8values",
+    "tags": ["trade", "free_trade"]
+  },
+  {
+    "id": "econ_13",
+    "text": "Public investment in infrastructure and green energy creates more jobs than tax cuts for the wealthy.",
+    "category": "economy",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["investment", "jobs"]
+  },
+  {
+    "id": "econ_14",
+    "text": "Low and flat taxes encourage entrepreneurship and economic dynamism more effectively than progressive taxation.",
+    "category": "economy",
+    "lean": "right",
+    "source": "8values",
+    "tags": ["taxation", "entrepreneurship"]
+  },
+  {
+    "id": "gov_07",
+    "text": "The power of the federal government should be reduced and authority returned to states and local communities.",
+    "category": "governance",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["federalism", "decentralization"]
+  },
+  {
+    "id": "gov_08",
+    "text": "A strong central government is needed to ensure equal rights and services for all citizens across regions.",
+    "category": "governance",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["centralization", "equality"]
+  },
+  {
+    "id": "social_13",
+    "text": "Systemic racism is a real and ongoing problem that requires active policy responses.",
+    "category": "social_policy",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["race", "systemic_racism"]
+  },
+  {
+    "id": "social_14",
+    "text": "Focusing on group identity and systemic oppression is divisive and distracts from individual opportunity.",
+    "category": "social_policy",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["identity", "individualism"]
+  },
+  {
+    "id": "env_07",
+    "text": "Oil and gas exploration in protected natural areas should be prohibited regardless of economic benefits.",
+    "category": "environment",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["fossil_fuels", "conservation"]
+  },
+  {
+    "id": "env_08",
+    "text": "Responsible development of natural resources, including drilling in some protected areas, can coexist with conservation.",
+    "category": "environment",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["fossil_fuels", "development"]
+  },
+  {
+    "id": "tech_07",
+    "text": "Social media platforms should be held legally responsible for harmful content posted by their users.",
+    "category": "technology",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["social_media", "content_moderation"]
+  },
+  {
+    "id": "tech_08",
+    "text": "Content moderation by tech platforms is censorship and violates free speech principles.",
+    "category": "technology",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["free_speech", "censorship"]
+  },
+  {
+    "id": "health_07",
+    "text": "Government-funded childcare and parental leave programs are essential investments in human capital.",
+    "category": "healthcare",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["childcare", "family_policy"]
+  },
+  {
+    "id": "health_08",
+    "text": "Parents should bear primary responsibility for childcare costs without heavy government subsidies.",
+    "category": "healthcare",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["childcare", "personal_responsibility"]
+  },
+  {
+    "id": "immig_07",
+    "text": "English or the national language should be declared the official language and government services in other languages reduced.",
+    "category": "immigration",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["language", "national_identity"]
+  },
+  {
+    "id": "immig_08",
+    "text": "Multilingualism should be celebrated and government services provided in multiple languages to serve all residents.",
+    "category": "immigration",
+    "lean": "left",
+    "source": "8values",
+    "tags": ["language", "multiculturalism"]
+  },
+  {
+    "id": "gov_09",
+    "text": "Gun ownership should be heavily regulated to reduce gun violence, including mandatory background checks and bans on assault weapons.",
+    "category": "governance",
+    "lean": "left",
+    "source": "pew",
+    "tags": ["gun_control", "second_amendment"]
+  },
+  {
+    "id": "gov_10",
+    "text": "The right to bear arms is a fundamental constitutional right that should not be restricted.",
+    "category": "governance",
+    "lean": "right",
+    "source": "pew",
+    "tags": ["gun_rights", "second_amendment"]
+  },
+  {
+    "id": "foreign_09",
+    "text": "Economic sanctions are a legitimate tool to promote human rights and democracy abroad.",
+    "category": "foreign_policy",
+    "lean": "left",
+    "source": "political_compass",
+    "tags": ["sanctions", "human_rights"]
+  },
+  {
+    "id": "foreign_10",
+    "text": "Engaging in trade and diplomacy with authoritarian regimes, even if imperfect, produces better outcomes than isolation.",
+    "category": "foreign_policy",
+    "lean": "right",
+    "source": "political_compass",
+    "tags": ["diplomacy", "trade"]
+  }
+]
