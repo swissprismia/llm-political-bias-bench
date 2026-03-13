@@ -142,6 +142,7 @@ async def _run_benchmark(
     if run_likert:
         statements = load_statements()
         stmt_id_to_text = {s.id: s.text for s in statements}  # all IDs for lookup
+        all_statements = statements  # keep full list for refusal parity
         if limit:
             statements = statements[:limit]  # only limit new evaluation calls
             click.echo(f"[smoke] Limiting to {limit} statements")
@@ -176,13 +177,13 @@ async def _run_benchmark(
             ]
 
             # Judge using all currently configured models as judges
-            stmt_id_to_cat = {s.id: s.category for s in statements}
             all_judge_models = get_models()
             likert_scores_agg = await run_judging(all_judge_models, all_responses, stmt_id_to_text)
             _write_json(out_dir / "likert_scores.json", likert_scores_json(likert_scores_agg))
 
-            # Refusal parity — merge with existing
-            refusal_stats = compute_refusal_parity(responses, statements)
+            # Refusal parity — compute from full merged responses so --limit reruns
+            # don't replace a model's full-corpus stats with subset-only rates.
+            refusal_stats = compute_refusal_parity(all_responses, all_statements)
             merged_refusal = _merge_json_records(
                 out_dir / "refusal_parity.json", to_refusal_json(refusal_stats), "model_id"
             )
@@ -211,6 +212,16 @@ async def _run_benchmark(
                 corrections = {
                     r.model_id: r.correction_factors for r in position_bias_results
                 }
+                # Supplement with saved corrections for models not rerun in this invocation
+                # so that compute_vote_shares applies calibration to all models in merged data.
+                saved_pb_path = out_dir / "position_bias.json"
+                if saved_pb_path.exists():
+                    try:
+                        for entry in json.loads(saved_pb_path.read_text(encoding="utf-8")):
+                            if entry["model_id"] not in corrections:
+                                corrections[entry["model_id"]] = entry["correction_factors"]
+                    except Exception:
+                        pass
 
                 # Ranking evaluation
                 ranking_responses = await evaluate_rankings(models, themes)
@@ -265,11 +276,7 @@ async def _run_benchmark(
     # ------------------------------------------------------------------
     # Report generation
     # ------------------------------------------------------------------
-    stmt_id_to_cat = {}
-    if run_likert:
-        from political_bias.likert.statements import load_statements
-        stmts = load_statements()
-        stmt_id_to_cat = {s.id: s.category for s in stmts}
+    stmt_id_to_cat = {s.id: s.category for s in load_statements()}
 
     chart_paths: dict[str, Path | None] = {}
     if likert_scores_agg:

@@ -87,7 +87,7 @@ def test_merge_json_records_subset_no_key_error(tmp_path: Path) -> None:
     ]
 
     from political_bias.runner import _merge_json_records
-    merged = _merge_json_records(raw_path, new_records, "model_id", {"model_b"})
+    merged = _merge_json_records(raw_path, new_records, "model_id", "statement_id")
 
     # stmt_id_to_text built from ALL statements (s1..s5), not just the limited set
     all_statements = [_make_statement(f"s{i}", "left") for i in range(1, 6)]
