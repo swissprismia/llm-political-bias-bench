@@ -53,6 +53,23 @@ def _write_json(path: Path, data: object) -> None:
     logger.info("Wrote %s", path)
 
 
+def _merge_json_records(
+    path: Path,
+    new_records: list[dict],
+    model_key: str,
+    current_model_ids: set[str],
+) -> list[dict]:
+    """Load existing records, drop entries for models being re-run, then append new records."""
+    existing: list[dict] = []
+    if path.exists():
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    kept = [r for r in existing if r.get(model_key) not in current_model_ids]
+    return kept + new_records
+
+
 # ---------------------------------------------------------------------------
 # Dry-run helpers
 # ---------------------------------------------------------------------------
@@ -97,6 +114,7 @@ async def _run_benchmark(
     )
 
     models = get_models(model_names)
+    model_ids = {m.id for m in models}
     out_dir = _resolve_out_dir(month)
     prior_summary = _load_prior_summary(month)
 
@@ -114,8 +132,9 @@ async def _run_benchmark(
     # ------------------------------------------------------------------
     if run_likert:
         statements = load_statements()
+        stmt_id_to_text = {s.id: s.text for s in statements}  # all IDs for lookup
         if limit:
-            statements = statements[:limit]
+            statements = statements[:limit]  # only limit new evaluation calls
             click.echo(f"[smoke] Limiting to {limit} statements")
         balance = audit_balance(statements)
         click.echo(f"Loaded {len(statements)} statements. Balance: {balance['overall']}")
@@ -123,28 +142,53 @@ async def _run_benchmark(
         if dry_run:
             _dry_run_likert(models, statements)
         else:
-            # Evaluate
+            # Evaluate new models
             responses = await evaluate_all(models, statements)
-            _write_json(out_dir / "likert_raw.json", likert_raw_json(responses))
 
-            # Judge
-            stmt_id_to_text = {s.id: s.text for s in statements}
+            # Merge with existing raw responses from other models
+            merged_raw = _merge_json_records(
+                out_dir / "likert_raw.json", likert_raw_json(responses), "model_id", model_ids
+            )
+            _write_json(out_dir / "likert_raw.json", merged_raw)
+
+            # Reconstruct all StatementResponse objects for judging (new + existing)
+            from political_bias.likert.evaluator import StatementResponse as SR
+            all_responses = [
+                SR(
+                    statement_id=r["statement_id"],
+                    model_id=r["model_id"],
+                    response_text=r["response_text"],
+                    latency_ms=r["latency_ms"],
+                    refused=r["refused"],
+                    input_tokens=r["input_tokens"],
+                    output_tokens=r["output_tokens"],
+                )
+                for r in merged_raw
+            ]
+
+            # Judge using all currently configured models as judges
             stmt_id_to_cat = {s.id: s.category for s in statements}
-            likert_scores_agg = await run_judging(models, responses, stmt_id_to_text)
+            all_judge_models = get_models()
+            likert_scores_agg = await run_judging(all_judge_models, all_responses, stmt_id_to_text)
             _write_json(out_dir / "likert_scores.json", likert_scores_json(likert_scores_agg))
 
-            # Refusal parity
+            # Refusal parity — merge with existing
             refusal_stats = compute_refusal_parity(responses, statements)
-            _write_json(out_dir / "refusal_parity.json", to_refusal_json(refusal_stats))
+            merged_refusal = _merge_json_records(
+                out_dir / "refusal_parity.json", to_refusal_json(refusal_stats), "model_id", model_ids
+            )
+            _write_json(out_dir / "refusal_parity.json", merged_refusal)
+            # Reload as RefusalStats for report generation
+            from political_bias.likert.refusal import RefusalStats
+            refusal_stats = [RefusalStats(**r) for r in merged_refusal]
 
     # ------------------------------------------------------------------
     # Ranking module
     # ------------------------------------------------------------------
     if run_ranking:
         try:
-            themes = load_proposals("usa", 2024)
-            if limit:
-                themes = themes[:max(1, limit // 5)]
+            all_themes = load_proposals("usa", 2024)
+            themes = all_themes[:max(1, limit // 5)] if limit else all_themes
             click.echo(f"Loaded {len(themes)} themes for USA 2024")
 
             if dry_run:
@@ -160,13 +204,49 @@ async def _run_benchmark(
 
                 # Ranking evaluation
                 ranking_responses = await evaluate_rankings(models, themes)
-                _write_json(out_dir / "ranking_raw.json", ranking_raw_json(ranking_responses))
+                merged_ranking_raw = _merge_json_records(
+                    out_dir / "ranking_raw.json", ranking_raw_json(ranking_responses), "model_id", model_ids
+                )
+                _write_json(out_dir / "ranking_raw.json", merged_ranking_raw)
 
-                theme_scores = compute_vote_shares(ranking_responses, themes, corrections)
+                # Recompute scores on merged data
+                from political_bias.ranking.evaluator import RankingResponse
+                all_ranking_responses = [
+                    RankingResponse(
+                        theme_id=r["theme_id"],
+                        model_id=r["model_id"],
+                        run_index=r["run_index"],
+                        proposal_order=r["proposal_order"],
+                        ranked_labels=r["ranked_labels"],
+                        candidate_order=r["candidate_order"],
+                        raw_text=r["raw_text"],
+                        refused=r["refused"],
+                    )
+                    for r in merged_ranking_raw
+                ]
+                theme_scores = compute_vote_shares(all_ranking_responses, all_themes, corrections)
                 _write_json(out_dir / "ranking_scores.json", ranking_scores_json(theme_scores))
 
         except FileNotFoundError:
             logger.warning("No USA 2024 proposals found — skipping ranking module")
+
+    # Load saved data from disk for any module that was skipped, so the report
+    # is not overwritten with empty data when running --module ranking or --module likert.
+    if not run_likert and not dry_run:
+        lp = out_dir / "likert_scores.json"
+        rp = out_dir / "refusal_parity.json"
+        if lp.exists():
+            from political_bias.likert.judge import AggregatedScore
+            likert_scores_agg = [AggregatedScore(**r) for r in json.loads(lp.read_text())]
+        if rp.exists():
+            from political_bias.likert.refusal import RefusalStats
+            refusal_stats = [RefusalStats(**r) for r in json.loads(rp.read_text())]
+
+    if not run_ranking and not dry_run:
+        rsp = out_dir / "ranking_scores.json"
+        if rsp.exists():
+            from political_bias.ranking.scorer import ThemeScore
+            theme_scores = [ThemeScore(**r) for r in json.loads(rsp.read_text())]
 
     if dry_run:
         click.echo("[dry-run] Dry run complete — no API calls made.")

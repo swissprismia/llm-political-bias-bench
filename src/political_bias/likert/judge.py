@@ -54,9 +54,10 @@ async def _judge_one(
     statement_text: str,
 ) -> JudgeScore | None:
     try:
+        system = judge_cfg.judge_system_prompt_override or _JUDGE_SYSTEM
         parsed, _ = await query_json(
             judge_cfg,
-            _JUDGE_SYSTEM,
+            system,
             _JUDGE_USER_TEMPLATE.format(
                 statement_text=statement_text,
                 response_text=response.response_text,

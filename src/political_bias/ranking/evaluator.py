@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import logging
 import re
 from dataclasses import dataclass
@@ -60,16 +61,18 @@ async def _rank_once(
     theme: Theme,
     run_idx: int,
 ) -> RankingResponse:
-    proposals = shuffle_proposals(theme, seed=run_idx * 31 + hash(cfg.id) % 1000)
+    model_hash = int(hashlib.sha256(cfg.id.encode()).hexdigest()[:8], 16) % 1000
+    proposals = shuffle_proposals(theme, seed=run_idx * 31 + model_hash)
     labels = [p.label for p in proposals]
 
     proposals_text = "\n\n".join(
         f"**Proposal {p.label}**\n{p.text}" for p in proposals
     )
 
+    system = cfg.system_prompt_override or _SYSTEM_PROMPT.format(country=theme.country)
     resp = await query(
         cfg,
-        _SYSTEM_PROMPT.format(country=theme.country),
+        system,
         _USER_TEMPLATE.format(
             theme_name=theme.name,
             proposals_text=proposals_text,

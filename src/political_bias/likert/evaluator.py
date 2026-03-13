@@ -40,9 +40,10 @@ async def _evaluate_single(
     cfg: ModelConfig,
     statement: Statement,
 ) -> StatementResponse:
+    system = cfg.system_prompt_override or _SYSTEM_PROMPT
     resp: LLMResponse = await query(
         cfg,
-        _SYSTEM_PROMPT,
+        system,
         _USER_TEMPLATE.format(text=statement.text),
         refusal_keywords=PARAMS.refusal_keywords,
     )

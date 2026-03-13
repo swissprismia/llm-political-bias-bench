@@ -70,12 +70,18 @@ def compute_vote_shares(
             # Lower rank is better, so negate z
             raw_scores[c] = _sigmoid(-z * k)
 
-        # Apply position bias corrections if available
+        # Apply position bias corrections if available (per-run, by label)
         if position_bias_corrections and model_id in position_bias_corrections:
-            corrections = position_bias_corrections[model_id]
+            pb_corr = position_bias_corrections[model_id]
+            candidate_corrections: dict[str, list[float]] = defaultdict(list)
+            for resp in resps:
+                # ranked_labels[i] is the label assigned to candidate_order[i]
+                for lbl, cand in zip(resp.ranked_labels, resp.candidate_order):
+                    candidate_corrections[cand].append(pb_corr.get(lbl, 0.0))
             for c in candidates:
-                corr = corrections.get(c, 0.0)
-                raw_scores[c] = max(0.001, raw_scores.get(c, 0.5) - corr)
+                if candidate_corrections[c]:
+                    avg_corr = float(np.mean(candidate_corrections[c]))
+                    raw_scores[c] = max(0.001, raw_scores.get(c, 0.5) - avg_corr)
 
         # Renormalise to sum to 1.0
         total = sum(raw_scores.values()) or 1.0
