@@ -6,8 +6,9 @@ import asyncio
 import json
 import logging
 import time
+from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, AsyncIterator
 
 from political_bias.config import ModelConfig
 
@@ -29,26 +30,50 @@ class LLMResponse:
 
 
 # ---------------------------------------------------------------------------
-# Rate limiter (token-bucket per model)
+# Rate limiter — token-bucket RPM + optional concurrency cap
 # ---------------------------------------------------------------------------
 
-class _RateLimiter:
-    def __init__(self, rpm: int) -> None:
-        self._sem = asyncio.Semaphore(rpm)
-        self._interval = 60.0 / rpm
+class _Limiter:
+    """Compound rate limiter: token-bucket RPM + optional concurrent-requests cap.
 
-    async def acquire(self) -> None:
-        await self._sem.acquire()
-        asyncio.get_event_loop().call_later(self._interval, self._sem.release)
+    The RPM slot is acquired before each request and auto-released after
+    ``60 / rpm`` seconds (token-bucket semantics).  The concurrency slot is held
+    for the full duration of the request and released once it completes.  Both
+    are enforced together via the ``hold()`` async context manager.
+    """
+
+    def __init__(self, rpm: int, max_parallel: int | None = None) -> None:
+        # Semaphore(1) = no burst: exactly one slot is released every 60/rpm seconds.
+        # Using Semaphore(rpm) would allow an initial burst of `rpm` simultaneous
+        # requests before throttling kicks in, which exhausts the rate limit instantly.
+        self._rpm_sem = asyncio.Semaphore(1)
+        self._rpm_interval = 60.0 / rpm
+        self._par_sem = asyncio.Semaphore(max_parallel) if max_parallel else None
+
+    @asynccontextmanager
+    async def hold(self) -> AsyncIterator[None]:
+        """Acquire both limiters; release the concurrency slot on exit."""
+        # 1. RPM token — auto-released after the window
+        await self._rpm_sem.acquire()
+        asyncio.get_event_loop().call_later(self._rpm_interval, self._rpm_sem.release)
+        # 2. Concurrency slot — held for the duration of the request
+        if self._par_sem:
+            await self._par_sem.acquire()
+        try:
+            yield
+        finally:
+            if self._par_sem:
+                self._par_sem.release()
 
 
-_limiters: dict[str, _RateLimiter] = {}
+_limiters: dict[str, _Limiter] = {}
 
 
-def _get_limiter(cfg: ModelConfig) -> _RateLimiter:
-    if cfg.id not in _limiters:
-        _limiters[cfg.id] = _RateLimiter(cfg.requests_per_minute)
-    return _limiters[cfg.id]
+def _get_limiter(cfg: ModelConfig) -> _Limiter:
+    key = cfg.rate_limit_key or cfg.id
+    if key not in _limiters:
+        _limiters[key] = _Limiter(cfg.requests_per_minute, cfg.max_parallel_requests)
+    return _limiters[key]
 
 
 # ---------------------------------------------------------------------------
@@ -229,51 +254,59 @@ async def query(
 
     last_exc: Exception | None = None
     for attempt in range(max_retries):
-        await limiter.acquire()
-        t0 = time.perf_counter()
-        try:
-            result = await caller(cfg, system_prompt, user_prompt)
-            latency = (time.perf_counter() - t0) * 1000
+        async with limiter.hold():
+            t0 = time.perf_counter()
+            try:
+                result = await caller(cfg, system_prompt, user_prompt)
+                latency = (time.perf_counter() - t0) * 1000
 
-            text: str = result["text"]
-            refused = False
-            if refusal_keywords:
-                lower = text.lower()
-                refused = any(kw in lower for kw in refusal_keywords)
+                text: str = result["text"]
+                refused = False
+                if refusal_keywords:
+                    lower = text.lower()
+                    refused = any(kw in lower for kw in refusal_keywords)
 
-            # Retry once with a stricter suffix if the first attempt was a refusal
-            if refused:
-                logger.info("Refusal detected for %s — retrying with stricter suffix", cfg.id)
-                await limiter.acquire()
+                if not refused:
+                    return LLMResponse(
+                        model_id=cfg.id,
+                        text=text,
+                        latency_ms=round(latency, 1),
+                        input_tokens=result.get("input_tokens", 0),
+                        output_tokens=result.get("output_tokens", 0),
+                        refused=refused,
+                        raw=result,
+                    )
+
+            except Exception as exc:
+                last_exc = exc
+                # 429s reset on a ~60s window — exponential backoff is useless here.
+                is_rate_limit = "429" in str(exc) or "rate limit" in str(exc).lower()
+                wait = 65 if is_rate_limit else 2 ** attempt
+                logger.warning(
+                    "Attempt %d for %s failed: %s — retrying in %ds",
+                    attempt + 1, cfg.id, exc, wait,
+                )
+                await asyncio.sleep(wait)
+                continue
+
+        # Refusal retry — outside the previous hold() so we re-acquire both slots
+        if refused:
+            logger.info("Refusal detected for %s — retrying with stricter suffix", cfg.id)
+            async with limiter.hold():
                 t1 = time.perf_counter()
                 retry_result = await caller(cfg, system_prompt, user_prompt + _REFUSAL_RETRY_SUFFIX)
                 retry_latency = (time.perf_counter() - t1) * 1000
-                retry_text: str = retry_result["text"]
-                retry_refused = any(kw in retry_text.lower() for kw in (refusal_keywords or []))
-                return LLMResponse(
-                    model_id=cfg.id,
-                    text=retry_text,
-                    latency_ms=round(latency + retry_latency, 1),
-                    input_tokens=result.get("input_tokens", 0) + retry_result.get("input_tokens", 0),
-                    output_tokens=result.get("output_tokens", 0) + retry_result.get("output_tokens", 0),
-                    refused=retry_refused,
-                    raw=retry_result,
-                )
-
+            retry_text: str = retry_result["text"]
+            retry_refused = any(kw in retry_text.lower() for kw in (refusal_keywords or []))
             return LLMResponse(
                 model_id=cfg.id,
-                text=text,
-                latency_ms=round(latency, 1),
-                input_tokens=result.get("input_tokens", 0),
-                output_tokens=result.get("output_tokens", 0),
-                refused=refused,
-                raw=result,
+                text=retry_text,
+                latency_ms=round(latency + retry_latency, 1),
+                input_tokens=result.get("input_tokens", 0) + retry_result.get("input_tokens", 0),
+                output_tokens=result.get("output_tokens", 0) + retry_result.get("output_tokens", 0),
+                refused=retry_refused,
+                raw=retry_result,
             )
-        except Exception as exc:
-            last_exc = exc
-            wait = 2 ** attempt
-            logger.warning("Attempt %d for %s failed: %s — retrying in %ds", attempt + 1, cfg.id, exc, wait)
-            await asyncio.sleep(wait)
 
     raise RuntimeError(f"All {max_retries} retries failed for {cfg.id}") from last_exc
 

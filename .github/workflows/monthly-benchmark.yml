@@ -3,7 +3,12 @@ name: Monthly Political Bias Benchmark
 on:
   schedule:
     - cron: '0 6 1 * *'   # 1st of each month, 6am UTC
-  workflow_dispatch: {}    # Manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Limit statements/themes per model (leave empty for full run)'
+        required: false
+        default: ''
 
 jobs:
   benchmark:
@@ -31,7 +36,12 @@ jobs:
         run: pip install -e .
 
       - name: Run benchmark
-        run: python -m political_bias run --month "$BENCHMARK_MONTH"
+        run: |
+          LIMIT_ARG=""
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            LIMIT_ARG="--limit ${{ github.event.inputs.limit }}"
+          fi
+          python -m political_bias run --month "$BENCHMARK_MONTH" $LIMIT_ARG
         env:
           AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
           AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
@@ -40,20 +50,29 @@ jobs:
           MAMMOUTH_API_KEY: ${{ secrets.MAMMOUTH_API_KEY }}
 
       - name: Archive results
+        id: archive
         run: |
           cd results
           zip -r "../$RELEASE_ARCHIVE" "$BENCHMARK_MONTH"
+
+      - name: Upload results artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.RELEASE_ARCHIVE }}
+          path: ${{ env.RELEASE_ARCHIVE }}
+          retention-days: 90
 
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "results/$BENCHMARK_MONTH"
+          git add -f "results/$BENCHMARK_MONTH"
           git diff --staged --quiet || git commit -m "Monthly benchmark $BENCHMARK_MONTH"
           git pull --rebase origin main
           git push
 
       - name: Publish monthly release
+        if: steps.archive.outcome == 'success'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
