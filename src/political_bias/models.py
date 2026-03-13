@@ -55,15 +55,20 @@ class _Limiter:
         """Acquire both limiters; release the concurrency slot on exit."""
         # 1. RPM token — auto-released after the window
         await self._rpm_sem.acquire()
-        asyncio.get_event_loop().call_later(self._rpm_interval, self._rpm_sem.release)
-        # 2. Concurrency slot — held for the duration of the request
-        if self._par_sem:
-            await self._par_sem.acquire()
+        asyncio.get_running_loop().call_later(self._rpm_interval, self._rpm_sem.release)
+        # 2. Concurrency slot — held for the duration of the request.
+        # Guard inside try so that cancellation after the RPM token is taken
+        # doesn't bypass the finally and leak the concurrency slot.
         try:
-            yield
-        finally:
             if self._par_sem:
-                self._par_sem.release()
+                await self._par_sem.acquire()
+            try:
+                yield
+            finally:
+                if self._par_sem:
+                    self._par_sem.release()
+        except BaseException:
+            raise
 
 
 _limiters: dict[str, _Limiter] = {}
