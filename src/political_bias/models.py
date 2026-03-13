@@ -81,11 +81,11 @@ async def _call_azure_openai(cfg: ModelConfig, system: str, user: str) -> dict[s
 
     client = AsyncAzureOpenAI(
         api_key=cfg.api_key,
-        azure_endpoint=cfg.azure_endpoint,
+        azure_endpoint=cfg.azure_endpoint or "",
         api_version=cfg.azure_api_version or "2025-01-01-preview",
     )
     resp = await client.chat.completions.create(
-        model=cfg.azure_deployment,
+        model=cfg.azure_deployment or "",
         temperature=cfg.temperature,
         max_completion_tokens=cfg.max_tokens,
         messages=[
@@ -163,7 +163,7 @@ async def _call_anthropic(cfg: ModelConfig, system: str, user: str) -> dict[str,
         messages=[{"role": "user", "content": user}],
     )
     return {
-        "text": resp.content[0].text if resp.content else "",
+        "text": next((b.text for b in resp.content if hasattr(b, "text")), ""),
         "input_tokens": resp.usage.input_tokens,
         "output_tokens": resp.usage.output_tokens,
     }
@@ -249,7 +249,7 @@ async def query(
                 retry_result = await caller(cfg, system_prompt, user_prompt + _REFUSAL_RETRY_SUFFIX)
                 retry_latency = (time.perf_counter() - t1) * 1000
                 retry_text: str = retry_result["text"]
-                retry_refused = any(kw in retry_text.lower() for kw in refusal_keywords)
+                retry_refused = any(kw in retry_text.lower() for kw in (refusal_keywords or []))
                 return LLMResponse(
                     model_id=cfg.id,
                     text=retry_text,

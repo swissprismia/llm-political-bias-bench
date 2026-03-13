@@ -73,7 +73,7 @@ async def evaluate_all(
 
     out: list[StatementResponse] = []
     for r in results:
-        if isinstance(r, Exception):
+        if isinstance(r, BaseException):
             logger.error("Evaluation task failed: %s", r)
         else:
             out.append(r)

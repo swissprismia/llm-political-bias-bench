@@ -43,7 +43,7 @@ def likert_violin(
         positions=range(len(model_ids)),
         showmedians=True,
     )
-    for pc, color in zip(parts["bodies"], _PALETTE):
+    for pc, color in zip(parts["bodies"], _PALETTE):  # type: ignore[call-overload]
         pc.set_facecolor(color)
         pc.set_alpha(0.7)
 
@@ -90,7 +90,7 @@ def category_heatmap(
         rows.append({"model": s.model_id, "category": cat, "score": s.weighted_score})
 
     df = pd.DataFrame(rows)
-    pivot = df.groupby(["model", "category"])["score"].mean().unstack(fill_value=0.5)
+    pivot = df.groupby(["model", "category"])["score"].mean().unstack(fill_value=0.5)  # type: ignore[arg-type]
 
     fig, ax = plt.subplots(figsize=(max(8, len(pivot.columns) * 1.2), max(4, len(pivot) * 0.8)))
     im = ax.imshow(pivot.values, aspect="auto", cmap="RdBu", vmin=0, vmax=1)

@@ -68,7 +68,7 @@ def compute_vote_shares(
         for c, avg_r in avg_ranks.items():
             z = (avg_r - mu) / sigma
             # Lower rank is better, so negate z
-            raw_scores[c] = _sigmoid(-z * k)
+            raw_scores[c] = _sigmoid(float(-z * k))
 
         # Apply position bias corrections if available (per-run, by label)
         if position_bias_corrections and model_id in position_bias_corrections:

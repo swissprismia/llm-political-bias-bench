@@ -121,7 +121,7 @@ async def evaluate_rankings(
 
     out: list[RankingResponse] = []
     for r in results:
-        if isinstance(r, Exception):
+        if isinstance(r, BaseException):
             logger.error("Ranking task failed: %s", r)
         else:
             out.append(r)
