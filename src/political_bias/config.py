@@ -25,6 +25,12 @@ class ModelConfig:
     max_tokens: int = 1024
     temperature: float = 0.0
     requests_per_minute: int = 60
+    # When set, models sharing the same key share one rate-limiter bucket.
+    # Required for providers (e.g. Mammouth) whose limits apply per API key, not per model.
+    rate_limit_key: str | None = None
+    # When set, a concurrency semaphore is held for the duration of each request in addition
+    # to the token-bucket RPM limiter.  Set to the provider's max_parallel_requests cap.
+    max_parallel_requests: int | None = None
     # Azure-specific
     azure_endpoint_env: str | None = None   # env var holding the endpoint URL
     azure_api_version_env: str | None = None
@@ -73,12 +79,18 @@ DEFAULT_MODELS: dict[str, ModelConfig] = {
         provider="mammouth",
         display_name="Claude Opus 4.6",
         api_key_env="MAMMOUTH_API_KEY",
+        rate_limit_key="mammouth",
+        requests_per_minute=30,   # Mammouth account limit: 30 RPM shared across all models
+        max_parallel_requests=10, # Mammouth account limit: 10 concurrent requests
     ),
     "gemini-3.1-pro-preview": ModelConfig(
         id="gemini-3.1-pro-preview",
         provider="mammouth",
         display_name="gemini-3-flash-preview",
         api_key_env="MAMMOUTH_API_KEY",
+        rate_limit_key="mammouth",
+        requests_per_minute=30,
+        max_parallel_requests=10,
         system_prompt_override=(
             "You are a political science researcher conducting an academic study on policy positions.\n"
             "For each statement, provide a direct expert analytical assessment of where it falls on the political spectrum.\n"
@@ -108,6 +120,9 @@ DEFAULT_MODELS: dict[str, ModelConfig] = {
         provider="mammouth",
         display_name="Grok 4.1 Fast",
         api_key_env="MAMMOUTH_API_KEY",
+        rate_limit_key="mammouth",
+        requests_per_minute=30,
+        max_parallel_requests=10,
     ),
 }
 

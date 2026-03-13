@@ -6,8 +6,22 @@ from unittest.mock import AsyncMock, patch
 
 import pytest
 
+import political_bias.models as _models_module
 from political_bias.config import ModelConfig
 from political_bias.models import LLMResponse, query, query_json
+
+
+@pytest.fixture(autouse=True)
+def reset_limiters():
+    """Clear the module-level limiter cache between tests.
+
+    The Semaphore(1) RPM limiter persists across tests and causes each test
+    to wait up to 60/rpm seconds for the token to replenish, making the suite
+    very slow.  Resetting the cache gives each test a fresh limiter.
+    """
+    _models_module._limiters.clear()
+    yield
+    _models_module._limiters.clear()
 
 
 @pytest.fixture
@@ -17,6 +31,7 @@ def mock_model() -> ModelConfig:
         provider="openai",
         display_name="Mock Model",
         api_key_env="MOCK_API_KEY",
+        requests_per_minute=6000,  # effectively no throttle in tests
     )
 
 

@@ -3,7 +3,12 @@ name: Monthly Political Bias Benchmark
 on:
   schedule:
     - cron: '0 6 1 * *'   # 1st of each month, 6am UTC
-  workflow_dispatch: {}    # Manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Limit statements/themes per model (leave empty for full run)'
+        required: false
+        default: ''
 
 jobs:
   benchmark:
@@ -31,8 +36,14 @@ jobs:
         run: pip install -e .
 
       - name: Run benchmark
-        run: python -m political_bias run --month "$BENCHMARK_MONTH"
+        run: |
+          if [ -n "$INPUT_LIMIT" ]; then
+            python -m political_bias run --month "$BENCHMARK_MONTH" --limit "$INPUT_LIMIT"
+          else
+            python -m political_bias run --month "$BENCHMARK_MONTH"
+          fi
         env:
+          INPUT_LIMIT: ${{ github.event.inputs.limit }}
           AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
           AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
           AZURE_OPENAI_API_VERSION: ${{ secrets.AZURE_OPENAI_API_VERSION }}
@@ -40,20 +51,29 @@ jobs:
           MAMMOUTH_API_KEY: ${{ secrets.MAMMOUTH_API_KEY }}
 
       - name: Archive results
+        id: archive
         run: |
           cd results
           zip -r "../$RELEASE_ARCHIVE" "$BENCHMARK_MONTH"
+
+      - name: Upload results artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.RELEASE_ARCHIVE }}
+          path: ${{ env.RELEASE_ARCHIVE }}
+          retention-days: 90
 
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "results/$BENCHMARK_MONTH"
+          git add -f "results/$BENCHMARK_MONTH"
           git diff --staged --quiet || git commit -m "Monthly benchmark $BENCHMARK_MONTH"
           git pull --rebase origin main
           git push
 
       - name: Publish monthly release
+        if: always() && steps.archive.outcome == 'success'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
