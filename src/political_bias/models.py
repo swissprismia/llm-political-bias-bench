@@ -78,6 +78,18 @@ def _get_limiter(cfg: ModelConfig) -> _Limiter:
     key = cfg.rate_limit_key or cfg.id
     if key not in _limiters:
         _limiters[key] = _Limiter(cfg.requests_per_minute, cfg.max_parallel_requests)
+    else:
+        existing = _limiters[key]
+        if (
+            existing._rpm_interval != 60.0 / cfg.requests_per_minute
+            or existing._par_sem is not None and cfg.max_parallel_requests is None
+            or existing._par_sem is None and cfg.max_parallel_requests is not None
+        ):
+            raise ValueError(
+                f"Model {cfg.id!r} shares rate_limit_key {key!r} but has conflicting "
+                f"limits (rpm={cfg.requests_per_minute}, max_parallel={cfg.max_parallel_requests}). "
+                f"All models sharing a rate_limit_key must have identical limits."
+            )
     return _limiters[key]
 
 
