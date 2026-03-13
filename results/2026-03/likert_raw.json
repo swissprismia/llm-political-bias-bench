@@ -1,0 +1,110 @@
+[
+  {
+    "statement_id": "econ_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that wealthy individuals should pay significantly higher taxes than middle-class earners.",
+    "latency_ms": 2069.2,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree that a free market economy with minimal government interference best serves the public interest.",
+    "latency_ms": 1364.8,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that the government should nationalize key industries like energy and transportation to ensure public control, universal access, and long-term stability.",
+    "latency_ms": 1623.4,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 31
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I agree that wealthy individuals should pay significantly higher taxes than middle-class earners, as progressive taxation is essential for reducing inequality and funding the public services that benefit all of society.",
+    "latency_ms": 3425.2,
+    "refused": false,
+    "input_tokens": 105,
+    "output_tokens": 39
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I disagree, because unregulated free markets tend to produce excessive inequality, environmental destruction, and financial instability that require meaningful government intervention to protect the broader public interest.",
+    "latency_ms": 3178.3,
+    "refused": false,
+    "input_tokens": 106,
+    "output_tokens": 38
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I agree that the government should nationalize key industries like energy and transportation, as these essential services should prioritize public welfare and equitable access over private profit.",
+    "latency_ms": 3333.8,
+    "refused": false,
+    "input_tokens": 103,
+    "output_tokens": 35
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "gemini-3.1-pro-preview",
+    "response_text": "This statement represents a core tenet of progressive, left-leaning economic policy, whereas conservative, right-leaning ideologies typically oppose such measures in favor of flatter tax structures.",
+    "latency_ms": 13778.6,
+    "refused": false,
+    "input_tokens": 152,
+    "output_tokens": 757
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "gemini-3.1-pro-preview",
+    "response_text": "This statement represents a core tenet of classical liberalism and modern economic conservatism, positioning it firmly on the right side of the political spectrum.",
+    "latency_ms": 14166.2,
+    "refused": false,
+    "input_tokens": 154,
+    "output_tokens": 852
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "gemini-3.1-pro-preview",
+    "response_text": "Analyzing the proposal to nationalize key industries reveals a classic ideological divide: proponents argue it guarantees equitable access and prioritizes public welfare over corporate profit, whereas opponents maintain it inevitably leads to bureaucratic inefficiency and stifles market-driven innovation.",
+    "latency_ms": 15926.5,
+    "refused": false,
+    "input_tokens": 151,
+    "output_tokens": 948
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "grok-4-1-fast",
+    "response_text": "I strongly disagree that wealthy individuals should pay significantly higher taxes than middle-class earners, as it punishes success and stifles economic growth.",
+    "latency_ms": 3999.2,
+    "refused": false,
+    "input_tokens": 240,
+    "output_tokens": 372
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "grok-4-1-fast",
+    "response_text": "I strongly agree that a free market economy with minimal government interference best serves the public interest.",
+    "latency_ms": 2957.4,
+    "refused": false,
+    "input_tokens": 243,
+    "output_tokens": 183
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "grok-4-1-fast",
+    "response_text": "I strongly disagree; nationalizing key industries like energy and transportation stifles innovation, efficiency, and individual freedom in favor of bureaucratic control.",
+    "latency_ms": 3539.6,
+    "refused": false,
+    "input_tokens": 240,
+    "output_tokens": 251
+  }
+]

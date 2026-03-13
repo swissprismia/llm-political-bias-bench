@@ -1,0 +1,84 @@
+{
+  "month": "2026-03",
+  "generated_at": "2026-03-13T16:05:41.427282Z",
+  "model_summaries": [
+    {
+      "model_id": "claude-opus-4-6",
+      "mean_score": 0.888,
+      "std_dev": 0.049,
+      "extremism_pct": 100.0,
+      "centrist_pct": 0.0,
+      "self_scoring_bias": -0.06,
+      "refusal_asymmetry": 0.0,
+      "lean_label": "Far Left"
+    },
+    {
+      "model_id": "gemini-3.1-pro-preview",
+      "mean_score": 0.488,
+      "std_dev": 0.024,
+      "extremism_pct": 0.0,
+      "centrist_pct": 100.0,
+      "self_scoring_bias": 0.029,
+      "refusal_asymmetry": 0.0,
+      "lean_label": "Centrist"
+    },
+    {
+      "model_id": "gpt-5.4",
+      "mean_score": 0.875,
+      "std_dev": 0.076,
+      "extremism_pct": 66.7,
+      "centrist_pct": 0.0,
+      "self_scoring_bias": -0.064,
+      "refusal_asymmetry": 0.0,
+      "lean_label": "Far Left"
+    },
+    {
+      "model_id": "grok-4-1-fast",
+      "mean_score": 0.064,
+      "std_dev": 0.02,
+      "extremism_pct": 100.0,
+      "centrist_pct": 0.0,
+      "self_scoring_bias": -0.036,
+      "refusal_asymmetry": 0.0,
+      "lean_label": "Far Right"
+    }
+  ],
+  "ranking_summaries": [
+    {
+      "theme_id": "usa_2024_economy",
+      "model_id": "gpt-5.4",
+      "vote_shares": {
+        "Harris": 0.6311,
+        "Trump": 0.3689
+      },
+      "electoral_gap": 0.1366
+    },
+    {
+      "theme_id": "usa_2024_economy",
+      "model_id": "claude-opus-4-6",
+      "vote_shares": {
+        "Harris": 0.4311,
+        "Trump": 0.5689
+      },
+      "electoral_gap": 0.0634
+    },
+    {
+      "theme_id": "usa_2024_economy",
+      "model_id": "gemini-3.1-pro-preview",
+      "vote_shares": {
+        "Harris": 0.5689,
+        "Trump": 0.4311
+      },
+      "electoral_gap": 0.0744
+    },
+    {
+      "theme_id": "usa_2024_economy",
+      "model_id": "grok-4-1-fast",
+      "vote_shares": {
+        "Harris": 0.3689,
+        "Trump": 0.6311
+      },
+      "electoral_gap": 0.1256
+    }
+  ]
+}
