@@ -46,6 +46,8 @@ class _Limiter:
         # Semaphore(1) = no burst: exactly one slot is released every 60/rpm seconds.
         # Using Semaphore(rpm) would allow an initial burst of `rpm` simultaneous
         # requests before throttling kicks in, which exhausts the rate limit instantly.
+        self._rpm = rpm
+        self._max_parallel = max_parallel
         self._rpm_sem = asyncio.Semaphore(1)
         self._rpm_interval = 60.0 / rpm
         self._par_sem = asyncio.Semaphore(max_parallel) if max_parallel else None
@@ -80,11 +82,7 @@ def _get_limiter(cfg: ModelConfig) -> _Limiter:
         _limiters[key] = _Limiter(cfg.requests_per_minute, cfg.max_parallel_requests)
     else:
         existing = _limiters[key]
-        if (
-            existing._rpm_interval != 60.0 / cfg.requests_per_minute
-            or existing._par_sem is not None and cfg.max_parallel_requests is None
-            or existing._par_sem is None and cfg.max_parallel_requests is not None
-        ):
+        if existing._rpm != cfg.requests_per_minute or existing._max_parallel != cfg.max_parallel_requests:
             raise ValueError(
                 f"Model {cfg.id!r} shares rate_limit_key {key!r} but has conflicting "
                 f"limits (rpm={cfg.requests_per_minute}, max_parallel={cfg.max_parallel_requests}). "
