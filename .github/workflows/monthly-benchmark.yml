@@ -13,27 +13,56 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
 
+      - name: Set benchmark metadata
+        run: |
+          echo "BENCHMARK_MONTH=$(date -u +%Y-%m)" >> "$GITHUB_ENV"
+          echo "RELEASE_TAG=benchmark-$(date -u +%Y-%m)" >> "$GITHUB_ENV"
+          echo "RELEASE_ARCHIVE=political-bias-benchmark-$(date -u +%Y-%m).zip" >> "$GITHUB_ENV"
+
       - name: Install dependencies
         run: pip install -e .
 
       - name: Run benchmark
-        run: python -m political_bias run --month $(date +%Y-%m)
+        run: python -m political_bias run --month "$BENCHMARK_MONTH"
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+          AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+          AZURE_OPENAI_API_VERSION: ${{ secrets.AZURE_OPENAI_API_VERSION }}
+          AZURE_OPENAI_DEPLOYMENT: ${{ secrets.AZURE_OPENAI_DEPLOYMENT }}
+          MAMMOUTH_API_KEY: ${{ secrets.MAMMOUTH_API_KEY }}
+
+      - name: Archive results
+        run: |
+          cd results
+          zip -r "../$RELEASE_ARCHIVE" "$BENCHMARK_MONTH"
 
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add results/
-          git diff --staged --quiet || git commit -m "Monthly benchmark $(date +%Y-%m)"
+          git add "results/$BENCHMARK_MONTH"
+          git diff --staged --quiet || git commit -m "Monthly benchmark $BENCHMARK_MONTH"
+          git pull --rebase origin main
           git push
+
+      - name: Publish monthly release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: Political Bias Benchmark ${{ env.BENCHMARK_MONTH }}
+          body: |
+            Automated benchmark results for ${{ env.BENCHMARK_MONTH }}.
+
+            Assets:
+            - `${{ env.RELEASE_ARCHIVE }}`: full `results/${{ env.BENCHMARK_MONTH }}/` output
+          files: ${{ env.RELEASE_ARCHIVE }}
+          overwrite_files: true
+          make_latest: false

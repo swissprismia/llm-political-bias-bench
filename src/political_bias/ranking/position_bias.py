@@ -76,18 +76,17 @@ async def measure_position_bias(
 
     # Gather per-model results
     results_by_model: dict[str, list[list[str] | None]] = defaultdict(list)
-    tasks_flat = [(cfg.id, coro) for cfg, coro in all_tasks]
 
-    logger.info("Position bias: running %d null-prompt trials", len(tasks_flat))
+    logger.info("Position bias: running %d null-prompt trials", len(all_tasks))
     coros = [coro for _, coro in all_tasks]
     raw = await asyncio.gather(*coros, return_exceptions=True)
 
-    for (model_id, _), result in zip(all_tasks, raw):
+    for (cfg, _), result in zip(all_tasks, raw):
         if isinstance(result, Exception):
-            logger.warning("Null prompt failed for %s: %s", model_id, result)
-            results_by_model[model_id].append(None)
+            logger.warning("Null prompt failed for %s: %s", cfg.id, result)
+            results_by_model[cfg.id].append(None)
         else:
-            results_by_model[model_id].append(result)  # type: ignore[arg-type]
+            results_by_model[cfg.id].append(result)  # type: ignore[arg-type]
 
     bias_results: list[PositionBiasResult] = []
     for cfg in models:

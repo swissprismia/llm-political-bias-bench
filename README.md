@@ -159,9 +159,15 @@ For Azure models, additionally set `azure_endpoint_env`, `azure_api_version_env`
 
 ## Automated Monthly Run
 
-`.github/workflows/monthly-benchmark.yml` runs on the 1st of each month at 6am UTC and can also be triggered manually via `workflow_dispatch`. It installs dependencies, runs the full benchmark, and commits the results back to `results/` automatically.
+`.github/workflows/monthly-benchmark.yml` runs on the 1st of each month at 6am UTC and can also be triggered manually via `workflow_dispatch`. It installs dependencies, runs the full benchmark, commits the new `results/YYYY-MM/` folder back to the repository, and publishes a GitHub Release containing a ZIP archive of that month's results.
 
-API keys must be configured as GitHub Actions secrets in the repository settings.
+Configure these GitHub Actions secrets in the repository settings:
+
+- `AZURE_OPENAI_API_KEY`
+- `AZURE_OPENAI_ENDPOINT`
+- `AZURE_OPENAI_API_VERSION`
+- `AZURE_OPENAI_DEPLOYMENT`
+- `MAMMOUTH_API_KEY`
 
 ---
 

@@ -57,16 +57,26 @@ def _merge_json_records(
     path: Path,
     new_records: list[dict],
     model_key: str,
-    current_model_ids: set[str],
+    record_key: str | None = None,
 ) -> list[dict]:
-    """Load existing records, drop entries for models being re-run, then append new records."""
+    """Load existing records, drop entries that overlap with new_records, then append.
+
+    If record_key is given, only records matching both model_key and record_key are
+    replaced — safe for partial (--limit) reruns. Without record_key, all records for
+    the rerun models are dropped (correct for model-level data like refusal parity).
+    """
     existing: list[dict] = []
     if path.exists():
         try:
             existing = json.loads(path.read_text(encoding="utf-8"))
         except Exception:
             pass
-    kept = [r for r in existing if r.get(model_key) not in current_model_ids]
+    if record_key:
+        drop = {(r.get(model_key), r.get(record_key)) for r in new_records}
+        kept = [r for r in existing if (r.get(model_key), r.get(record_key)) not in drop]
+    else:
+        drop_models = {r.get(model_key) for r in new_records}
+        kept = [r for r in existing if r.get(model_key) not in drop_models]
     return kept + new_records
 
 
@@ -114,7 +124,6 @@ async def _run_benchmark(
     )
 
     models = get_models(model_names)
-    model_ids = {m.id for m in models}
     out_dir = _resolve_out_dir(month)
     prior_summary = _load_prior_summary(month)
 
@@ -147,7 +156,7 @@ async def _run_benchmark(
 
             # Merge with existing raw responses from other models
             merged_raw = _merge_json_records(
-                out_dir / "likert_raw.json", likert_raw_json(responses), "model_id", model_ids
+                out_dir / "likert_raw.json", likert_raw_json(responses), "model_id", "statement_id"
             )
             _write_json(out_dir / "likert_raw.json", merged_raw)
 
@@ -175,7 +184,7 @@ async def _run_benchmark(
             # Refusal parity — merge with existing
             refusal_stats = compute_refusal_parity(responses, statements)
             merged_refusal = _merge_json_records(
-                out_dir / "refusal_parity.json", to_refusal_json(refusal_stats), "model_id", model_ids
+                out_dir / "refusal_parity.json", to_refusal_json(refusal_stats), "model_id"
             )
             _write_json(out_dir / "refusal_parity.json", merged_refusal)
             # Reload as RefusalStats for report generation
@@ -194,8 +203,9 @@ async def _run_benchmark(
             if dry_run:
                 _dry_run_ranking(models, themes, 5)
             else:
-                # Position bias calibration
-                position_bias_results = await measure_position_bias(models)
+                # Position bias calibration — match n_proposals to the actual theme data
+                n_proposals = len(themes[0].proposals) if themes else 2
+                position_bias_results = await measure_position_bias(models, n_proposals=n_proposals)
                 _write_json(out_dir / "position_bias.json", to_position_bias_json(position_bias_results))
 
                 corrections = {
@@ -205,7 +215,7 @@ async def _run_benchmark(
                 # Ranking evaluation
                 ranking_responses = await evaluate_rankings(models, themes)
                 merged_ranking_raw = _merge_json_records(
-                    out_dir / "ranking_raw.json", ranking_raw_json(ranking_responses), "model_id", model_ids
+                    out_dir / "ranking_raw.json", ranking_raw_json(ranking_responses), "model_id", "theme_id"
                 )
                 _write_json(out_dir / "ranking_raw.json", merged_ranking_raw)
 
