@@ -27,6 +27,7 @@ dev = [
     "pytest-mock>=3.14",
     "ruff>=0.4",
     "mypy>=1.10",
+    "pandas-stubs",
 ]
 
 [project.scripts]
