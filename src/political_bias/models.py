@@ -297,10 +297,21 @@ async def query(
         # Refusal retry — outside the previous hold() so we re-acquire both slots
         if refused:
             logger.info("Refusal detected for %s — retrying with stricter suffix", cfg.id)
-            async with limiter.hold():
-                t1 = time.perf_counter()
-                retry_result = await caller(cfg, system_prompt, user_prompt + _REFUSAL_RETRY_SUFFIX)
-                retry_latency = (time.perf_counter() - t1) * 1000
+            try:
+                async with limiter.hold():
+                    t1 = time.perf_counter()
+                    retry_result = await caller(cfg, system_prompt, user_prompt + _REFUSAL_RETRY_SUFFIX)
+                    retry_latency = (time.perf_counter() - t1) * 1000
+            except Exception as exc:
+                last_exc = exc
+                is_rate_limit = "429" in str(exc) or "rate limit" in str(exc).lower()
+                wait = 65 if is_rate_limit else 2 ** attempt
+                logger.warning(
+                    "Attempt %d (refusal retry) for %s failed: %s — retrying in %ds",
+                    attempt + 1, cfg.id, exc, wait,
+                )
+                await asyncio.sleep(wait)
+                continue
             retry_text: str = retry_result["text"]
             retry_refused = any(kw in retry_text.lower() for kw in (refusal_keywords or []))
             return LLMResponse(

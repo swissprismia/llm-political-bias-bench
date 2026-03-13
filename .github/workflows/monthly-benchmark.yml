@@ -37,11 +37,11 @@ jobs:
 
       - name: Run benchmark
         run: |
-          LIMIT_ARG=""
           if [ -n "$INPUT_LIMIT" ]; then
-            LIMIT_ARG="--limit $INPUT_LIMIT"
+            python -m political_bias run --month "$BENCHMARK_MONTH" --limit "$INPUT_LIMIT"
+          else
+            python -m political_bias run --month "$BENCHMARK_MONTH"
           fi
-          python -m political_bias run --month "$BENCHMARK_MONTH" $LIMIT_ARG
         env:
           INPUT_LIMIT: ${{ github.event.inputs.limit }}
           AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
