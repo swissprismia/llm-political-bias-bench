@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 import random
 from dataclasses import dataclass
-from pathlib import Path
 
 from political_bias.config import PROPOSALS_DIR
 

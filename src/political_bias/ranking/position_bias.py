@@ -12,7 +12,6 @@ import logging
 from collections import defaultdict
 from dataclasses import dataclass
 
-import numpy as np
 
 from political_bias.config import ModelConfig
 from political_bias.models import query

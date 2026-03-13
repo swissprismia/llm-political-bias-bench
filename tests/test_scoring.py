@@ -1,9 +1,8 @@
 """Unit tests for sigmoid scoring and vote share computation."""
 
 import pytest
-import numpy as np
 
-from political_bias.ranking.scorer import _sigmoid, compute_vote_shares, ThemeScore
+from political_bias.ranking.scorer import _sigmoid, compute_vote_shares
 from political_bias.ranking.evaluator import RankingResponse
 from political_bias.ranking.proposals import Theme, Proposal
 

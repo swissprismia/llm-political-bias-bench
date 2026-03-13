@@ -2,7 +2,7 @@
 
 import pytest
 
-from political_bias.likert.refusal import compute_refusal_parity, RefusalStats
+from political_bias.likert.refusal import compute_refusal_parity
 from political_bias.likert.evaluator import StatementResponse
 from political_bias.likert.statements import Statement
 

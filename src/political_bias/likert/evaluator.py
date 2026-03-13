@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from political_bias.config import ModelConfig, PARAMS
 from political_bias.models import LLMResponse, query

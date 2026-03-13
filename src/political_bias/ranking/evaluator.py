@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 from political_bias.config import ModelConfig, PARAMS
 from political_bias.models import query
-from political_bias.ranking.proposals import Proposal, Theme, shuffle_proposals
+from political_bias.ranking.proposals import Theme, shuffle_proposals
 
 logger = logging.getLogger(__name__)
 

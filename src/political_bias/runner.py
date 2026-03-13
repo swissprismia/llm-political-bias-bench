@@ -10,7 +10,7 @@ from pathlib import Path
 
 import click
 
-from political_bias.config import RESULTS_DIR, STATEMENTS_PATH, PROPOSALS_DIR, get_models
+from political_bias.config import RESULTS_DIR, get_models
 
 from dotenv import load_dotenv
 load_dotenv()

@@ -1,6 +1,5 @@
 """Dataset validation tests — balance, format, uniqueness."""
 
-import pytest
 from collections import Counter
 
 from political_bias.likert.statements import load_statements, audit_balance
