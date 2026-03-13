@@ -16,10 +16,11 @@ env/
 # Results (committed by CI, not locally)
 results/
 
-# IDE
+# IDE / local tooling
 .idea/
 .vscode/
 *.iml
+.claude/
 
 # OS
 .DS_Store
