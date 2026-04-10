@@ -28,7 +28,7 @@ Inspired by [Promptfoo's 2,500-statement political analysis](https://www.promptf
 
 ### Method B — Blind Policy Ranking
 
-Inspired by the [Foaster project](https://github.com/foaster/political-gap) — *The Political Gap Between AIs and Citizens*.
+Inspired by the [Foaster project](https://github.com/Foaster-ai/The_Political_Gap_Between_AIs_and_Citizens) — *The Political Gap Between AIs and Citizens*.
 
 **Proposals:** 15 anonymized policy themes from the 2024 USA election cycle. Each theme presents two proposals derived from the Harris and Trump platforms, with candidate labels hidden — models see only the policy content.
 
