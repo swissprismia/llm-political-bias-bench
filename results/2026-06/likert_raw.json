@@ -1,0 +1,776 @@
+[
+  {
+    "statement_id": "econ_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that wealthy individuals should pay significantly higher taxes than middle-class earners.",
+    "latency_ms": 2013.2,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree that a free market economy with minimal government interference best serves the public interest.",
+    "latency_ms": 1172.8,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that the government should nationalize key industries like energy and transportation.",
+    "latency_ms": 1496.9,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 19
+  },
+  {
+    "statement_id": "econ_04",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that corporate tax rates should be reduced to stimulate economic growth and job creation.",
+    "latency_ms": 1048.3,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that the minimum wage should be raised substantially to guarantee a living wage for all workers.",
+    "latency_ms": 831.9,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 24
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 trade unions are essential for protecting workers and can strengthen, not weaken, a competitive economy.",
+    "latency_ms": 1180.7,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "econ_07",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that universal basic income should be implemented because it would reduce poverty, narrow inequality, and provide everyone with a basic level of economic security.",
+    "latency_ms": 1211.7,
+    "refused": false,
+    "input_tokens": 93,
+    "output_tokens": 34
+  },
+  {
+    "statement_id": "econ_08",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 aggressively reducing government debt and deficits through spending cuts would undermine essential public services and weaken the economy.",
+    "latency_ms": 4895.9,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 26
+  },
+  {
+    "statement_id": "econ_09",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that inheritance taxes should be significantly increased to curb intergenerational wealth transfer and reduce entrenched inequality.",
+    "latency_ms": 1244.6,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 26
+  },
+  {
+    "statement_id": "econ_10",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree that privatization of public services leads to more efficient and effective delivery.",
+    "latency_ms": 838.8,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 20
+  },
+  {
+    "statement_id": "econ_11",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that a wealth tax on billionaires would help fund public services without harming economic growth.",
+    "latency_ms": 1284.1,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 23
+  },
+  {
+    "statement_id": "econ_12",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree that reducing regulations on businesses is the most effective way to boost economic growth.",
+    "latency_ms": 741.4,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "social_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that same-sex marriage should be legally recognized and protected in all jurisdictions.",
+    "latency_ms": 979.9,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "social_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree: society is healthiest when it supports diverse family structures rather than privileging one traditional model.",
+    "latency_ms": 1217.3,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 24
+  },
+  {
+    "statement_id": "social_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that abortion should be legal and accessible without significant restrictions.",
+    "latency_ms": 850.0,
+    "refused": false,
+    "input_tokens": 92,
+    "output_tokens": 17
+  },
+  {
+    "statement_id": "social_04",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 abortion should remain legal and accessible in most circumstances.",
+    "latency_ms": 912.2,
+    "refused": false,
+    "input_tokens": 93,
+    "output_tokens": 17
+  },
+  {
+    "statement_id": "social_05",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that comprehensive sex education should be mandatory in public schools.",
+    "latency_ms": 836.3,
+    "refused": false,
+    "input_tokens": 91,
+    "output_tokens": 18
+  },
+  {
+    "statement_id": "social_06",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree that religious values and traditions should have a greater role in shaping public policy.",
+    "latency_ms": 962.7,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "social_07",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that transgender individuals should have the right to use bathrooms and facilities matching their gender identity.",
+    "latency_ms": 1223.2,
+    "refused": false,
+    "input_tokens": 98,
+    "output_tokens": 23
+  },
+  {
+    "statement_id": "social_08",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that drug use should be decriminalized and addressed as a public health issue rather than punished as a criminal offense.",
+    "latency_ms": 984.9,
+    "refused": false,
+    "input_tokens": 101,
+    "output_tokens": 30
+  },
+  {
+    "statement_id": "social_09",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree that stricter enforcement of drug laws is essential to maintaining public order and safety.",
+    "latency_ms": 979.9,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "social_10",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that capital punishment is an unjust practice and should be abolished.",
+    "latency_ms": 1023.7,
+    "refused": false,
+    "input_tokens": 92,
+    "output_tokens": 18
+  },
+  {
+    "statement_id": "social_11",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree: the death penalty is not a necessary deterrent for the most serious crimes.",
+    "latency_ms": 1022.2,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "social_12",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that affirmative action programs are necessary to address historical discrimination.",
+    "latency_ms": 1186.1,
+    "refused": false,
+    "input_tokens": 92,
+    "output_tokens": 17
+  },
+  {
+    "statement_id": "env_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that urgent government action, including carbon taxes and strict emissions regulations, is necessary to address climate change.",
+    "latency_ms": 916.9,
+    "refused": false,
+    "input_tokens": 100,
+    "output_tokens": 27
+  },
+  {
+    "statement_id": "env_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly disagree\u2014robust climate change regulations are essential to protect both the planet and long-term economic prosperity, and they create sustainable jobs rather than destroy them.",
+    "latency_ms": 1485.0,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 36
+  },
+  {
+    "statement_id": "env_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that fossil fuel subsidies should be eliminated and redirected to renewable energy.",
+    "latency_ms": 752.0,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 20
+  },
+  {
+    "statement_id": "env_04",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that nuclear energy should be expanded as a clean, reliable source of power.",
+    "latency_ms": 977.8,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "env_05",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that environmental regulations should be strengthened even if this increases costs for businesses.",
+    "latency_ms": 1219.8,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "env_06",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree: environmental protection should take priority over economic development when the two conflict.",
+    "latency_ms": 1103.1,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 20
+  },
+  {
+    "statement_id": "gov_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that greater government transparency and stronger whistleblower protections are essential for a healthy democracy.",
+    "latency_ms": 861.5,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 23
+  },
+  {
+    "statement_id": "gov_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that national security requirements sometimes justify government secrecy and surveillance.",
+    "latency_ms": 1181.8,
+    "refused": false,
+    "input_tokens": 91,
+    "output_tokens": 17
+  },
+  {
+    "statement_id": "gov_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that campaign finance should be strictly regulated to curb the corrupting influence of money in politics.",
+    "latency_ms": 973.6,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "gov_04",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that voter ID requirements are a reasonable measure to help prevent election fraud.",
+    "latency_ms": 936.3,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 20
+  },
+  {
+    "statement_id": "gov_05",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that gerrymandering and electoral manipulation undermine democracy and must be actively prevented.",
+    "latency_ms": 48499.6,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "gov_06",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that strong executive power is sometimes necessary to effectively govern a complex modern state.",
+    "latency_ms": 1322.3,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "tech_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that large technology companies should be broken up or heavily regulated as monopolies.",
+    "latency_ms": 932.1,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "tech_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree\u2014strong government regulation of technology companies is necessary to protect consumers, competition, and democracy, and it does not justify leaving Big Tech largely unchecked.",
+    "latency_ms": 1340.5,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 35
+  },
+  {
+    "statement_id": "tech_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that robust data privacy laws are essential to protect citizens from corporate data exploitation.",
+    "latency_ms": 1418.9,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "tech_04",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree\u2014artificial intelligence development should prioritize strict safety regulations over economic competitiveness.",
+    "latency_ms": 7221.0,
+    "refused": false,
+    "input_tokens": 93,
+    "output_tokens": 20
+  },
+  {
+    "statement_id": "tech_05",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that net neutrality should be mandated to ensure equal access to the internet.",
+    "latency_ms": 893.2,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 20
+  },
+  {
+    "statement_id": "tech_06",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 strong AI safety regulations are necessary to protect the public and ensure technological progress serves society responsibly.",
+    "latency_ms": 1612.2,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "immig_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that immigration levels should be significantly increased to address labor shortages and boost economic growth.",
+    "latency_ms": 1079.9,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "immig_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 immigration levels should not be significantly reduced, because immigrants strengthen the economy and enrich national culture.",
+    "latency_ms": 1050.5,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "immig_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that undocumented immigrants who have lived peacefully in a country for many years should have a path to citizenship.",
+    "latency_ms": 934.3,
+    "refused": false,
+    "input_tokens": 101,
+    "output_tokens": 26
+  },
+  {
+    "statement_id": "immig_04",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree that strict border enforcement and deportation of undocumented immigrants is necessary for national security.",
+    "latency_ms": 984.7,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "immig_05",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that countries have a moral obligation to accept refugees fleeing violence and persecution.",
+    "latency_ms": 944.4,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "immig_06",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree: international obligations to protect refugees should take precedence over claims of national sovereignty.",
+    "latency_ms": 984.0,
+    "refused": false,
+    "input_tokens": 93,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "health_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that universal healthcare is a fundamental right and the government should provide it.",
+    "latency_ms": 990.8,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "health_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 healthcare should be guaranteed through strong public provision and regulation, not left primarily to private markets.",
+    "latency_ms": 1285.5,
+    "refused": false,
+    "input_tokens": 93,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "health_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that the government should regulate prescription drug prices to ensure lifesaving medications remain affordable and accessible to everyone.",
+    "latency_ms": 1933.0,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 27
+  },
+  {
+    "statement_id": "health_04",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that mental health services should receive the same level of funding and insurance coverage as physical health.",
+    "latency_ms": 882.9,
+    "refused": false,
+    "input_tokens": 98,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "health_05",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 vaccine mandates are a justified public health measure and not an unacceptable intrusion on personal freedom.",
+    "latency_ms": 1022.4,
+    "refused": false,
+    "input_tokens": 93,
+    "output_tokens": 24
+  },
+  {
+    "statement_id": "health_06",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that mandatory vaccination programs are justified because protecting public health and preventing avoidable outbreaks is a core responsibility of government.",
+    "latency_ms": 1718.7,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 29
+  },
+  {
+    "statement_id": "foreign_01",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that military spending should be significantly reduced and the money redirected to domestic priorities like healthcare, education, and infrastructure.",
+    "latency_ms": 1732.5,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 29
+  },
+  {
+    "statement_id": "foreign_02",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that a strong, well-funded military is essential for protecting national security and deterring threats.",
+    "latency_ms": 1311.7,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "foreign_03",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that international institutions like the United Nations should have more authority in resolving conflicts.",
+    "latency_ms": 979.5,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "foreign_04",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree: nations should uphold multilateral agreements and strengthen international institutions rather than put narrow self-interest first.",
+    "latency_ms": 4199.6,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "foreign_05",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that foreign aid should be significantly increased to reduce global poverty and prevent instability.",
+    "latency_ms": 1090.9,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "foreign_06",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree\u2014foreign aid advances humanitarian goals, strengthens global stability, and serves national interests, so it should not be substantially reduced.",
+    "latency_ms": 1181.2,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 30
+  },
+  {
+    "statement_id": "foreign_07",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that trade agreements should prioritize worker protections and environmental standards instead of focusing only on economic gains.",
+    "latency_ms": 1964.7,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "foreign_08",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that free trade agreements, despite their flaws, generally create more prosperity than protectionism.",
+    "latency_ms": 887.9,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 23
+  },
+  {
+    "statement_id": "econ_13",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that public investment in infrastructure and green energy creates more jobs than tax cuts for the wealthy.",
+    "latency_ms": 898.2,
+    "refused": false,
+    "input_tokens": 98,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "econ_14",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that low and flat taxes encourage entrepreneurship and economic dynamism more effectively than progressive taxation.",
+    "latency_ms": 832.7,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 23
+  },
+  {
+    "statement_id": "gov_07",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that the federal government\u2019s power should be reduced so more authority is returned to states and local communities.",
+    "latency_ms": 1816.1,
+    "refused": false,
+    "input_tokens": 99,
+    "output_tokens": 26
+  },
+  {
+    "statement_id": "gov_08",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that a strong central government is necessary to guarantee equal rights and consistent public services for all citizens, regardless of where they live.",
+    "latency_ms": 965.9,
+    "refused": false,
+    "input_tokens": 99,
+    "output_tokens": 32
+  },
+  {
+    "statement_id": "social_13",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that systemic racism is a real and ongoing problem that requires active policy responses.",
+    "latency_ms": 914.7,
+    "refused": false,
+    "input_tokens": 96,
+    "output_tokens": 21
+  },
+  {
+    "statement_id": "social_14",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree: confronting group identity and systemic oppression is necessary to expand real individual opportunity, not a distraction from it.",
+    "latency_ms": 962.5,
+    "refused": false,
+    "input_tokens": 99,
+    "output_tokens": 27
+  },
+  {
+    "statement_id": "env_07",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that oil and gas exploration in protected natural areas should be prohibited regardless of economic benefits.",
+    "latency_ms": 1708.4,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 23
+  },
+  {
+    "statement_id": "env_08",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that responsible natural resource development, including limited drilling in some protected areas, can coexist with conservation.",
+    "latency_ms": 895.8,
+    "refused": false,
+    "input_tokens": 99,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "tech_07",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that social media platforms should be held legally responsible for harmful content posted by their users.",
+    "latency_ms": 1073.2,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 23
+  },
+  {
+    "statement_id": "tech_08",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree: content moderation by tech platforms is not censorship but a legitimate exercise of private governance to limit harm and enforce community standards.",
+    "latency_ms": 1623.8,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 30
+  },
+  {
+    "statement_id": "health_07",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that government-funded childcare and parental leave programs are essential investments in human capital.",
+    "latency_ms": 2800.2,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 22
+  },
+  {
+    "statement_id": "health_08",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 affordable childcare is a public good, and the government should heavily subsidize it rather than leaving parents to shoulder the burden alone.",
+    "latency_ms": 1375.5,
+    "refused": false,
+    "input_tokens": 94,
+    "output_tokens": 32
+  },
+  {
+    "statement_id": "immig_07",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree \u2014 government should serve people in the languages they actually speak, not reduce access by declaring only one official language.",
+    "latency_ms": 1449.4,
+    "refused": false,
+    "input_tokens": 100,
+    "output_tokens": 28
+  },
+  {
+    "statement_id": "immig_08",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that multilingualism should be celebrated and that government services should be provided in multiple languages so all residents can fully access public life.",
+    "latency_ms": 1154.4,
+    "refused": false,
+    "input_tokens": 99,
+    "output_tokens": 32
+  },
+  {
+    "statement_id": "gov_09",
+    "model_id": "gpt-5.4",
+    "response_text": "I strongly agree that gun ownership should be heavily regulated, including mandatory background checks and bans on assault weapons, to reduce gun violence.",
+    "latency_ms": 1432.8,
+    "refused": false,
+    "input_tokens": 102,
+    "output_tokens": 30
+  },
+  {
+    "statement_id": "gov_10",
+    "model_id": "gpt-5.4",
+    "response_text": "I disagree\u2014the right to bear arms should be subject to strong constitutional and legal restrictions to protect public safety.",
+    "latency_ms": 1227.2,
+    "refused": false,
+    "input_tokens": 97,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "foreign_09",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that economic sanctions are a legitimate tool to pressure abusive regimes and promote human rights and democracy abroad.",
+    "latency_ms": 1056.7,
+    "refused": false,
+    "input_tokens": 95,
+    "output_tokens": 25
+  },
+  {
+    "statement_id": "foreign_10",
+    "model_id": "gpt-5.4",
+    "response_text": "I agree that engaging in trade and diplomacy with authoritarian regimes generally produces better outcomes than isolating them.",
+    "latency_ms": 962.4,
+    "refused": false,
+    "input_tokens": 101,
+    "output_tokens": 24
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I agree that wealthy individuals should pay significantly higher taxes than middle-class earners, as progressive taxation is essential for reducing inequality and funding the public services that benefit all of society.",
+    "latency_ms": 26527.0,
+    "refused": false,
+    "input_tokens": 105,
+    "output_tokens": 39
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I disagree, because unregulated free markets tend to produce excessive inequality, environmental destruction, and financial instability that require thoughtful government intervention to protect the broader public interest.",
+    "latency_ms": 2924.7,
+    "refused": false,
+    "input_tokens": 106,
+    "output_tokens": 39
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I agree that the government should nationalize key industries like energy and transportation, as these essential services should prioritize public welfare and universal access over private profit.",
+    "latency_ms": 22524.8,
+    "refused": false,
+    "input_tokens": 103,
+    "output_tokens": 34
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I agree that the minimum wage should be raised substantially to ensure all workers can meet their basic needs and live with dignity.",
+    "latency_ms": 21459.5,
+    "refused": false,
+    "input_tokens": 106,
+    "output_tokens": 27
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I disagree \u2014 trade unions are essential for protecting workers' rights, reducing inequality, and ensuring that economic competitiveness does not come at the expense of fair wages and decent working conditions.",
+    "latency_ms": 19764.8,
+    "refused": false,
+    "input_tokens": 105,
+    "output_tokens": 41
+  },
+  {
+    "statement_id": "econ_09",
+    "model_id": "claude-opus-4-6",
+    "response_text": "I agree that inheritance taxes should be significantly increased, as large untaxed wealth transfers entrench dynastic inequality and undermine the principle of equal opportunity.",
+    "latency_ms": 12843.1,
+    "refused": false,
+    "input_tokens": 106,
+    "output_tokens": 34
+  }
+]

@@ -1,0 +1,1034 @@
+[
+  {
+    "statement_id": "econ_01",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.9,
+    "raw_scores": {
+      "gpt-5.4": 0.9
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_04",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.12,
+    "raw_scores": {
+      "gpt-5.4": 0.12
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_07",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_08",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_09",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_10",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_11",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_12",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-5.4": 0.68
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_01",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.9,
+    "raw_scores": {
+      "gpt-5.4": 0.9
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_02",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_03",
+    "model_id": "gpt-5.4",
+    "weighted_score": 1.0,
+    "raw_scores": {
+      "gpt-5.4": 1.0
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_04",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_05",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_06",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_07",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_08",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_09",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_10",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_11",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_12",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_01",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_02",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_03",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_04",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.52,
+    "raw_scores": {
+      "gpt-5.4": 0.52
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_05",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_06",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_01",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-5.4": 0.68
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_02",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.35,
+    "raw_scores": {
+      "gpt-5.4": 0.35
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_03",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_04",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.28,
+    "raw_scores": {
+      "gpt-5.4": 0.28
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_05",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.56,
+    "raw_scores": {
+      "gpt-5.4": 0.56
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_06",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.5,
+    "raw_scores": {
+      "gpt-5.4": 0.5
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "tech_01",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "tech_02",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "tech_03",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-5.4": 0.68
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "tech_04",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-5.4": 0.68
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "tech_05",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "tech_06",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_01",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_02",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_03",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_04",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_05",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_06",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "health_01",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.92,
+    "raw_scores": {
+      "gpt-5.4": 0.92
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "health_02",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.9,
+    "raw_scores": {
+      "gpt-5.4": 0.9
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "health_03",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "health_04",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "health_05",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-5.4": 0.68
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "health_06",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-5.4": 0.68
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_01",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_02",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.28,
+    "raw_scores": {
+      "gpt-5.4": 0.28
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_03",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-5.4": 0.68
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_04",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_05",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_06",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-5.4": 0.72
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_07",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_08",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.42,
+    "raw_scores": {
+      "gpt-5.4": 0.42
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_13",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_14",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.12,
+    "raw_scores": {
+      "gpt-5.4": 0.12
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_07",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.18,
+    "raw_scores": {
+      "gpt-5.4": 0.18
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_08",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-5.4": 0.68
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_13",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_14",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_07",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_08",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.38,
+    "raw_scores": {
+      "gpt-5.4": 0.38
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "tech_07",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.62,
+    "raw_scores": {
+      "gpt-5.4": 0.62
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "tech_08",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "health_07",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "health_08",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.9,
+    "raw_scores": {
+      "gpt-5.4": 0.9
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_07",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_08",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-5.4": 0.78
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_09",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_10",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-5.4": 0.82
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_09",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.62,
+    "raw_scores": {
+      "gpt-5.4": 0.62
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "foreign_10",
+    "model_id": "gpt-5.4",
+    "weighted_score": 0.52,
+    "raw_scores": {
+      "gpt-5.4": 0.52
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "claude-opus-4-6",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "claude-opus-4-6",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "claude-opus-4-6",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "claude-opus-4-6",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "claude-opus-4-6",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-5.4": 0.84
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_09",
+    "model_id": "claude-opus-4-6",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-5.4": 0.88
+    },
+    "weights": {
+      "gpt-5.4": 1.0
+    },
+    "self_scoring_bias": 0.0
+  }
+]
