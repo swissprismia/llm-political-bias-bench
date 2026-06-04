@@ -59,7 +59,7 @@ Inspired by the [Foaster project](https://github.com/Foaster-ai/The_Political_Ga
 ```
 src/political_bias/
   config.py          # Model registry & benchmark parameters
-  models.py          # Unified async LLM client (6 providers)
+  models.py          # Unified async LLM client (7 providers)
   likert/            # Statement evaluation + judging + refusal parity
   ranking/           # Proposal ranking + position bias + scoring
   report/            # Chart generation + Markdown report
@@ -108,8 +108,8 @@ AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_VERSION=...
 AZURE_OPENAI_DEPLOYMENT=...
 
-# Mammouth (proxy for Claude, Gemini, Grok)
-MAMMOUTH_API_KEY=...
+# OpenRouter (Claude, Gemini, Grok)
+OPENROUTER_API_KEY=...
 ```
 
 ---
@@ -124,7 +124,7 @@ python -m political_bias run
 python -m political_bias run --module likert --limit 5
 
 # Specific models only
-python -m political_bias run --models gpt-5.4,claude-opus-4-6
+python -m political_bias run --models gpt-5.5,claude-opus-4-8
 
 # Specific month
 python -m political_bias run --month 2026-03
@@ -147,9 +147,10 @@ Edit `DEFAULT_MODELS` in `src/political_bias/config.py`. Add a `ModelConfig` ent
 ```python
 "my-model-id": ModelConfig(
     id="my-model-id",
-    provider="anthropic",          # openai | azure_openai | azure_foundry | anthropic | google | mammouth
+    provider="openrouter",         # openai | azure_openai | azure_foundry | anthropic | google | mammouth | openrouter
     display_name="My Model",
     api_key_env="MY_API_KEY_ENV",
+    provider_model_id="provider/model-slug",
 ),
 ```
 
@@ -167,7 +168,7 @@ Configure these GitHub Actions secrets in the repository settings:
 - `AZURE_OPENAI_ENDPOINT`
 - `AZURE_OPENAI_API_VERSION`
 - `AZURE_OPENAI_DEPLOYMENT`
-- `MAMMOUTH_API_KEY`
+- `OPENROUTER_API_KEY`
 
 ---
 
@@ -186,7 +187,8 @@ Configure these GitHub Actions secrets in the repository settings:
 
 ## Limitations
 
-- **Mammouth proxy:** Claude, Gemini, and Grok are accessed via the Mammouth API rather than direct provider APIs. Prompt routing or rate-limiting differences may introduce minor inconsistencies.
+- **OpenRouter gateway:** Claude, Gemini, and Grok are accessed via OpenRouter rather than direct provider APIs. Prompt routing, provider fallback, or rate-limiting differences may introduce minor inconsistencies.
+- **Temperature parity:** Reasoning models (e.g. GPT-5.5) only support their default temperature, so they run at temperature 1 while other models run at 0. Their responses are less deterministic across runs.
 - **English-only:** All 80 statements and 15 proposals are in English. Results may not generalize to multilingual model behavior.
 - **Anonymization quality:** The effectiveness of Method B depends on how well candidate identities are concealed. Some policy proposals may carry implicit signals despite label removal.
 - **Judge circularity:** Models evaluate each other's responses. A coordinated shift in political leanings across all models would be partially self-concealing.

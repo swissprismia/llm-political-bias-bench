@@ -19,14 +19,18 @@ class ModelConfig:
     """Configuration for a single LLM."""
 
     id: str
-    provider: str  # "openai" | "azure_openai" | "anthropic" | "google" | "azure_foundry"
+    provider: str  # "openai" | "azure_openai" | "azure_foundry" | "anthropic" | "google" | "mammouth" | "openrouter"
     display_name: str
     api_key_env: str
+    provider_model_id: str | None = None
     max_tokens: int = 1024
-    temperature: float = 0.0
+    # None = omit the parameter (reasoning models such as GPT-5.5 reject non-default temperature).
+    temperature: float | None = 0.0
+    # Reasoning effort for models that support it ("minimal" | "low" | "medium" | "high").
+    reasoning_effort: str | None = None
     requests_per_minute: int = 60
     # When set, models sharing the same key share one rate-limiter bucket.
-    # Required for providers (e.g. Mammouth) whose limits apply per API key, not per model.
+    # Required for providers (e.g. OpenRouter) whose limits apply per API key, not per model.
     rate_limit_key: str | None = None
     # When set, a concurrency semaphore is held for the duration of each request in addition
     # to the token-bucket RPM limiter.  Set to the provider's max_parallel_requests cap.
@@ -43,6 +47,10 @@ class ModelConfig:
     @property
     def api_key(self) -> str | None:
         return os.environ.get(self.api_key_env)
+
+    @property
+    def request_model_id(self) -> str:
+        return self.provider_model_id or self.id
 
     @property
     def azure_endpoint(self) -> str | None:
@@ -64,31 +72,36 @@ class ModelConfig:
 # ---------------------------------------------------------------------------
 
 DEFAULT_MODELS: dict[str, ModelConfig] = {
-    "gpt-5.4": ModelConfig(
-        id="gpt-5.4",
+    "gpt-5.5": ModelConfig(
+        id="gpt-5.5",
         provider="azure_openai",
-        display_name="GPT-5.4",
+        display_name="GPT-5.5",
         api_key_env="AZURE_OPENAI_API_KEY",
         azure_endpoint_env="AZURE_OPENAI_ENDPOINT",
         azure_api_version_env="AZURE_OPENAI_API_VERSION",
         azure_deployment_env="AZURE_OPENAI_DEPLOYMENT",
+        temperature=None,         # reasoning model: only default temperature is supported
+        reasoning_effort="low",   # "fast thinking" — keep latency and reasoning-token burn down
+        max_tokens=4096,          # reasoning tokens count against max_completion_tokens
         requests_per_minute=120,  # Azure quota: 150 RPM — stay 20% under to avoid 429s
     ),
-    "claude-opus-4-6": ModelConfig(
-        id="claude-opus-4-6",
-        provider="mammouth",
-        display_name="Claude Opus 4.6",
-        api_key_env="MAMMOUTH_API_KEY",
-        rate_limit_key="mammouth",
-        requests_per_minute=30,   # Mammouth account limit: 30 RPM shared across all models
-        max_parallel_requests=10, # Mammouth account limit: 10 concurrent requests
+    "claude-opus-4-8": ModelConfig(
+        id="claude-opus-4-8",
+        provider="openrouter",
+        display_name="Claude Opus 4.8 (Fast)",
+        api_key_env="OPENROUTER_API_KEY",
+        provider_model_id="anthropic/claude-opus-4.8-fast",
+        rate_limit_key="openrouter",
+        requests_per_minute=30,
+        max_parallel_requests=10,
     ),
-    "gemini-3.1-pro-preview": ModelConfig(
-        id="gemini-3.1-pro-preview",
-        provider="mammouth",
-        display_name="gemini-3-flash-preview",
-        api_key_env="MAMMOUTH_API_KEY",
-        rate_limit_key="mammouth",
+    "gemini-3.5-flash": ModelConfig(
+        id="gemini-3.5-flash",
+        provider="openrouter",
+        display_name="Gemini 3.5 Flash",
+        api_key_env="OPENROUTER_API_KEY",
+        provider_model_id="google/gemini-3.5-flash",
+        rate_limit_key="openrouter",
         requests_per_minute=30,
         max_parallel_requests=10,
         system_prompt_override=(
@@ -115,12 +128,13 @@ DEFAULT_MODELS: dict[str, ModelConfig] = {
             "- Return ONLY valid JSON: {\"score\": <0.0-1.0>, \"reason\": \"<one sentence>\"}"
         ),
     ),
-    "grok-4-1-fast": ModelConfig(
-        id="grok-4-1-fast",
-        provider="mammouth",
-        display_name="Grok 4.1 Fast",
-        api_key_env="MAMMOUTH_API_KEY",
-        rate_limit_key="mammouth",
+    "grok-4-3": ModelConfig(
+        id="grok-4-3",
+        provider="openrouter",
+        display_name="Grok 4.3",
+        api_key_env="OPENROUTER_API_KEY",
+        provider_model_id="x-ai/grok-4.3",
+        rate_limit_key="openrouter",
         requests_per_minute=30,
         max_parallel_requests=10,
     ),

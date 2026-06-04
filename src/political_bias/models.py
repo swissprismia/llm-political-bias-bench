@@ -100,7 +100,7 @@ async def _call_openai(cfg: ModelConfig, system: str, user: str) -> dict[str, An
 
     client = AsyncOpenAI(api_key=cfg.api_key)
     resp = await client.chat.completions.create(
-        model=cfg.id,
+        model=cfg.request_model_id,
         temperature=cfg.temperature,
         max_tokens=cfg.max_tokens,
         messages=[
@@ -124,14 +124,19 @@ async def _call_azure_openai(cfg: ModelConfig, system: str, user: str) -> dict[s
         azure_endpoint=cfg.azure_endpoint or "",
         api_version=cfg.azure_api_version or "2025-01-01-preview",
     )
+    kwargs: dict[str, Any] = {}
+    if cfg.temperature is not None:  # reasoning models reject non-default temperature
+        kwargs["temperature"] = cfg.temperature
+    if cfg.reasoning_effort is not None:
+        kwargs["reasoning_effort"] = cfg.reasoning_effort
     resp = await client.chat.completions.create(
         model=cfg.azure_deployment or "",
-        temperature=cfg.temperature,
         max_completion_tokens=cfg.max_tokens,
         messages=[
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
+        **kwargs,
     )
     choice = resp.choices[0]
     return {
@@ -150,7 +155,7 @@ async def _call_azure_foundry(cfg: ModelConfig, system: str, user: str) -> dict[
         base_url=cfg.azure_endpoint,
     )
     resp = await client.chat.completions.create(
-        model=cfg.id,
+        model=cfg.request_model_id,
         temperature=cfg.temperature,
         max_tokens=cfg.max_tokens,
         messages=[
@@ -175,7 +180,37 @@ async def _call_mammouth(cfg: ModelConfig, system: str, user: str) -> dict[str, 
         base_url="https://api.mammouth.ai/v1",
     )
     resp = await client.chat.completions.create(
-        model=cfg.id,
+        model=cfg.request_model_id,
+        temperature=cfg.temperature,
+        max_tokens=cfg.max_tokens,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+    )
+    choice = resp.choices[0]
+    return {
+        "text": choice.message.content or "",
+        "input_tokens": resp.usage.prompt_tokens if resp.usage else 0,
+        "output_tokens": resp.usage.completion_tokens if resp.usage else 0,
+    }
+
+
+async def _call_openrouter(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
+    """OpenRouter — OpenAI-compatible gateway for Claude, Gemini, Grok."""
+    from openai import AsyncOpenAI
+
+    headers = {
+        "HTTP-Referer": "https://github.com/swissprismia/llm-political-bias-bench",
+        "X-Title": "LLM Political Bias Benchmark",
+    }
+    client = AsyncOpenAI(
+        api_key=cfg.api_key,
+        base_url="https://openrouter.ai/api/v1",
+        default_headers=headers,
+    )
+    resp = await client.chat.completions.create(
+        model=cfg.request_model_id,
         temperature=cfg.temperature,
         max_tokens=cfg.max_tokens,
         messages=[
@@ -196,7 +231,7 @@ async def _call_anthropic(cfg: ModelConfig, system: str, user: str) -> dict[str,
 
     client = AsyncAnthropic(api_key=cfg.api_key)
     resp = await client.messages.create(
-        model=cfg.id,
+        model=cfg.request_model_id,
         max_tokens=cfg.max_tokens,
         temperature=cfg.temperature,
         system=system,
@@ -216,7 +251,7 @@ async def _call_google(cfg: ModelConfig, system: str, user: str) -> dict[str, An
     client = genai.Client(api_key=cfg.api_key)
     resp = await asyncio.to_thread(
         client.models.generate_content,
-        model=cfg.id,
+        model=cfg.request_model_id,
         contents=user,
         config=types.GenerateContentConfig(
             system_instruction=system,
@@ -238,6 +273,7 @@ _PROVIDERS = {
     "anthropic": _call_anthropic,
     "google": _call_google,
     "mammouth": _call_mammouth,
+    "openrouter": _call_openrouter,
 }
 
 
