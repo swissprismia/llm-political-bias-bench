@@ -32,9 +32,9 @@ Inspired by the [Foaster project](https://github.com/Foaster-ai/The_Political_Ga
 
 **Proposals:** 15 anonymized policy themes from the 2024 USA election cycle. Each theme presents two proposals derived from the Harris and Trump platforms, with candidate labels hidden — models see only the policy content.
 
-**Shuffle runs:** Each model ranks proposals 5 times per theme with a randomly shuffled presentation order, mitigating list-position bias.
+**Shuffle runs:** Each model ranks proposals 5 times per theme with a shuffled presentation order (seeded per model × theme × run), mitigating list-position bias.
 
-**Position bias calibration:** A SCOPE-inspired null-prompt method runs 20 trials per model to measure baseline ordering preferences, producing per-position correction factors applied during scoring.
+**Position bias calibration:** A SCOPE-inspired null-prompt method runs 20 trials per model to measure baseline ordering preferences. The resulting rates are published in `position_bias.json` as a **diagnostic only** — they are *not* subtracted from scores. At temperature 0 the null prompts (identical proposal texts) are answered deterministically, so the calibration measures determinism rather than position bias; mitigation relies on presentation-order shuffling instead (see Methodology Changelog).
 
 **Vote shares:** Rankings are converted to vote shares via sigmoid transformation and renormalized. Results are compared against the actual 2024 election outcome (Harris 48.4%, Trump 49.5%) to quantify electoral alignment or divergence.
 
@@ -67,6 +67,9 @@ src/political_bias/
 data/
   statements/        # 80 political statements (JSON)
   proposals/         # 2024 USA election proposals (JSON)
+scripts/
+  smoke_test.py      # One live API call per configured model
+  recompute_ranking_scores.py  # Rebuild ranking scores from raw data (offline)
 results/{YYYY-MM}/   # Monthly output (JSON data + PNG charts + report.md)
 .github/workflows/
   monthly-benchmark.yml   # Scheduled automation (1st of month, 6am UTC)
@@ -83,7 +86,7 @@ Each run produces a `results/YYYY-MM/` directory containing:
 - **`likert_raw.json`** / **`likert_scores.json`** — raw LLM responses and weighted judge scores
 - **`ranking_raw.json`** / **`ranking_scores.json`** — raw rankings and computed vote shares
 - **`refusal_parity.json`** — per-model left/right refusal rates
-- **`position_bias.json`** — SCOPE calibration correction factors
+- **`position_bias.json`** — SCOPE null-prompt calibration rates (diagnostic only, not applied to scores)
 
 Charts generated: violin score distribution, political spectrum bar, category heatmap, vote shares comparison, refusal parity, historical trend.
 
@@ -94,8 +97,8 @@ All raw JSON is retained for full reproducibility.
 ## Setup & Installation
 
 ```bash
-git clone <repo-url>
-cd app-political-bias
+git clone https://github.com/swissprismia/llm-political-bias-bench.git
+cd llm-political-bias-bench
 pip install -e .
 ```
 
@@ -111,6 +114,8 @@ AZURE_OPENAI_DEPLOYMENT=...
 # OpenRouter (Claude, Gemini, Grok)
 OPENROUTER_API_KEY=...
 ```
+
+**Cost note:** a full monthly run costs roughly **$5–6** on the OpenRouter side (the multi-judge phase dominates: 320 responses × 4 judges, with Claude Opus as the priciest judge). If you set a spending limit on the OpenRouter key, budget at least **$10/month** so a failed run plus a re-run fit within the same month.
 
 ---
 
@@ -134,9 +139,15 @@ python -m political_bias run --dry-run
 
 # Regenerate report from existing result data
 python -m political_bias report --month 2026-03
+
+# Live smoke test — one real API call per configured model
+python scripts/smoke_test.py
+
+# Recompute ranking scores from raw data (no API calls)
+python scripts/recompute_ranking_scores.py 2026-06
 ```
 
-The `--module` flag accepts `both` (default), `likert`, or `ranking`.
+The `--module` flag accepts `both` (default), `likert`, or `ranking`. Re-runs are incremental: records for the models being re-run replace their previous entries, other models' data is preserved — so a partially failed month can be completed with a module- or model-scoped re-run.
 
 ---
 
@@ -185,6 +196,25 @@ Configure these GitHub Actions secrets in the repository settings:
 
 ---
 
+## Methodology Changelog
+
+A longitudinal benchmark must document its own changes — cross-month comparisons are only as clean as the methodology behind them.
+
+**2026-06**
+
+- **Provider migration:** Claude, Gemini, and Grok moved from the Mammouth proxy to the OpenRouter gateway after recurring rate-limit failures.
+- **Model lineup refresh** (all four models swapped at once — May→June deltas are model-generation effects, not drift):
+  | Vendor | 2026-03 .. 2026-05 | 2026-06+ |
+  |---|---|---|
+  | GPT | `gpt-5.4` (Azure) | `gpt-5.5` (Azure, reasoning model, `reasoning_effort=low`) |
+  | Claude | `claude-opus-4-6` | `claude-opus-4-8` (fast) |
+  | Gemini | `gemini-3.1-pro-preview` | `gemini-3.5-flash` |
+  | Grok | `grok-4-1-fast` | `grok-4-3` |
+- **Scoring fix:** position-bias correction factors are no longer subtracted from Method B vote shares. The null-prompt calibration is degenerate at temperature 0 (identical proposals → deterministic "A, B" answer → spurious ±0.5 correction), and the per-model shuffle seed didn't vary by theme, so the error correlated across all themes instead of averaging out — for some model ids this inverted results entirely. The 2026-06 release uses the fixed scorer; **2026-03 .. 2026-05 release artifacts still embed the old correction** (shares shifted by roughly ±0.10). Raw rankings were always unaffected; historical scores can be rebuilt with `scripts/recompute_ranking_scores.py`.
+- **Shuffle seed** now varies by model × theme × run (previously model × run only).
+
+---
+
 ## Limitations
 
 - **OpenRouter gateway:** Claude, Gemini, and Grok are accessed via OpenRouter rather than direct provider APIs. Prompt routing, provider fallback, or rate-limiting differences may introduce minor inconsistencies.
@@ -193,3 +223,5 @@ Configure these GitHub Actions secrets in the repository settings:
 - **Anonymization quality:** The effectiveness of Method B depends on how well candidate identities are concealed. Some policy proposals may carry implicit signals despite label removal.
 - **Judge circularity:** Models evaluate each other's responses. A coordinated shift in political leanings across all models would be partially self-concealing.
 - **Single election context:** Method B is calibrated against 2024 USA election data and reflects one political system at one point in time.
+- **Two-candidate sigmoid:** With two candidates, the z-normalized sigmoid yields binary per-theme shares (0.731/0.269); nuance comes from aggregating across themes and runs, not within a theme.
+- **Cross-month comparability:** The 2026-06 lineup refresh and scoring fix (see Methodology Changelog) mean May→June movements mix model-generation change, provider change, and scoring-method change. 2026-03 .. 2026-05 is the only clean same-model window to date.
