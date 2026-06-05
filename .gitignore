@@ -22,6 +22,9 @@ env/
 # Results (committed by CI, not locally)
 results/
 
+# Locally built release archives
+political-bias-benchmark-*.zip
+
 # IDE / local tooling
 .idea/
 .vscode/

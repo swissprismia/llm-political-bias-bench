@@ -64,8 +64,10 @@ def _build_trend_history(month: str, current_rows: list[dict]) -> list[dict]:
         except Exception:
             logger.warning("Skipping unreadable summary: %s", path)
             continue
-        if summary.get("month") == month:
-            continue  # current month comes from current_rows
+        if summary.get("month", "") >= month:
+            # The target month comes from current_rows; later months must not
+            # appear when regenerating a historical month's report.
+            continue
         for row in summary.get("model_summaries", []):
             historical.append({
                 "month": summary["month"],
