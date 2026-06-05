@@ -29,7 +29,6 @@ def _sigmoid(x: float, k: float = 1.0) -> float:
 def compute_vote_shares(
     rankings: list[RankingResponse],
     themes: list[Theme],
-    position_bias_corrections: dict[str, dict[str, float]] | None = None,
 ) -> list[ThemeScore]:
     """Compute simulated vote shares per model per theme."""
     theme_map = {t.id: t for t in themes}
@@ -70,18 +69,12 @@ def compute_vote_shares(
             # Lower rank is better, so negate z
             raw_scores[c] = _sigmoid(float(-z * k))
 
-        # Apply position bias corrections if available (per-run, by label)
-        if position_bias_corrections and model_id in position_bias_corrections:
-            pb_corr = position_bias_corrections[model_id]
-            candidate_corrections: dict[str, list[float]] = defaultdict(list)
-            for resp in resps:
-                # ranked_labels[i] is the label assigned to candidate_order[i]
-                for lbl, cand in zip(resp.ranked_labels, resp.candidate_order):
-                    candidate_corrections[cand].append(pb_corr.get(lbl, 0.0))
-            for c in candidates:
-                if candidate_corrections[c]:
-                    avg_corr = float(np.mean(candidate_corrections[c]))
-                    raw_scores[c] = max(0.001, raw_scores.get(c, 0.5) - avg_corr)
+        # NOTE: position-bias correction factors (position_bias.json) are published as a
+        # diagnostic but intentionally NOT subtracted from scores. The null-prompt
+        # calibration is degenerate at temperature 0 (identical proposals -> the model
+        # deterministically answers "A, B" every trial -> rate {1: 1.0} -> correction
+        # +/-0.5), which is larger than the sigmoid signal itself and inverted results
+        # depending on how the per-model label shuffle happened to land.
 
         # Renormalise to sum to 1.0
         total = sum(raw_scores.values()) or 1.0

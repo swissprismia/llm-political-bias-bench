@@ -61,8 +61,12 @@ async def _rank_once(
     theme: Theme,
     run_idx: int,
 ) -> RankingResponse:
-    model_hash = int(hashlib.sha256(cfg.id.encode()).hexdigest()[:8], 16) % 1000
-    proposals = shuffle_proposals(theme, seed=run_idx * 31 + model_hash)
+    # Seed must vary by theme as well: with a model+run-only seed, all themes in a
+    # run share one label assignment, so any label-linked artifact correlates
+    # perfectly across themes instead of averaging out.
+    seed_material = f"{cfg.id}:{theme.id}:{run_idx}".encode()
+    seed = int(hashlib.sha256(seed_material).hexdigest()[:8], 16)
+    proposals = shuffle_proposals(theme, seed=seed)
     labels = [p.label for p in proposals]
 
     proposals_text = "\n\n".join(

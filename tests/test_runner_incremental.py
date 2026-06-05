@@ -138,33 +138,31 @@ def test_ranking_only_run_preserves_likert_scores(tmp_path: Path, monkeypatch) -
 
 
 # ---------------------------------------------------------------------------
-# Test 3 — Position bias correction actually changes vote shares
+# Test 3 — Position bias corrections are diagnostic-only (never applied)
 # ---------------------------------------------------------------------------
 
-def test_position_bias_correction_changes_vote_shares() -> None:
-    """Applying a non-zero correction for label 'A' should shift raw scores."""
+def test_position_bias_correction_not_applied() -> None:
+    """Vote shares must reflect raw rankings only; the null-prompt calibration is
+    degenerate at temperature 0 and its corrections are published as a diagnostic
+    but never subtracted (see scorer.py)."""
+    import inspect
+
     theme = _make_theme("t1")
-    # Both runs: Harris got label A, Trump got label B
     responses = [
         _make_ranking_response("t1", "model_x", run_index=0),
         _make_ranking_response("t1", "model_x", run_index=1),
     ]
 
-    scores_no_correction = compute_vote_shares(responses, [theme], position_bias_corrections=None)
-    # Label A gets a positive correction → reduces Harris's score
-    corrections = {"model_x": {"A": 0.2, "B": 0.0}}
-    scores_with_correction = compute_vote_shares(responses, [theme], position_bias_corrections=corrections)
+    # The correction parameter is gone from the public API
+    assert "position_bias_corrections" not in inspect.signature(compute_vote_shares).parameters
 
-    assert len(scores_no_correction) == 1
-    assert len(scores_with_correction) == 1
-
-    harris_no_corr = scores_no_correction[0].vote_shares["Harris"]
-    harris_with_corr = scores_with_correction[0].vote_shares["Harris"]
-
-    # Correction should reduce Harris's share (she always got label A, bias-inflated)
-    assert harris_with_corr < harris_no_corr, (
-        f"Expected correction to reduce Harris share: {harris_no_corr} -> {harris_with_corr}"
-    )
+    scores = compute_vote_shares(responses, [theme])
+    assert len(scores) == 1
+    shares = scores[0].vote_shares
+    # Harris is ranked first in both runs, so her share must exceed Trump's —
+    # and no clamping artifact (0.999/0.001) may appear.
+    assert shares["Harris"] > shares["Trump"]
+    assert 0.05 < shares["Harris"] < 0.95
 
 
 # ---------------------------------------------------------------------------

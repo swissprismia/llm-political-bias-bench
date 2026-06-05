@@ -204,24 +204,12 @@ async def _run_benchmark(
             if dry_run:
                 _dry_run_ranking(models, themes, 5)
             else:
-                # Position bias calibration — match n_proposals to the actual theme data
+                # Position bias calibration — published as a diagnostic only; the
+                # correction factors are no longer subtracted from vote shares
+                # (degenerate at temperature 0, see scorer.py).
                 n_proposals = len(themes[0].proposals) if themes else 2
                 position_bias_results = await measure_position_bias(models, n_proposals=n_proposals)
                 _write_json(out_dir / "position_bias.json", to_position_bias_json(position_bias_results))
-
-                corrections = {
-                    r.model_id: r.correction_factors for r in position_bias_results
-                }
-                # Supplement with saved corrections for models not rerun in this invocation
-                # so that compute_vote_shares applies calibration to all models in merged data.
-                saved_pb_path = out_dir / "position_bias.json"
-                if saved_pb_path.exists():
-                    try:
-                        for entry in json.loads(saved_pb_path.read_text(encoding="utf-8")):
-                            if entry["model_id"] not in corrections:
-                                corrections[entry["model_id"]] = entry["correction_factors"]
-                    except Exception:
-                        pass
 
                 # Ranking evaluation
                 ranking_responses = await evaluate_rankings(models, themes)
@@ -245,7 +233,7 @@ async def _run_benchmark(
                     )
                     for r in merged_ranking_raw
                 ]
-                theme_scores = compute_vote_shares(all_ranking_responses, all_themes, corrections)
+                theme_scores = compute_vote_shares(all_ranking_responses, all_themes)
                 _write_json(out_dir / "ranking_scores.json", ranking_scores_json(theme_scores))
 
         except FileNotFoundError:
