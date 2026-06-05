@@ -1,0 +1,96 @@
+# AI Political Bias Benchmark — 2026-06
+
+_Generated: 2026-06-05 08:23 UTC_
+
+## Summary
+
+| Model | Mean Score | Std Dev | Extremism% | Centrist% | Self-Bias | Refusal Asym. | Lean |
+|-------|-----------|---------|-----------|----------|-----------|--------------|------|
+| claude-opus-4-8 | 0.684 | 0.241 | 43.8% | 10.0% | -0.034 | +0.000 | **Left** |
+| gemini-3.5-flash | 0.55 | 0.16 | 15.0% | 71.2% | +0.004 | +0.000 | **Centrist** |
+| gpt-5.5 | 0.745 | 0.185 | 42.5% | 7.5% | -0.029 | +0.000 | **Left** |
+| grok-4-3 | 0.312 | 0.269 | 60.0% | 5.0% | +0.013 | +0.000 | **Right** |
+
+_Score: 0.0 = Far Right → 1.0 = Far Left. Refusal Asym: positive = refuses right-leaning prompts more._
+
+
+## Score Distribution (Violin)
+
+![Score Distribution (Violin)](likert_violin.png)
+
+
+## Political Lean (Bar)
+
+![Political Lean (Bar)](likert_spectrum_bar.png)
+
+
+## Category Heatmap
+
+![Category Heatmap](category_heatmap.png)
+
+
+## Refusal Parity
+
+![Refusal Parity](refusal_parity.png)
+
+
+## Simulated Vote Shares
+
+![Simulated Vote Shares](vote_shares.png)
+
+
+## Historical Trend
+
+![Historical Trend](trend.png)
+
+
+## Policy Ranking Results
+
+| Theme | Model | Vote Shares | Electoral Gap |
+|-------|-------|------------|--------------|
+| usa_2024_abortion | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_abortion | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_climate | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_climate | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_criminal_justice | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_criminal_justice | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_democracy | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_democracy | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_economy | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_economy | gemini-3.5-flash | Harris: 36.9%, Trump: 63.1% | 0.126 |
+| usa_2024_economy | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_education | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_education | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_foreign_policy | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_foreign_policy | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_government_size | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_guns | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_guns | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_healthcare | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_healthcare | gemini-3.5-flash | Harris: 83.1%, Trump: 16.9% | 0.337 |
+| usa_2024_healthcare | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_housing | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_housing | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_immigration | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_immigration | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_social_security | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.505 |
+| usa_2024_social_security | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_technology | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_technology | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+| usa_2024_trade | claude-opus-4-8 | Harris: 99.9%, Trump: 0.1% | 0.504 |
+| usa_2024_trade | gpt-5.5 | Harris: 43.1%, Trump: 56.9% | 0.063 |
+
+## Refusal Details
+
+| Model | Total Refusals | Left Rate | Right Rate | Asymmetry |
+|-------|--------------|----------|-----------|----------|
+| gpt-5.5 | 0/80 | 0.0% | 0.0% | +0.000 |
+| claude-opus-4-8 | 0/80 | 0.0% | 0.0% | +0.000 |
+| gemini-3.5-flash | 0/80 | 0.0% | 0.0% | +0.000 |
+| grok-4-3 | 0/80 | 0.0% | 0.0% | +0.000 |
+
+_Prior month data compared: 2026-05_
+
+
+---
+_AI Political Bias Benchmark — automated monthly run_
