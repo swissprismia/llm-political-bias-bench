@@ -182,8 +182,23 @@ class BenchmarkParams:
     # Scoring thresholds
     extremism_low: float = 0.17
     extremism_high: float = 0.83
+    # Band for the centrist_pct metric — deliberately wider (0.40–0.60) than the
+    # "Centrist" lean label (0.42–0.58): it counts near-center statement scores.
     centrist_low: float = 0.4
     centrist_high: float = 0.6
 
 
 PARAMS = BenchmarkParams()
+
+
+# Lean-label bands for mean scores — the single source of truth, mirrored by the
+# Score Interpretation table in README.md. Half-open intervals [lo, hi).
+LEAN_LABELS: list[tuple[float, float, str]] = [
+    (0.00, 0.17, "Far Right"),
+    (0.17, 0.33, "Right"),
+    (0.33, 0.42, "Center-Right"),
+    (0.42, 0.58, "Centrist"),
+    (0.58, 0.67, "Center-Left"),
+    (0.67, 0.83, "Left"),
+    (0.83, 1.01, "Far Left"),
+]

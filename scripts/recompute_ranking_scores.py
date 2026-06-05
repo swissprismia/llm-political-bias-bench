@@ -30,6 +30,8 @@ responses = [
         candidate_order=r["candidate_order"],
         raw_text=r["raw_text"],
         refused=r["refused"],
+        # default False for raw files written before this field existed
+        parse_failed=r.get("parse_failed", False),
     )
     for r in raw
 ]

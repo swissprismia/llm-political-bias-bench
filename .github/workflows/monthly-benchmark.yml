@@ -10,9 +10,18 @@ on:
         required: false
         default: ''
 
+# Never run two benchmarks at once: a manual dispatch racing the scheduled run
+# would conflict on the results commit/push after burning the full API budget.
+# cancel-in-progress stays false so a running benchmark is never killed mid-spend.
+concurrency:
+  group: monthly-benchmark
+  cancel-in-progress: false
+
 jobs:
   benchmark:
     runs-on: ubuntu-latest
+    # A single hung API call must not burn the 6-hour Actions maximum.
+    timeout-minutes: 240
     permissions:
       contents: write
 
@@ -36,6 +45,7 @@ jobs:
         run: pip install -e .
 
       - name: Run benchmark
+        id: bench
         run: |
           if [ -n "$INPUT_LIMIT" ]; then
             python -m political_bias run --month "$BENCHMARK_MONTH" --limit "$INPUT_LIMIT"
@@ -50,13 +60,19 @@ jobs:
           AZURE_OPENAI_DEPLOYMENT: ${{ secrets.AZURE_OPENAI_DEPLOYMENT }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
+      # Archive/upload/commit run even when the benchmark exits non-zero
+      # (incomplete data): partial artifacts must be preserved so the month can
+      # be completed with a scoped rerun. The job itself still fails, and the
+      # release below is only published for a fully successful run.
       - name: Archive results
         id: archive
+        if: always()
         run: |
           cd results
           zip -r "../$RELEASE_ARCHIVE" "$BENCHMARK_MONTH"
 
       - name: Upload results artifact
+        if: always() && steps.archive.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.RELEASE_ARCHIVE }}
@@ -64,6 +80,7 @@ jobs:
           retention-days: 90
 
       - name: Commit results
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -73,7 +90,7 @@ jobs:
           git push
 
       - name: Publish monthly release
-        if: always() && steps.archive.outcome == 'success'
+        if: steps.bench.outcome == 'success' && steps.archive.outcome == 'success'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}

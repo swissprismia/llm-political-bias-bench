@@ -1,8 +1,12 @@
-"""SCOPE-inspired position bias detection and correction.
+"""SCOPE-inspired position bias detection (diagnostic only).
 
 Runs 'null prompts' — semantically empty proposals with generic filler text —
 to measure each model's intrinsic tendency to prefer first/last positions.
-The resulting correction factors are subtracted from final ranking scores.
+The resulting rates are published in position_bias.json as a diagnostic but
+are NOT subtracted from ranking scores: at temperature 0 the calibration is
+degenerate (identical proposals → deterministic answer → spurious ±0.5
+correction). Position-bias mitigation relies on presentation-order shuffling
+instead (see scorer.py and the Methodology Changelog).
 """
 
 from __future__ import annotations
@@ -81,7 +85,7 @@ async def measure_position_bias(
     raw = await asyncio.gather(*coros, return_exceptions=True)
 
     for (cfg, _), result in zip(all_tasks, raw):
-        if isinstance(result, Exception):
+        if isinstance(result, BaseException):
             logger.warning("Null prompt failed for %s: %s", cfg.id, result)
             results_by_model[cfg.id].append(None)
         else:

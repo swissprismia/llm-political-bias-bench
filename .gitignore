@@ -7,9 +7,15 @@ dist/
 build/
 .eggs/
 
+# Tool caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+pytest-cache-files-*/
+pytest-of-*/
+
 # Virtual environments
 .venv/
-venv/
 venv/
 env/
 
@@ -29,3 +35,6 @@ Thumbs.db
 # Env files
 .env
 *.env
+
+# Local analysis scratch (not part of the published benchmark)
+analysis/

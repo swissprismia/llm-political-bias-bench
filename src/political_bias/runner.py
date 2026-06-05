@@ -5,12 +5,15 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import os
 import sys
+from collections import Counter
+from dataclasses import asdict
 from pathlib import Path
 
 import click
 
-from political_bias.config import RESULTS_DIR, get_models
+from political_bias.config import PARAMS, RESULTS_DIR, ROOT_DIR, get_models
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -46,6 +49,64 @@ def _load_prior_summary(month: str) -> dict | None:
         if candidate.exists():
             return json.loads(candidate.read_text())
     return None
+
+
+def _build_trend_history(month: str, current_rows: list[dict]) -> list[dict]:
+    """Build trend rows from ALL prior months on disk plus the current month.
+
+    Previously only the single most recent prior summary was used, so trend.png
+    never showed more than two months regardless of available history.
+    """
+    historical: list[dict] = []
+    for path in sorted(RESULTS_DIR.glob("*/summary.json")):
+        try:
+            summary = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            logger.warning("Skipping unreadable summary: %s", path)
+            continue
+        if summary.get("month") == month:
+            continue  # current month comes from current_rows
+        for row in summary.get("model_summaries", []):
+            historical.append({
+                "month": summary["month"],
+                "model_id": row["model_id"],
+                "mean_score": row["mean_score"],
+            })
+    for row in current_rows:
+        historical.append({"month": month, "model_id": row["model_id"], "mean_score": row["mean_score"]})
+    return historical
+
+
+def _build_run_metadata(models: list, completeness: list[dict]) -> dict:
+    """Record exactly what produced this month's numbers — resolved model slugs,
+    parameters, git commit, and completeness — so cross-month comparability is
+    machine-checkable instead of archaeology."""
+    commit = os.environ.get("GITHUB_SHA")
+    if not commit:
+        try:
+            import subprocess
+            commit = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True, text=True, cwd=ROOT_DIR, timeout=5,
+            ).stdout.strip() or None
+        except Exception:
+            commit = None
+    return {
+        "git_commit": commit,
+        "models": [
+            {
+                "id": m.id,
+                "provider": m.provider,
+                "provider_model_id": m.request_model_id,
+                "temperature": m.temperature,
+                "reasoning_effort": m.reasoning_effort,
+                "max_tokens": m.max_tokens,
+            }
+            for m in models
+        ],
+        "params": asdict(PARAMS),
+        "completeness": completeness,
+    }
 
 
 def _write_json(path: Path, data: object) -> None:
@@ -135,6 +196,7 @@ async def _run_benchmark(
     refusal_stats = []
     theme_scores = []
     position_bias_results = []
+    completeness: list[dict] = []  # per-module expected vs collected — published in summary.json
 
     # ------------------------------------------------------------------
     # Likert module
@@ -154,6 +216,26 @@ async def _run_benchmark(
         else:
             # Evaluate new models
             responses = await evaluate_all(models, statements)
+
+            # Completeness: every (model, statement) pair must have a response.
+            # gather(return_exceptions=True) silently drops failed calls — without
+            # this check, a partially failed month is indistinguishable from a
+            # complete one in the published artifacts.
+            got_pairs = {(r.model_id, r.statement_id) for r in responses}
+            likert_missing = [
+                f"{cfg.id}/{s.id}"
+                for cfg in models
+                for s in statements
+                if (cfg.id, s.id) not in got_pairs
+            ]
+            completeness.append({
+                "module": "likert",
+                "models": [m.id for m in models],
+                "expected": len(models) * len(statements),
+                "collected": len(responses),
+                "missing": likert_missing,
+                "complete": not likert_missing,
+            })
 
             # Merge with existing raw responses from other models
             merged_raw = _merge_json_records(
@@ -181,6 +263,16 @@ async def _run_benchmark(
             likert_scores_agg = await run_judging(all_judge_models, all_responses, stmt_id_to_text)
             _write_json(out_dir / "likert_scores.json", likert_scores_json(likert_scores_agg))
 
+            # Judge coverage: failed judge calls are dropped, leaving entries
+            # aggregated from fewer than the full judge panel.
+            n_judges = len(all_judge_models)
+            short_entries = sum(1 for a in likert_scores_agg if len(a.raw_scores) < n_judges)
+            completeness[-1]["judge_coverage"] = {
+                "expected_judges": n_judges,
+                "entries_with_missing_judges": short_entries,
+                "total_entries": len(likert_scores_agg),
+            }
+
             # Refusal parity — compute from full merged responses so --limit reruns
             # don't replace a model's full-corpus stats with subset-only rates.
             refusal_stats = compute_refusal_parity(all_responses, all_statements)
@@ -202,7 +294,7 @@ async def _run_benchmark(
             click.echo(f"Loaded {len(themes)} themes for USA 2024")
 
             if dry_run:
-                _dry_run_ranking(models, themes, 5)
+                _dry_run_ranking(models, themes, PARAMS.ranking_runs_per_theme)
             else:
                 # Position bias calibration — published as a diagnostic only; the
                 # correction factors are no longer subtracted from vote shares
@@ -213,6 +305,31 @@ async def _run_benchmark(
 
                 # Ranking evaluation
                 ranking_responses = await evaluate_rankings(models, themes)
+
+                # Completeness: each (model, theme) must have exactly N runs.
+                # The merge below replaces ALL runs for a (model, theme) pair, so
+                # an incomplete collection would silently shrink the sample size.
+                n_runs = PARAMS.ranking_runs_per_theme
+                run_counts = Counter((r.model_id, r.theme_id) for r in ranking_responses)
+                ranking_missing = [
+                    f"{cfg.id}/{theme.id}: {run_counts.get((cfg.id, theme.id), 0)}/{n_runs} runs"
+                    for cfg in models
+                    for theme in themes
+                    if run_counts.get((cfg.id, theme.id), 0) < n_runs
+                ]
+                n_parse_failed = sum(1 for r in ranking_responses if r.parse_failed)
+                if n_parse_failed:
+                    click.echo(f"WARNING: {n_parse_failed} unparseable rankings (flagged, excluded from scoring)")
+                completeness.append({
+                    "module": "ranking",
+                    "models": [m.id for m in models],
+                    "expected": len(models) * len(themes) * n_runs,
+                    "collected": len(ranking_responses),
+                    "parse_failures": n_parse_failed,
+                    "missing": ranking_missing,
+                    "complete": not ranking_missing,
+                })
+
                 merged_ranking_raw = _merge_json_records(
                     out_dir / "ranking_raw.json", ranking_raw_json(ranking_responses), "model_id", "theme_id"
                 )
@@ -230,6 +347,8 @@ async def _run_benchmark(
                         candidate_order=r["candidate_order"],
                         raw_text=r["raw_text"],
                         refused=r["refused"],
+                        # default False for raw files written before this field existed
+                        parse_failed=r.get("parse_failed", False),
                     )
                     for r in merged_ranking_raw
                 ]
@@ -276,23 +395,35 @@ async def _run_benchmark(
     if theme_scores:
         chart_paths["vote_shares"] = vote_shares_chart(theme_scores, out_dir)
 
-    # Historical trend
-    historical = []
-    if prior_summary:
-        for row in prior_summary.get("model_summaries", []):
-            historical.append({"month": prior_summary["month"], "model_id": row["model_id"], "mean_score": row["mean_score"]})
-    # Add current month
+    # Historical trend — full history from all prior summaries on disk
     from political_bias.report.generator import _compute_model_summary
-    for row in _compute_model_summary(likert_scores_agg, refusal_stats):
-        historical.append({"month": month, "model_id": row["model_id"], "mean_score": row["mean_score"]})
-    chart_paths["trend"] = trend_chart(historical, out_dir)
+    current_rows = _compute_model_summary(likert_scores_agg, refusal_stats)
+    chart_paths["trend"] = trend_chart(_build_trend_history(month, current_rows), out_dir)
 
-    generate_summary_json(likert_scores_agg, refusal_stats, theme_scores, month, out_dir)
+    run_metadata = _build_run_metadata(models, completeness)
+    generate_summary_json(likert_scores_agg, refusal_stats, theme_scores, month, out_dir, run_metadata=run_metadata)
     generate_report(
         likert_scores_agg, refusal_stats, theme_scores,
         {k: v for k, v in chart_paths.items() if v is not None},
         month, out_dir, prior_summary,
     )
+
+    # Fail loudly on incomplete data — artifacts are written (so the month can be
+    # completed with a scoped rerun), but the run must not look like a clean pass.
+    incomplete = [c for c in completeness if not c["complete"]]
+    if incomplete:
+        for c in incomplete:
+            click.echo(
+                f"ERROR: {c['module']} module incomplete — {c['collected']}/{c['expected']} records. "
+                f"Missing (first 10): {c['missing'][:10]}",
+                err=True,
+            )
+        click.echo(
+            "Artifacts were written. Complete the month with a scoped rerun "
+            "(--module/--models), then regenerate the report.",
+            err=True,
+        )
+        raise SystemExit(1)
 
     click.echo(f"\nBenchmark complete. Results in: {out_dir}")
 
@@ -315,8 +446,8 @@ def cli() -> None:
 def run(month: str | None, module: str, model_list: str | None, dry_run: bool, limit: int | None) -> None:
     """Run the full benchmark (or a specific module)."""
     if month is None:
-        from datetime import datetime
-        month = datetime.utcnow().strftime("%Y-%m")
+        from datetime import datetime, timezone
+        month = datetime.now(timezone.utc).strftime("%Y-%m")
 
     model_names = [m.strip() for m in model_list.split(",")] if model_list else None
 
@@ -349,10 +480,10 @@ def report(month: str) -> None:
     from political_bias.likert.judge import AggregatedScore
     from political_bias.likert.refusal import RefusalStats
     from political_bias.ranking.scorer import ThemeScore
-    from political_bias.report.generator import generate_summary_json, generate_report
+    from political_bias.report.generator import generate_summary_json, generate_report, _compute_model_summary
     from political_bias.report.charts import (
         likert_violin, likert_spectrum_bar, category_heatmap,
-        vote_shares_chart, refusal_parity_chart,
+        vote_shares_chart, refusal_parity_chart, trend_chart,
     )
     from political_bias.likert.statements import load_statements
 
@@ -402,9 +533,22 @@ def report(month: str) -> None:
         chart_paths["refusal_parity"] = refusal_parity_chart(refusal_stats, out_dir)
     if theme_scores:
         chart_paths["vote_shares"] = vote_shares_chart(theme_scores, out_dir)
+    trend = trend_chart(_build_trend_history(month, _compute_model_summary(scores, refusal_stats)), out_dir)
+    if trend is not None:
+        chart_paths["trend"] = trend
+
+    # Preserve the original run_metadata (commit, model slugs, completeness) —
+    # report regeneration must not erase the provenance of the underlying data.
+    existing_metadata = None
+    summary_path = out_dir / "summary.json"
+    if summary_path.exists():
+        try:
+            existing_metadata = json.loads(summary_path.read_text(encoding="utf-8")).get("run_metadata")
+        except Exception:
+            pass
 
     prior_summary = _load_prior_summary(month)
-    generate_summary_json(scores, refusal_stats, theme_scores, month, out_dir)
+    generate_summary_json(scores, refusal_stats, theme_scores, month, out_dir, run_metadata=existing_metadata)
     generate_report(scores, refusal_stats, theme_scores, chart_paths, month, out_dir, prior_summary)
     click.echo(f"Report generated: {out_dir / 'report.md'}")
 

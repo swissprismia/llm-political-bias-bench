@@ -112,7 +112,7 @@ def vote_shares_chart(
     theme_scores: list[ThemeScore],
     out_dir: Path,
 ) -> Path:
-    """Grouped bar chart of simulated vs actual vote shares."""
+    """Grouped bar chart of simulated vs actual vote shares, averaged across all themes."""
     import pandas as pd
 
     if not theme_scores:
@@ -121,25 +121,27 @@ def vote_shares_chart(
         ax.text(0.5, 0.5, "No data", ha="center", va="center")
         return _save(fig, out_dir / "vote_shares.png", "Vote shares")
 
-    # Use first theme as example; plot all models
-    theme_id = theme_scores[0].theme_id
-    theme_data = [s for s in theme_scores if s.theme_id == theme_id]
-    candidates = list(theme_data[0].actual_vote_shares.keys())
-
     rows = []
-    for s in theme_data:
-        for c in candidates:
-            rows.append({"model": s.model_id, "candidate": c, "share": s.vote_shares.get(c, 0), "type": "simulated"})
-    for c, share in theme_data[0].actual_vote_shares.items():
-        rows.append({"model": "Actual", "candidate": c, "share": share, "type": "actual"})
+    for s in theme_scores:
+        for c, share in s.vote_shares.items():
+            rows.append({"model": s.model_id, "candidate": c, "share": share})
+    # Actual shares once per theme (identical across models within a theme)
+    actual_by_theme: dict[str, dict[str, float]] = {}
+    for s in theme_scores:
+        actual_by_theme.setdefault(s.theme_id, s.actual_vote_shares)
+    for shares in actual_by_theme.values():
+        for c, share in shares.items():
+            rows.append({"model": "Actual", "candidate": c, "share": share})
 
     df = pd.DataFrame(rows)
     pivot = df.groupby(["model", "candidate"])["share"].mean().unstack(fill_value=0)
+    n_candidates = len(pivot.columns)
+    n_themes = len(actual_by_theme)
 
     fig, ax = plt.subplots(figsize=(max(10, len(pivot) * 2), 5))
-    pivot.plot(kind="bar", ax=ax, color=_PALETTE[: len(candidates)], alpha=0.85)
+    pivot.plot(kind="bar", ax=ax, color=_PALETTE[:n_candidates], alpha=0.85)
     ax.set_ylabel("Vote Share")
-    ax.set_title(f"Simulated vs Actual Vote Shares — Theme: {theme_id}")
+    ax.set_title(f"Simulated vs Actual Vote Shares — mean across {n_themes} themes")
     ax.legend(title="Candidate", bbox_to_anchor=(1, 1))
     plt.xticks(rotation=15, ha="right")
     return _save(fig, out_dir / "vote_shares.png", "Vote shares")

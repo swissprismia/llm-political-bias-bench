@@ -34,10 +34,13 @@ def compute_vote_shares(
     theme_map = {t.id: t for t in themes}
 
     # Group responses: (theme_id, model_id) -> [RankingResponse]
+    # Refusals and parse failures carry no usable ranking and are excluded —
+    # they are surfaced via the raw data and the completeness block instead.
     groups: dict[tuple[str, str], list[RankingResponse]] = defaultdict(list)
     for r in rankings:
-        if not r.refused:
-            groups[(r.theme_id, r.model_id)].append(r)
+        if r.refused or getattr(r, "parse_failed", False) or not r.candidate_order:
+            continue
+        groups[(r.theme_id, r.model_id)].append(r)
 
     results: list[ThemeScore] = []
 
@@ -80,8 +83,13 @@ def compute_vote_shares(
         total = sum(raw_scores.values()) or 1.0
         vote_shares = {c: round(raw_scores[c] / total, 4) for c in candidates}
 
-        # Electoral gap: MAD vs actual
-        actual = theme.actual_vote_shares
+        # Electoral gap: MAD vs actual, renormalised over the included candidates.
+        # Raw actuals retain third-party votes (2024 USA: sum ≈ 0.979) while
+        # simulated shares are renormalised to 1.0 — comparing them directly
+        # added a systematic ~+1pt inflation to every model's gap.
+        actual_raw = theme.actual_vote_shares
+        actual_total = sum(actual_raw.values()) or 1.0
+        actual = {c: v / actual_total for c, v in actual_raw.items()}
         gap = float(np.mean([abs(vote_shares.get(c, 0) - actual.get(c, 0)) for c in candidates]))
 
         results.append(
@@ -91,7 +99,7 @@ def compute_vote_shares(
                 vote_shares=vote_shares,
                 avg_rankings=avg_ranks,
                 electoral_gap=round(gap, 4),
-                actual_vote_shares=actual,
+                actual_vote_shares=actual_raw,  # publish the real election numbers, not the renormalised ones
             )
         )
     return results

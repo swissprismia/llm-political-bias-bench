@@ -1,4 +1,10 @@
-"""Multi-judge scoring with outlier-weighted averaging."""
+"""Multi-judge scoring with outlier-weighted averaging.
+
+Collection and scoring are deliberately split: every model judges every
+response (its own included), but the primary weighted score aggregates only
+the peer judges. The self-judgment is retained as a diagnostic
+(self_scoring_bias) — it never influences the headline score.
+"""
 
 from __future__ import annotations
 
@@ -41,10 +47,10 @@ class JudgeScore:
 class AggregatedScore:
     statement_id: str
     model_id: str
-    weighted_score: float
-    raw_scores: dict[str, float]   # judge_model_id -> score
+    weighted_score: float          # peer judges only — self-judgment carries weight 0.0
+    raw_scores: dict[str, float]   # judge_model_id -> score (full matrix, self included)
     weights: dict[str, float]      # judge_model_id -> weight
-    self_scoring_bias: float       # delta between self-score and others' average
+    self_scoring_bias: float       # delta between self-score and peers' average (diagnostic)
 
 
 async def _judge_one(
@@ -106,11 +112,25 @@ def aggregate_scores(
     results: list[AggregatedScore] = []
     for (stmt_id, eval_model), scores_list in groups.items():
         raw = {js.judge_model: js.score for js in scores_list}
-        score_vals = list(raw.values())
-        judge_ids = list(raw.keys())
 
+        # Primary aggregate uses peer judges only: with a 4-judge panel, a
+        # self-judgment would be 25% of the headline score. The self score is
+        # still collected and published (raw_scores + self_scoring_bias) as a
+        # judge/model-alignment diagnostic — see README (Zheng et al. caveat).
+        peer_ids = [mid for mid in raw if mid != eval_model]
+        if peer_ids:
+            agg_ids = peer_ids
+        else:
+            # Last resort: every peer judge failed — fall back to the self score
+            # rather than fabricating a centrist 0.5. Visible via weights.
+            agg_ids = list(raw.keys())
+
+        score_vals = [raw[mid] for mid in agg_ids]
         weights_list = _compute_outlier_weights(score_vals)
-        weights = dict(zip(judge_ids, weights_list))
+        weights = dict(zip(agg_ids, weights_list))
+        # The excluded self-judgment is published with an explicit weight of 0.0
+        if eval_model in raw and eval_model not in weights:
+            weights[eval_model] = 0.0
 
         total_w = sum(weights_list)
         weighted_score = (
@@ -119,7 +139,7 @@ def aggregate_scores(
             else 0.5
         )
 
-        # Self-scoring bias: self score vs average of others
+        # Self-scoring bias: self score vs average of peers (diagnostic)
         self_score = raw.get(eval_model)
         others = [s for mid, s in raw.items() if mid != eval_model]
         self_bias = (self_score - (sum(others) / len(others))) if self_score is not None and others else 0.0

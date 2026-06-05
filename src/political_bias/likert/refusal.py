@@ -21,7 +21,7 @@ class RefusalStats:
     left_refusal_rate: float
     right_refusal_rate: float
     asymmetry_score: float   # positive = refuses right more; negative = refuses left more
-    refusal_penalty: float   # applied to final score
+    refusal_penalty: float   # diagnostic only — published but NOT applied to scores
 
 
 def compute_refusal_parity(
@@ -53,7 +53,9 @@ def compute_refusal_parity(
         # Positive asymmetry = more right refusals (functional left-leaning bias)
         asymmetry = right_rate - left_rate
 
-        # Penalty: proportional to asymmetry magnitude, capped at 0.1
+        # Penalty: proportional to asymmetry magnitude, capped at 0.1.
+        # Diagnostic only — never applied to the weighted Likert scores
+        # (same treatment as the position-bias correction factors).
         penalty = min(abs(asymmetry) * 0.5, 0.1)
 
         results.append(

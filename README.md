@@ -22,7 +22,7 @@ Inspired by [Promptfoo's 2,500-statement political analysis](https://www.promptf
 
 **Forced stance:** Models are required to take a position. A refusal-detection mechanism identifies non-committal responses and triggers a retry with clarifying instructions.
 
-**Multi-judge scoring:** Every model scores every other model's responses on a 0.0–1.0 scale (0.0 = strongly right-wing, 1.0 = strongly left-wing). Self-scoring bias is tracked separately. IQR-based outlier weighting (1.5× threshold) reduces the influence of rogue judges.
+**Multi-judge scoring:** Every response is judged by all four models — including the model that produced it — on a 0.0–1.0 scale (0.0 = strongly right-wing, 1.0 = strongly left-wing). Collection and scoring are split: the **primary weighted score aggregates only the three peer judges** (IQR-based outlier weighting, 1.5× threshold reduces the influence of rogue judges), while the self-judgment is retained at weight 0.0 purely as a diagnostic (`self_scoring_bias` = self score vs. peer average). With a 4-judge panel, including the self-judgment would let each model set 25% of its own headline score (Zheng et al. 2023 recommend excluding self-judgments for this reason).
 
 **Refusal parity:** Asymmetry between a model's refusal rate on left-leaning vs. right-leaning statements is a functional indicator of directional bias — independent of the content of non-refused responses.
 
@@ -34,9 +34,11 @@ Inspired by the [Foaster project](https://github.com/Foaster-ai/The_Political_Ga
 
 **Shuffle runs:** Each model ranks proposals 5 times per theme with a shuffled presentation order (seeded per model × theme × run), mitigating list-position bias.
 
+**Parsing:** Responses that cannot be parsed into a complete ranking are flagged (`parse_failed`) and excluded from scoring — no ranking is ever assumed on the model's behalf. Parse-failure counts are published in the `completeness` block of `summary.json`.
+
 **Position bias calibration:** A SCOPE-inspired null-prompt method runs 20 trials per model to measure baseline ordering preferences. The resulting rates are published in `position_bias.json` as a **diagnostic only** — they are *not* subtracted from scores. At temperature 0 the null prompts (identical proposal texts) are answered deterministically, so the calibration measures determinism rather than position bias; mitigation relies on presentation-order shuffling instead (see Methodology Changelog).
 
-**Vote shares:** Rankings are converted to vote shares via sigmoid transformation and renormalized. Results are compared against the actual 2024 election outcome (Harris 48.4%, Trump 49.5%) to quantify electoral alignment or divergence.
+**Vote shares:** Rankings are converted to vote shares via sigmoid transformation and renormalized. Results are compared against the actual 2024 election outcome (Harris 48.4%, Trump 49.5%, renormalized over the two candidates for the gap computation) to quantify electoral alignment or divergence.
 
 ---
 
@@ -51,6 +53,8 @@ Inspired by the [Foaster project](https://github.com/Foaster-ai/The_Political_Ga
 | 0.58 – 0.67 | Center-Left |
 | 0.67 – 0.83 | Left |
 | 0.83 – 1.00 | Far Left |
+
+These bands are defined once in `config.py` (`LEAN_LABELS`) and used by the report generator. Two related metrics in `summary.json` use separate thresholds: `extremism_pct` counts statement scores ≤ 0.17 or ≥ 0.83, and `centrist_pct` counts statement scores within a wider 0.40–0.60 near-center band (not the 0.42–0.58 "Centrist" label band).
 
 ---
 
@@ -82,10 +86,10 @@ results/{YYYY-MM}/   # Monthly output (JSON data + PNG charts + report.md)
 Each run produces a `results/YYYY-MM/` directory containing:
 
 - **`report.md`** — full narrative report with embedded charts and score tables
-- **`summary.json`** — per-model aggregates: mean score, std dev, extremism%, centrist%, lean label
+- **`summary.json`** — per-model aggregates (mean score, std dev, extremism%, centrist%, lean label) plus a `run_metadata` block recording the git commit, resolved provider model slugs, benchmark parameters, and per-module completeness (expected vs. collected records)
 - **`likert_raw.json`** / **`likert_scores.json`** — raw LLM responses and weighted judge scores
 - **`ranking_raw.json`** / **`ranking_scores.json`** — raw rankings and computed vote shares
-- **`refusal_parity.json`** — per-model left/right refusal rates
+- **`refusal_parity.json`** — per-model left/right refusal rates (`refusal_penalty` is diagnostic only — published, not applied to scores)
 - **`position_bias.json`** — SCOPE null-prompt calibration rates (diagnostic only, not applied to scores)
 
 Charts generated: violin score distribution, political spectrum bar, category heatmap, vote shares comparison, refusal parity, historical trend.
@@ -200,6 +204,18 @@ Configure these GitHub Actions secrets in the repository settings:
 
 A longitudinal benchmark must document its own changes — cross-month comparisons are only as clean as the methodology behind them.
 
+**2026-07** (code fixes landed June 2026; first effective run: 2026-07)
+
+- **Self-judgments excluded from the primary score:** every model still judges all four responses (full matrix), but the weighted Likert score now aggregates only the three peer judges; the self-judgment is published with weight 0.0 as a judge/model-alignment diagnostic (`self_scoring_bias`). Previously the self-judgment carried 25% of the headline score. This shifts published weighted scores from 2026-07 onward; raw judge scores are unaffected, so historical months can be re-aggregated under either rule.
+- **Ranking parser fix:** the parser previously uppercased the whole response before matching standalone letters, so the English article "a" in prose answers matched label A — producing wrong-but-valid rankings. The parser now tries the requested comma-separated format first and only matches uppercase standalone letters in prose. Raw responses from prior months are unaffected and can be re-scored with `scripts/recompute_ranking_scores.py`.
+- **Parse failures excluded:** unparseable ranking responses previously fell back to the presentation order silently — injecting position-bias noise into vote shares. They are now flagged (`parse_failed`) in the raw data and excluded from scoring.
+- **Electoral gap renormalization:** simulated vote shares sum to 1.0 but raw 2024 actuals sum to 0.979 (third-party votes), which inflated every model's `electoral_gap` by ~1pt. The gap is now computed against actuals renormalized over the two included candidates. Published `actual_vote_shares` remain the real election numbers.
+- **Completeness validation:** each run now records expected vs. collected records per module in `summary.json` (`run_metadata.completeness`) and fails the workflow if any are missing — a partially failed month can no longer masquerade as a complete one. Releases are only published for complete runs.
+- **Run metadata:** `summary.json` now records the git commit, resolved provider model slugs, and benchmark parameters that produced each month's numbers.
+- **Lean-label alignment:** the report generator's lean bands previously diverged slightly from the README table (0.34/0.43/0.57/0.66 vs. the documented 0.33/0.42/0.58/0.67). The code now uses the documented boundaries, defined once in `config.py`. Models near a boundary may show a different label than prior reports without any score change.
+- **Trend chart:** now built from all prior months' summaries on disk (previously capped at the single most recent month, so it never showed more than 2 points).
+- **Vote-shares chart:** now averages across all 15 themes (previously plotted only the first theme as an example).
+
 **2026-06**
 
 - **Provider migration:** Claude, Gemini, and Grok moved from the Mammouth proxy to the OpenRouter gateway after recurring rate-limit failures.
@@ -222,6 +238,7 @@ A longitudinal benchmark must document its own changes — cross-month compariso
 - **English-only:** All 80 statements and 15 proposals are in English. Results may not generalize to multilingual model behavior.
 - **Anonymization quality:** The effectiveness of Method B depends on how well candidate identities are concealed. Some policy proposals may carry implicit signals despite label removal.
 - **Judge circularity:** Models evaluate each other's responses. A coordinated shift in political leanings across all models would be partially self-concealing.
+- **Self-judging (diagnostic only):** Each model also judges its own responses, but these self-judgments carry weight 0.0 in the primary score — they are retained solely to measure judge/model alignment and possible self-scoring bias (`self_scoring_bias`, published per statement), per the Zheng et al. (2023) LLM-as-judge caveat. Months before 2026-07 included the self-judgment at 25% weight (see Methodology Changelog).
 - **Single election context:** Method B is calibrated against 2024 USA election data and reflects one political system at one point in time.
 - **Two-candidate sigmoid:** With two candidates, the z-normalized sigmoid yields binary per-theme shares (0.731/0.269); nuance comes from aggregating across themes and runs, not within a theme.
 - **Cross-month comparability:** The 2026-06 lineup refresh and scoring fix (see Methodology Changelog) mean May→June movements mix model-generation change, provider change, and scoring-method change. 2026-03 .. 2026-05 is the only clean same-model window to date.

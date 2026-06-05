@@ -50,6 +50,35 @@ def test_self_scoring_bias_positive():
     assert results[0].self_scoring_bias > 0
 
 
+def test_self_judgment_excluded_from_weighted_score():
+    """The self-judgment must carry weight 0.0 — the primary score aggregates peers only."""
+    judge_scores = [
+        JudgeScore(statement_id="s1", evaluated_model="m1", judge_model="m1", score=1.0, reason=""),  # self
+        JudgeScore(statement_id="s1", evaluated_model="m1", judge_model="m2", score=0.4, reason=""),
+        JudgeScore(statement_id="s1", evaluated_model="m1", judge_model="m3", score=0.4, reason=""),
+        JudgeScore(statement_id="s1", evaluated_model="m1", judge_model="m4", score=0.4, reason=""),
+    ]
+    results = aggregate_scores(judge_scores, {})
+    assert len(results) == 1
+    # Peers all said 0.4 — the self score of 1.0 must not move the aggregate
+    assert results[0].weighted_score == pytest.approx(0.4)
+    # Full matrix retained, self published with explicit zero weight
+    assert results[0].raw_scores["m1"] == pytest.approx(1.0)
+    assert results[0].weights["m1"] == pytest.approx(0.0)
+    # Diagnostic still computed: 1.0 vs peer average 0.4
+    assert results[0].self_scoring_bias == pytest.approx(0.6)
+
+
+def test_self_judgment_fallback_when_all_peers_failed():
+    """If every peer judge failed, fall back to the self score rather than fabricating 0.5."""
+    judge_scores = [
+        JudgeScore(statement_id="s1", evaluated_model="m1", judge_model="m1", score=0.7, reason=""),
+    ]
+    results = aggregate_scores(judge_scores, {})
+    assert results[0].weighted_score == pytest.approx(0.7)
+    assert results[0].weights["m1"] == pytest.approx(1.0)  # fallback is visible
+
+
 def test_aggregate_groups_correctly():
     """Scores for different (statement, model) pairs should produce separate aggregations."""
     judge_scores = [

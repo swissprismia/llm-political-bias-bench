@@ -126,3 +126,85 @@ def test_electoral_gap_perfect():
 
     scores = compute_vote_shares(responses, [theme])
     assert scores[0].electoral_gap < 0.1  # near-zero gap
+
+
+def _two_candidate_theme(actual: dict[str, float]) -> Theme:
+    return Theme(
+        id="test_theme",
+        name="Test",
+        country="USA",
+        election_year=2024,
+        proposals=[
+            Proposal(label="A", text="...", candidate="CandA", party="PartyA"),
+            Proposal(label="B", text="...", candidate="CandB", party="PartyB"),
+        ],
+        actual_vote_shares=actual,
+    )
+
+
+def test_parse_failures_excluded_from_vote_shares():
+    """Flagged parse failures must not enter scoring as presentation-order noise."""
+    theme = _two_candidate_theme({"CandA": 0.5, "CandB": 0.5})
+
+    valid = [
+        RankingResponse(
+            theme_id="test_theme", model_id="model_x", run_index=i,
+            proposal_order=["A", "B"], ranked_labels=["B", "A"],
+            candidate_order=["CandB", "CandA"], raw_text="B, A", refused=False,
+        )
+        for i in range(2)
+    ]
+    failed = [
+        RankingResponse(
+            theme_id="test_theme", model_id="model_x", run_index=2 + i,
+            proposal_order=["A", "B"], ranked_labels=[],
+            candidate_order=[], raw_text="prose with no ranking", refused=False,
+            parse_failed=True,
+        )
+        for i in range(3)
+    ]
+
+    scores = compute_vote_shares(valid + failed, [theme])
+    assert len(scores) == 1
+    # Only the valid responses (CandB first) count
+    assert scores[0].vote_shares["CandB"] > scores[0].vote_shares["CandA"]
+    assert scores[0].avg_rankings["CandB"] == pytest.approx(1.0)
+
+
+def test_all_parse_failures_yield_no_score():
+    theme = _two_candidate_theme({"CandA": 0.5, "CandB": 0.5})
+    failed = [
+        RankingResponse(
+            theme_id="test_theme", model_id="model_x", run_index=i,
+            proposal_order=["A", "B"], ranked_labels=[],
+            candidate_order=[], raw_text="???", refused=False, parse_failed=True,
+        )
+        for i in range(5)
+    ]
+    assert compute_vote_shares(failed, [theme]) == []
+
+
+def test_electoral_gap_uses_renormalised_actuals():
+    """Raw actuals sum to 0.979 (third-party votes); the gap must compare
+    simulated shares against actuals renormalised over the two candidates,
+    not against the raw values (which inflated every gap by ~1pt)."""
+    theme = _two_candidate_theme({"CandA": 0.484, "CandB": 0.495})
+
+    # Alternate rankings -> 0.5/0.5 simulated shares
+    responses = []
+    for i in range(4):
+        order = ["CandA", "CandB"] if i % 2 == 0 else ["CandB", "CandA"]
+        responses.append(
+            RankingResponse(
+                theme_id="test_theme", model_id="model_x", run_index=i,
+                proposal_order=["A", "B"],
+                ranked_labels=["A", "B"] if i % 2 == 0 else ["B", "A"],
+                candidate_order=order, raw_text="", refused=False,
+            )
+        )
+
+    scores = compute_vote_shares(responses, [theme])
+    # Renormalised actuals: 0.4944 / 0.5056 -> gap ~0.0056 (raw would give ~0.0105)
+    assert scores[0].electoral_gap == pytest.approx(0.0056, abs=2e-3)
+    # Published actuals stay the real election numbers
+    assert scores[0].actual_vote_shares == {"CandA": 0.484, "CandB": 0.495}

@@ -75,6 +75,17 @@ class _Limiter:
 
 _limiters: dict[str, _Limiter] = {}
 
+# SDK clients cached per provider/credential combo — constructing a new client
+# (and its httpx connection pool) for every request paid TLS + pool setup
+# thousands of times per run and made transport errors more likely.
+_clients: dict[str, Any] = {}
+
+
+def _cached_client(key: str, factory: Any) -> Any:
+    if key not in _clients:
+        _clients[key] = factory()
+    return _clients[key]
+
 
 def _get_limiter(cfg: ModelConfig) -> _Limiter:
     key = cfg.rate_limit_key or cfg.id
@@ -98,7 +109,7 @@ def _get_limiter(cfg: ModelConfig) -> _Limiter:
 async def _call_openai(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
     from openai import AsyncOpenAI
 
-    client = AsyncOpenAI(api_key=cfg.api_key)
+    client = _cached_client(f"openai:{cfg.api_key_env}", lambda: AsyncOpenAI(api_key=cfg.api_key))
     resp = await client.chat.completions.create(
         model=cfg.request_model_id,
         temperature=cfg.temperature,
@@ -119,10 +130,13 @@ async def _call_openai(cfg: ModelConfig, system: str, user: str) -> dict[str, An
 async def _call_azure_openai(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
     from openai import AsyncAzureOpenAI
 
-    client = AsyncAzureOpenAI(
-        api_key=cfg.api_key,
-        azure_endpoint=cfg.azure_endpoint or "",
-        api_version=cfg.azure_api_version or "2025-01-01-preview",
+    client = _cached_client(
+        f"azure_openai:{cfg.api_key_env}:{cfg.azure_endpoint}",
+        lambda: AsyncAzureOpenAI(
+            api_key=cfg.api_key,
+            azure_endpoint=cfg.azure_endpoint or "",
+            api_version=cfg.azure_api_version or "2025-01-01-preview",
+        ),
     )
     kwargs: dict[str, Any] = {}
     if cfg.temperature is not None:  # reasoning models reject non-default temperature
@@ -150,9 +164,9 @@ async def _call_azure_foundry(cfg: ModelConfig, system: str, user: str) -> dict[
     """Azure AI Foundry — OpenAI-compatible endpoint."""
     from openai import AsyncOpenAI
 
-    client = AsyncOpenAI(
-        api_key=cfg.api_key,
-        base_url=cfg.azure_endpoint,
+    client = _cached_client(
+        f"azure_foundry:{cfg.api_key_env}:{cfg.azure_endpoint}",
+        lambda: AsyncOpenAI(api_key=cfg.api_key, base_url=cfg.azure_endpoint),
     )
     resp = await client.chat.completions.create(
         model=cfg.request_model_id,
@@ -175,9 +189,9 @@ async def _call_mammouth(cfg: ModelConfig, system: str, user: str) -> dict[str, 
     """Mammouth.ai — OpenAI-compatible proxy for Claude, Grok, Gemini."""
     from openai import AsyncOpenAI
 
-    client = AsyncOpenAI(
-        api_key=cfg.api_key,
-        base_url="https://api.mammouth.ai/v1",
+    client = _cached_client(
+        f"mammouth:{cfg.api_key_env}",
+        lambda: AsyncOpenAI(api_key=cfg.api_key, base_url="https://api.mammouth.ai/v1"),
     )
     resp = await client.chat.completions.create(
         model=cfg.request_model_id,
@@ -204,10 +218,13 @@ async def _call_openrouter(cfg: ModelConfig, system: str, user: str) -> dict[str
         "HTTP-Referer": "https://github.com/swissprismia/llm-political-bias-bench",
         "X-Title": "LLM Political Bias Benchmark",
     }
-    client = AsyncOpenAI(
-        api_key=cfg.api_key,
-        base_url="https://openrouter.ai/api/v1",
-        default_headers=headers,
+    client = _cached_client(
+        f"openrouter:{cfg.api_key_env}",
+        lambda: AsyncOpenAI(
+            api_key=cfg.api_key,
+            base_url="https://openrouter.ai/api/v1",
+            default_headers=headers,
+        ),
     )
     resp = await client.chat.completions.create(
         model=cfg.request_model_id,
@@ -229,13 +246,16 @@ async def _call_openrouter(cfg: ModelConfig, system: str, user: str) -> dict[str
 async def _call_anthropic(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
     from anthropic import AsyncAnthropic
 
-    client = AsyncAnthropic(api_key=cfg.api_key)
+    client = _cached_client(f"anthropic:{cfg.api_key_env}", lambda: AsyncAnthropic(api_key=cfg.api_key))
+    kwargs: dict[str, Any] = {}
+    if cfg.temperature is not None:  # the SDK expects float | Omit — omit when unset
+        kwargs["temperature"] = cfg.temperature
     resp = await client.messages.create(
         model=cfg.request_model_id,
         max_tokens=cfg.max_tokens,
-        temperature=cfg.temperature,
         system=system,
         messages=[{"role": "user", "content": user}],
+        **kwargs,
     )
     return {
         "text": next((b.text for b in resp.content if hasattr(b, "text")), ""),
@@ -248,7 +268,7 @@ async def _call_google(cfg: ModelConfig, system: str, user: str) -> dict[str, An
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=cfg.api_key)
+    client = _cached_client(f"google:{cfg.api_key_env}", lambda: genai.Client(api_key=cfg.api_key))
     resp = await asyncio.to_thread(
         client.models.generate_content,
         model=cfg.request_model_id,

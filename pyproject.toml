@@ -39,3 +39,13 @@ where = ["src"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+
+[tool.mypy]
+exclude = [
+    "^pytest-cache-files-.*",
+    "^pytest-of-.*",
+    "^analysis/",
+    "^results/",
+    "^build/",
+    "^dist/",
+]

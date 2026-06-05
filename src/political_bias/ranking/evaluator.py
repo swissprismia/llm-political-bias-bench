@@ -34,24 +34,45 @@ class RankingResponse:
     model_id: str
     run_index: int
     proposal_order: list[str]     # shuffled labels in presentation order
-    ranked_labels: list[str]      # labels in ranked order (1st = most preferred)
-    candidate_order: list[str]    # actual candidates in ranked order
+    ranked_labels: list[str]      # labels in ranked order (1st = most preferred); empty if unusable
+    candidate_order: list[str]    # actual candidates in ranked order; empty if unusable
     raw_text: str
     refused: bool
+    parse_failed: bool = False    # response could not be parsed into a complete ranking
+
+
+# A comma-separated part that is a single letter, optionally wrapped in
+# punctuation/markdown (e.g. "**B" or " A.").
+_LABEL_PART = re.compile(r"[^A-Za-z]*([A-Za-z])[^A-Za-z]*")
 
 
 def _parse_ranking(text: str, expected_labels: list[str]) -> list[str] | None:
-    """Extract ordered labels from model response."""
-    # Find all label mentions like "A", "B", "C"
-    found = re.findall(r"\b([A-Z])\b", text.upper())
-    # Deduplicate preserving order
+    """Extract ordered labels from model response.
+
+    Tries the requested format first — a line containing only comma-separated
+    labels (e.g. "B, A") — then falls back to standalone uppercase letters in
+    prose. The text is deliberately NOT uppercased wholesale: doing so turned
+    the English article "a" into label A and produced wrong-but-valid rankings
+    from prose answers.
+    """
+    expected = set(expected_labels)
+
+    # 1. Strict: a line of comma-separated single letters covering all labels.
+    for line in text.splitlines():
+        parts = [_LABEL_PART.fullmatch(p) for p in line.split(",")]
+        if len(parts) == len(expected_labels) and all(parts):
+            candidate = [m.group(1).upper() for m in parts if m]
+            if len(candidate) == len(expected_labels) and set(candidate) == expected:
+                return candidate
+
+    # 2. Lenient: standalone uppercase letters in prose, deduplicated in order.
     seen: set[str] = set()
-    ordered = []
-    for lbl in found:
-        if lbl in expected_labels and lbl not in seen:
+    ordered: list[str] = []
+    for lbl in re.findall(r"\b([A-Z])\b", text):
+        if lbl in expected and lbl not in seen:
             ordered.append(lbl)
             seen.add(lbl)
-    if set(ordered) == set(expected_labels):
+    if set(ordered) == expected:
         return ordered
     return None
 
@@ -86,10 +107,17 @@ async def _rank_once(
     )
 
     ranked = _parse_ranking(resp.text, labels)
-
+    parse_failed = ranked is None and not resp.refused
+    if parse_failed:
+        logger.warning(
+            "Unparseable ranking from %s for %s run %d: %r",
+            cfg.id, theme.id, run_idx, resp.text[:120],
+        )
     if ranked is None or resp.refused:
-        # Fallback: original order
-        ranked = labels
+        # Refusals and parse failures carry no usable ranking. They are kept in
+        # the raw data (flagged) but excluded from scoring — the old fallback to
+        # presentation order injected position-bias noise into vote shares.
+        ranked = []
 
     # Map labels back to candidates
     label_to_candidate = {p.label: p.candidate for p in proposals}
@@ -104,6 +132,7 @@ async def _rank_once(
         candidate_order=candidate_order,
         raw_text=resp.text,
         refused=resp.refused,
+        parse_failed=parse_failed,
     )
 
 
@@ -143,6 +172,7 @@ def to_raw_json(responses: list[RankingResponse]) -> list[dict]:
             "candidate_order": r.candidate_order,
             "raw_text": r.raw_text,
             "refused": r.refused,
+            "parse_failed": r.parse_failed,
         }
         for r in responses
     ]
