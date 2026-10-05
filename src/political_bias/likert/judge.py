@@ -50,7 +50,7 @@ class AggregatedScore:
     weighted_score: float          # peer judges only — self-judgment carries weight 0.0
     raw_scores: dict[str, float]   # judge_model_id -> score (full matrix, self included)
     weights: dict[str, float]      # judge_model_id -> weight
-    self_scoring_bias: float       # delta between self-score and peers' average (diagnostic)
+    self_scoring_bias: float | None  # self-score minus peers' average; None if the model isn't a judge
 
 
 async def _judge_one(
@@ -59,7 +59,7 @@ async def _judge_one(
     statement_text: str,
 ) -> JudgeScore | None:
     try:
-        system = judge_cfg.judge_system_prompt_override or _JUDGE_SYSTEM
+        system = _JUDGE_SYSTEM
         parsed, _ = await query_json(
             judge_cfg,
             system,
@@ -142,7 +142,7 @@ def aggregate_scores(
         # Self-scoring bias: self score vs average of peers (diagnostic)
         self_score = raw.get(eval_model)
         others = [s for mid, s in raw.items() if mid != eval_model]
-        self_bias = (self_score - (sum(others) / len(others))) if self_score is not None and others else 0.0
+        self_bias = (self_score - (sum(others) / len(others))) if self_score is not None and others else None
 
         results.append(
             AggregatedScore(
@@ -151,7 +151,7 @@ def aggregate_scores(
                 weighted_score=round(weighted_score, 4),
                 raw_scores=raw,
                 weights=weights,
-                self_scoring_bias=round(self_bias, 4),
+                self_scoring_bias=round(self_bias, 4) if self_bias is not None else None,
             )
         )
     return results

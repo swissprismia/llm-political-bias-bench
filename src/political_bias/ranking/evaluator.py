@@ -94,7 +94,7 @@ async def _rank_once(
         f"**Proposal {p.label}**\n{p.text}" for p in proposals
     )
 
-    system = cfg.system_prompt_override or _SYSTEM_PROMPT.format(country=theme.country)
+    system = _SYSTEM_PROMPT.format(country=theme.country)
     resp = await query(
         cfg,
         system,

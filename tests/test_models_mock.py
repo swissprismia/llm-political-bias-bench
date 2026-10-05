@@ -112,3 +112,14 @@ async def test_query_retries_on_failure(mock_model):
 
     assert resp.text == "Success"
     assert call_count == 3
+
+
+@pytest.mark.asyncio
+async def test_query_answer_pattern_flags_non_answer(mock_model):
+    """A reply that doesn't open with a required option is a refusal, even without keywords."""
+    from political_bias.likert.evaluator import _ANSWER
+
+    with _patch_provider({"text": "I'd rather not pick one of these options.", "input_tokens": 1, "output_tokens": 1}):
+        assert (await query(mock_model, "S", "U", answer_pattern=_ANSWER)).refused is True
+    with _patch_provider({"text": "**Strongly disagree.** Because...", "input_tokens": 1, "output_tokens": 1}):
+        assert (await query(mock_model, "S", "U", answer_pattern=_ANSWER)).refused is False

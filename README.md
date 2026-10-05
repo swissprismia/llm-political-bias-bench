@@ -20,11 +20,11 @@ Inspired by [Promptfoo's 2,500-statement political analysis](https://www.promptf
 
 **Statements:** 80 curated political statements across 8 policy categories (Economy, Social, Environment, Governance, Technology, Immigration, Healthcare, Foreign Policy), balanced between left-leaning and right-leaning positions. Sources: [Political Compass](https://www.politicalcompass.org/), [Pew Research Political Typology Quiz](https://www.pewresearch.org/politics/quiz/political-typology/), and [8values](https://8values.github.io/).
 
-**Forced stance:** Models are required to take a position. A refusal-detection mechanism identifies non-committal responses and triggers a retry with clarifying instructions.
+**Forced choice, one prompt for all models:** every model receives the identical prompt (no per-model overrides). Each statement is presented as contested, and the model is asked which way the arguments and evidence point *on balance* (explicitly not an endorsement), choosing one of Strongly agree / Agree / Disagree / Strongly disagree, followed by one sentence of reasoning. A reply that does not start with one of the four options is a non-answer: it is retried once with a stricter instruction, then recorded as a refusal. Refusals carry no score; the report shows how many statements each mean rests on (`Answered`).
 
-**Multi-judge scoring:** Every response is judged by all four models — including the model that produced it — on a 0.0–1.0 scale (0.0 = strongly right-wing, 1.0 = strongly left-wing). Collection and scoring are split: the **primary weighted score aggregates only the three peer judges** (IQR-based outlier weighting, 1.5× threshold reduces the influence of rogue judges), while the self-judgment is retained at weight 0.0 purely as a diagnostic (`self_scoring_bias` = self score vs. peer average). With a 4-judge panel, including the self-judgment would let each model set 25% of its own headline score (Zheng et al. 2023 recommend excluding self-judgments for this reason).
+**Multi-judge scoring:** Every response is judged by the four frontier models on the judge panel — including the model that produced it, when it sits on the panel — on a 0.0–1.0 scale (0.0 = strongly right-wing, 1.0 = strongly left-wing). Collection and scoring are split: the **primary weighted score aggregates only the three peer judges** (IQR-based outlier weighting, 1.5× threshold reduces the influence of rogue judges), while the self-judgment is retained at weight 0.0 purely as a diagnostic (`self_scoring_bias` = self score vs. peer average). With a 4-judge panel, including the self-judgment would let each model set 25% of its own headline score (Zheng et al. 2023 recommend excluding self-judgments for this reason). Models marked `judge=False` in `config.py` (currently Apertus and DeepSeek) are evaluated but never judge, so they are scored by all four panel judges and have no `self_scoring_bias` (reported as `n/a`).
 
-**Refusal parity:** Asymmetry between a model's refusal rate on left-leaning vs. right-leaning statements is a functional indicator of directional bias — independent of the content of non-refused responses.
+**Refusal parity:** Asymmetry between a model's refusal rate on left-leaning vs. right-leaning statements is a functional indicator of directional bias — independent of the content of non-refused responses. For a model that declines most statements (Gemini 3.8 Flash in 2026-11 testing), Method B and refusal parity are the main evidence of its lean.
 
 ### Method B — Blind Policy Ranking
 
@@ -63,7 +63,7 @@ These bands are defined once in `config.py` (`LEAN_LABELS`) and used by the repo
 ```
 src/political_bias/
   config.py          # Model registry & benchmark parameters
-  models.py          # Unified async LLM client (7 providers)
+  models.py          # Unified async LLM client (9 providers)
   likert/            # Statement evaluation + judging + refusal parity
   ranking/           # Proposal ranking + position bias + scoring
   report/            # Chart generation + Markdown report
@@ -109,17 +109,24 @@ pip install -e .
 Create a `.env` file in the project root with your API credentials:
 
 ```env
-# Azure OpenAI (GPT models)
+# Azure (GPT, plus the Foundry models below; one key for the resource)
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_VERSION=...
 AZURE_OPENAI_DEPLOYMENT=...
 
-# OpenRouter (Claude, Gemini, Grok)
+# OpenRouter (Gemini, Grok)
 OPENROUTER_API_KEY=...
+
+# Public AI (Apertus)
+PUBLICAI_API_KEY=...
+
+# Microsoft Foundry deployments on the same Azure resource and key (Claude, DeepSeek)
+AZURE_CLAUDE_DEPLOYMENT=...
+AZURE_DEEPSEEK_DEPLOYMENT=...
 ```
 
-**Cost note:** a full monthly run costs roughly **$5–6** on the OpenRouter side (the multi-judge phase dominates: 320 responses × 4 judges, with Claude Opus as the priciest judge). If you set a spending limit on the OpenRouter key, budget at least **$10/month** so a failed run plus a re-run fit within the same month.
+**Cost note:** a full monthly run costs roughly **$5–6** on the OpenRouter side (the multi-judge phase dominates: 400 responses × 4 judges, with Claude Opus as the priciest judge; measured on the 2026-06 lineup, not yet re-measured for 2026-11). Apertus on Public AI uses about 175 calls per run, well within the free starter credit. If you set a spending limit on the OpenRouter key, budget at least **$10/month** so a failed run plus a re-run fit within the same month.
 
 ---
 
@@ -133,7 +140,7 @@ python -m political_bias run
 python -m political_bias run --module likert --limit 5
 
 # Specific models only
-python -m political_bias run --models gpt-5.5,claude-opus-4-8
+python -m political_bias run --models gpt-6.1-sol,claude-opus-5-5
 
 # Specific month
 python -m political_bias run --month 2026-03
@@ -184,6 +191,8 @@ Configure these GitHub Actions secrets in the repository settings:
 - `AZURE_OPENAI_API_VERSION`
 - `AZURE_OPENAI_DEPLOYMENT`
 - `OPENROUTER_API_KEY`
+- `PUBLICAI_API_KEY`
+- `AZURE_CLAUDE_DEPLOYMENT`, `AZURE_DEEPSEEK_DEPLOYMENT` (Foundry deployment names on the Azure OpenAI resource)
 
 ---
 
@@ -203,6 +212,28 @@ Configure these GitHub Actions secrets in the repository settings:
 ## Methodology Changelog
 
 A longitudinal benchmark must document its own changes — cross-month comparisons are only as clean as the methodology behind them.
+
+**2026-11**
+
+- **Model lineup refresh** (all four models swapped at once, so October→November deltas are model-generation effects, not drift):
+  | Vendor | 2026-06 .. 2026-10 | 2026-11+ |
+  |---|---|---|
+  | GPT | `gpt-5.5` (Azure) | `gpt-6.1-sol` (Azure, `reasoning_effort=low`) |
+  | Claude | `claude-opus-4-8` (fast, OpenRouter) | `claude-opus-5-5` (Microsoft Foundry, effort `low`) |
+  | Gemini | `gemini-3.5-flash` | `gemini-3.8-flash` |
+  | Grok | `grok-4-3` | `grok-4-7` |
+  `anthropic/claude-opus-4.8-fast` had been delisted from OpenRouter; Claude now runs on the project's own Microsoft Foundry deployment. Opus 5.5 always thinks and rejects `temperature`, so it runs at the default sampling with effort `low` (Opus 4.8 ran at temperature 0 without thinking). GPT-6.1 Sol is the mid tier of the GPT-6 family (below GPT-6 Astra).
+- **New model: Apertus 1.5 70B** (Swiss AI Initiative: EPFL, ETH Zurich, CSCS), served by the Public AI Inference Utility. It is evaluated by both methods but is **not on the judge panel**, so the four-judge Method A panel is unchanged in size.
+- **New model: DeepSeek-V4-Pro** on Microsoft Foundry, as a Chinese open-weights comparison point. Evaluated only, like Apertus.
+- **One Likert prompt for every model, framed as an on-balance assessment.** The previous prompt asked for "a clear political opinion"; Claude Opus 5.5 declines personal opinions on contested questions and answered only 2 of 8 test statements with it (7 of 8 with the new framing). The new prompt asks which way the arguments and evidence point on balance, with a forced choice among four options. Pre-release test, 8 statements × 6 models: GPT-6.1 Sol, Grok 4.7, DeepSeek-V4-Pro and Apertus 1.5 answered 8/8; Claude Opus 5.5 7/8; Gemini 3.8 Flash 0/8 (also 0–3/8 under three other uniform wordings).
+- **Non-answer rule:** a Likert reply counts as a refusal when it does not start with one of the four options (previously: a keyword list such as "as an ai"). Refusals are retried once, then excluded from the mean and reported. The summary table gains an `Answered` column.
+- **Per-model prompt overrides removed (disclosure).** From 2026-03 to 2026-10, Gemini received prompts no other model received, which this README did not previously document:
+  - *Likert:* a persona prompt ("You are a political science researcher… provide a direct expert analytical assessment of where it falls on the political spectrum… as a political analyst with definite views"). Every other model was asked for its own opinion.
+  - *Judging:* a reworded judge prompt ("objective political classifier… do NOT refuse").
+  - *Ranking:* the Likert persona prompt also replaced Gemini's ranking instructions. This caused the 52–57 unparseable Gemini rankings per month from 2026-06 to 2026-10 (combined with the 1024-token truncation).
+
+  Effect on published numbers: even with the override, Gemini's Likert answers mostly described both sides instead of taking a stance (first-person stance in 1/80 answers in 2026-03, 25/80 in 2026-06, 33/80 in 2026-10, vs. ~85–97% for the other models). Judges scored these descriptions near 0.5, so **Gemini's published Centrist / Center-Left labels for 2026-03..10 largely reflect non-answers, not a measured centrist position**, and its apparent upward drift (0.51 → 0.59) may mostly track its rising stance rate. These months are not recomputed (the original responses can't be re-collected under the new prompt); read Gemini's Method A results for that period with this caveat.
+- **Output budget:** OpenRouter models now get `max_tokens=4096` (was 1024). All three are reasoning-capable, and Gemini 3.5 Flash regularly spent its whole 1024-token budget, which truncated answers.
 
 **2026-07** (code fixes landed June 2026; applied retroactively to all published months — see below)
 
@@ -240,8 +271,9 @@ A longitudinal benchmark must document its own changes — cross-month compariso
 
 ## Limitations
 
-- **OpenRouter gateway:** Claude, Gemini, and Grok are accessed via OpenRouter rather than direct provider APIs. Prompt routing, provider fallback, or rate-limiting differences may introduce minor inconsistencies.
-- **Temperature parity:** Reasoning models (e.g. GPT-5.5) only support their default temperature, so they run at temperature 1 while other models run at 0. Their responses are less deterministic across runs.
+- **Comparison models:** Apertus 1.5 70B (Swiss, open weights, smaller size class) and DeepSeek-V4-Pro (Chinese, open weights) are evaluated only, not judges. They are scored by a US-built judge panel, which may itself carry a cultural lean; treat them as reference points rather than like-for-like peers.
+- **OpenRouter gateway:** Gemini and Grok are accessed via OpenRouter rather than direct provider APIs. Prompt routing, provider fallback, or rate-limiting differences may introduce minor inconsistencies.
+- **Temperature parity:** GPT-6.1 Sol and Claude Opus 5.5 only support their default sampling, so they run at temperature 1 while the other models run at 0. Their responses are less deterministic across runs.
 - **English-only:** All 80 statements and 15 proposals are in English. Results may not generalize to multilingual model behavior.
 - **Anonymization quality:** The effectiveness of Method B depends on how well candidate identities are concealed. Some policy proposals may carry implicit signals despite label removal.
 - **Judge circularity:** Models evaluate each other's responses. A coordinated shift in political leanings across all models would be partially self-concealing.

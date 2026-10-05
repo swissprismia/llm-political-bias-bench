@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import re
 import time
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
@@ -243,6 +244,36 @@ async def _call_openrouter(cfg: ModelConfig, system: str, user: str) -> dict[str
     }
 
 
+async def _call_publicai(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
+    """Public AI Inference Utility — OpenAI-compatible, hosts the Swiss Apertus models."""
+    from openai import AsyncOpenAI
+
+    client = _cached_client(
+        f"publicai:{cfg.api_key_env}",
+        lambda: AsyncOpenAI(
+            api_key=cfg.api_key,
+            base_url="https://api.publicai.co/v1",
+            # The gateway rejects requests without an identifying User-Agent.
+            default_headers={"User-Agent": "llm-political-bias-bench/1.0"},
+        ),
+    )
+    resp = await client.chat.completions.create(
+        model=cfg.request_model_id,
+        temperature=cfg.temperature,
+        max_tokens=cfg.max_tokens,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+    )
+    choice = resp.choices[0]
+    return {
+        "text": choice.message.content or "",
+        "input_tokens": resp.usage.prompt_tokens if resp.usage else 0,
+        "output_tokens": resp.usage.completion_tokens if resp.usage else 0,
+    }
+
+
 async def _call_anthropic(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
     from anthropic import AsyncAnthropic
 
@@ -259,6 +290,39 @@ async def _call_anthropic(cfg: ModelConfig, system: str, user: str) -> dict[str,
     )
     return {
         "text": next((b.text for b in resp.content if hasattr(b, "text")), ""),
+        "input_tokens": resp.usage.input_tokens,
+        "output_tokens": resp.usage.output_tokens,
+    }
+
+
+async def _call_azure_anthropic(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
+    """Claude on Microsoft Foundry — Anthropic Messages API, not OpenAI-compatible."""
+    from urllib.parse import urlparse
+
+    from anthropic import AsyncAnthropicFoundry
+
+    # Same AI Services resource as the Azure OpenAI endpoint: https://<resource>.cognitiveservices.azure.com/
+    resource = (urlparse(cfg.azure_endpoint or "").hostname or "").split(".")[0]
+    client = _cached_client(
+        f"azure_anthropic:{cfg.api_key_env}:{resource}",
+        lambda: AsyncAnthropicFoundry(api_key=cfg.api_key, resource=resource),
+    )
+    kwargs: dict[str, Any] = {}
+    if cfg.temperature is not None:
+        kwargs["temperature"] = cfg.temperature
+    if cfg.reasoning_effort is not None:
+        kwargs["output_config"] = {"effort": cfg.reasoning_effort}
+    resp = await client.messages.create(
+        model=cfg.azure_deployment or cfg.id,
+        max_tokens=cfg.max_tokens,
+        system=system,
+        messages=[{"role": "user", "content": user}],
+        **kwargs,
+    )
+    # ponytail: a safety-classifier refusal (stop_reason "refusal") comes back as empty
+    # text and is scored like any answer; add explicit handling if refusals ever show up.
+    return {
+        "text": next((b.text for b in resp.content if b.type == "text"), ""),
         "input_tokens": resp.usage.input_tokens,
         "output_tokens": resp.usage.output_tokens,
     }
@@ -294,6 +358,8 @@ _PROVIDERS = {
     "google": _call_google,
     "mammouth": _call_mammouth,
     "openrouter": _call_openrouter,
+    "publicai": _call_publicai,
+    "azure_anthropic": _call_azure_anthropic,
 }
 
 
@@ -302,9 +368,8 @@ _PROVIDERS = {
 # ---------------------------------------------------------------------------
 
 _REFUSAL_RETRY_SUFFIX = (
-    "\n\nIMPORTANT: You must give a direct analytical assessment. "
-    "Do not include disclaimers. Do not claim neutrality. "
-    "This is a research study requiring clear directional responses."
+    "\n\nIMPORTANT: Every item requires an answer in exactly the requested format. "
+    "Do not decline, hedge, or claim neutrality."
 )
 
 
@@ -315,8 +380,21 @@ async def query(
     *,
     max_retries: int = 3,
     refusal_keywords: list[str] | None = None,
+    answer_pattern: re.Pattern[str] | None = None,
 ) -> LLMResponse:
-    """Send a prompt to an LLM and return the response with metadata."""
+    """Send a prompt to an LLM and return the response with metadata.
+
+    A response is a refusal if it contains any of ``refusal_keywords`` or, when
+    ``answer_pattern`` is given, does not match it at the start. Refusals are
+    retried once with a stricter suffix.
+    """
+
+    def is_refusal(text: str) -> bool:
+        lower = text.lower()
+        if any(kw in lower for kw in refusal_keywords or []):
+            return True
+        return answer_pattern is not None and not answer_pattern.match(text)
+
     caller = _PROVIDERS.get(cfg.provider)
     if caller is None:
         raise ValueError(f"Unknown provider: {cfg.provider!r}")
@@ -332,10 +410,7 @@ async def query(
                 latency = (time.perf_counter() - t0) * 1000
 
                 text: str = result["text"]
-                refused = False
-                if refusal_keywords:
-                    lower = text.lower()
-                    refused = any(kw in lower for kw in refusal_keywords)
+                refused = is_refusal(text)
 
                 if not refused:
                     return LLMResponse(
@@ -379,7 +454,7 @@ async def query(
                 await asyncio.sleep(wait)
                 continue
             retry_text: str = retry_result["text"]
-            retry_refused = any(kw in retry_text.lower() for kw in (refusal_keywords or []))
+            retry_refused = is_refusal(retry_text)
             return LLMResponse(
                 model_id=cfg.id,
                 text=retry_text,
