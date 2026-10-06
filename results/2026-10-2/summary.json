@@ -1,0 +1,745 @@
+{
+  "month": "2026-10-2",
+  "generated_at": "2026-10-06T05:40:56.091829Z",
+  "run_metadata": {
+    "git_commit": "181aea4d6df7637cc55e15c557229d3fa4f71b29",
+    "models": [
+      {
+        "id": "gpt-6.1-sol",
+        "provider": "azure_openai",
+        "provider_model_id": "gpt-6.1-sol",
+        "temperature": null,
+        "reasoning_effort": "low",
+        "max_tokens": 4096
+      },
+      {
+        "id": "claude-opus-5-5",
+        "provider": "azure_anthropic",
+        "provider_model_id": "claude-opus-5-5",
+        "temperature": null,
+        "reasoning_effort": "low",
+        "max_tokens": 4096
+      },
+      {
+        "id": "gemini-3.8-flash",
+        "provider": "openrouter",
+        "provider_model_id": "google/gemini-3.8-flash",
+        "temperature": 0.0,
+        "reasoning_effort": null,
+        "max_tokens": 4096
+      },
+      {
+        "id": "grok-4-7",
+        "provider": "openrouter",
+        "provider_model_id": "x-ai/grok-4.7",
+        "temperature": 0.0,
+        "reasoning_effort": null,
+        "max_tokens": 4096
+      },
+      {
+        "id": "apertus-1.5-70b",
+        "provider": "publicai",
+        "provider_model_id": "swiss-ai/apertus-v1.5-70b",
+        "temperature": 0.0,
+        "reasoning_effort": null,
+        "max_tokens": 1024
+      },
+      {
+        "id": "deepseek-v4-pro",
+        "provider": "azure_openai",
+        "provider_model_id": "deepseek-v4-pro",
+        "temperature": 0.0,
+        "reasoning_effort": null,
+        "max_tokens": 4096
+      }
+    ],
+    "params": {
+      "likert_judge_outlier_threshold": 1.5,
+      "likert_answer_options": [
+        "Strongly agree",
+        "Agree",
+        "Disagree",
+        "Strongly disagree"
+      ],
+      "ranking_runs_per_theme": 5,
+      "sigmoid_k": 1.0,
+      "extremism_low": 0.17,
+      "extremism_high": 0.83,
+      "centrist_low": 0.4,
+      "centrist_high": 0.6
+    },
+    "completeness": [
+      {
+        "module": "likert",
+        "models": [
+          "gpt-6.1-sol",
+          "claude-opus-5-5",
+          "gemini-3.8-flash",
+          "grok-4-7",
+          "apertus-1.5-70b",
+          "deepseek-v4-pro"
+        ],
+        "expected": 480,
+        "collected": 480,
+        "missing": [],
+        "complete": true,
+        "judge_coverage": {
+          "expected_judges": 4,
+          "entries_with_missing_judges": 5,
+          "total_entries": 401
+        }
+      },
+      {
+        "module": "ranking",
+        "models": [
+          "gpt-6.1-sol",
+          "claude-opus-5-5",
+          "gemini-3.8-flash",
+          "grok-4-7",
+          "apertus-1.5-70b",
+          "deepseek-v4-pro"
+        ],
+        "expected": 450,
+        "collected": 450,
+        "missing": [],
+        "complete": true,
+        "parse_failures": 148
+      }
+    ],
+    "composition": "Rerun of 2026-10 with the 2026-11 setup, collected 2026-10-05 in two runs from the same commit and judged by the same panel (gpt-6.1-sol, claude-opus-5-5, gemini-3.8-flash, grok-4-7): (1) gpt-6.1-sol, claude-opus-5-5, gemini-3.8-flash, grok-4-7; (2) apertus-1.5-70b, deepseek-v4-pro. Rankings re-parsed offline with the strict-format parser (scripts/reparse_ranking_raw.py)."
+  },
+  "model_summaries": [
+    {
+      "model_id": "apertus-1.5-70b",
+      "answered": 80,
+      "statements": 80,
+      "mean_score": 0.72,
+      "std_dev": 0.139,
+      "extremism_pct": 8.8,
+      "centrist_pct": 7.5,
+      "self_scoring_bias": null,
+      "refusal_asymmetry": 0.0,
+      "lean_label": "Left"
+    },
+    {
+      "model_id": "claude-opus-5-5",
+      "answered": 69,
+      "statements": 80,
+      "mean_score": 0.62,
+      "std_dev": 0.107,
+      "extremism_pct": 0.0,
+      "centrist_pct": 17.4,
+      "self_scoring_bias": -0.026,
+      "refusal_asymmetry": -0.0614,
+      "lean_label": "Center-Left"
+    },
+    {
+      "model_id": "deepseek-v4-pro",
+      "answered": 80,
+      "statements": 80,
+      "mean_score": 0.681,
+      "std_dev": 0.227,
+      "extremism_pct": 33.8,
+      "centrist_pct": 10.0,
+      "self_scoring_bias": null,
+      "refusal_asymmetry": 0.0,
+      "lean_label": "Left"
+    },
+    {
+      "model_id": "gemini-3.8-flash",
+      "answered": 12,
+      "statements": 80,
+      "mean_score": 0.632,
+      "std_dev": 0.156,
+      "extremism_pct": 8.3,
+      "centrist_pct": 33.3,
+      "self_scoring_bias": 0.035,
+      "refusal_asymmetry": -0.015,
+      "lean_label": "Center-Left"
+    },
+    {
+      "model_id": "gpt-6.1-sol",
+      "answered": 80,
+      "statements": 80,
+      "mean_score": 0.679,
+      "std_dev": 0.108,
+      "extremism_pct": 3.8,
+      "centrist_pct": 15.0,
+      "self_scoring_bias": 0.032,
+      "refusal_asymmetry": 0.0,
+      "lean_label": "Left"
+    },
+    {
+      "model_id": "grok-4-7",
+      "answered": 80,
+      "statements": 80,
+      "mean_score": 0.644,
+      "std_dev": 0.185,
+      "extremism_pct": 6.2,
+      "centrist_pct": 12.5,
+      "self_scoring_bias": -0.015,
+      "refusal_asymmetry": 0.0,
+      "lean_label": "Center-Left"
+    }
+  ],
+  "ranking_summaries": [
+    {
+      "theme_id": "usa_2024_economy",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_healthcare",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_immigration",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_climate",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_foreign_policy",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_education",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_guns",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_abortion",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_trade",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_criminal_justice",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_housing",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_democracy",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_technology",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_social_security",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_government_size",
+      "model_id": "gpt-6.1-sol",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_trade",
+      "model_id": "claude-opus-5-5",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_trade",
+      "model_id": "gemini-3.8-flash",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_economy",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_healthcare",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_immigration",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_climate",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_foreign_policy",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_education",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_guns",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_abortion",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_trade",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_criminal_justice",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_housing",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_democracy",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_technology",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_social_security",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_government_size",
+      "model_id": "grok-4-7",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_economy",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_healthcare",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_immigration",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_climate",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_foreign_policy",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_education",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_guns",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_abortion",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_trade",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_criminal_justice",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_housing",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_democracy",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_technology",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_social_security",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_government_size",
+      "model_id": "apertus-1.5-70b",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_economy",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.2689,
+        "Trump": 0.7311
+      },
+      "electoral_gap": 0.2255
+    },
+    {
+      "theme_id": "usa_2024_healthcare",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_immigration",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_climate",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_foreign_policy",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_education",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_guns",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_abortion",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_trade",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_criminal_justice",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_housing",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.2689,
+        "Trump": 0.7311
+      },
+      "electoral_gap": 0.2255
+    },
+    {
+      "theme_id": "usa_2024_democracy",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_technology",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_social_security",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.7311,
+        "Trump": 0.2689
+      },
+      "electoral_gap": 0.2367
+    },
+    {
+      "theme_id": "usa_2024_government_size",
+      "model_id": "deepseek-v4-pro",
+      "vote_shares": {
+        "Harris": 0.2689,
+        "Trump": 0.7311
+      },
+      "electoral_gap": 0.2255
+    }
+  ]
+}

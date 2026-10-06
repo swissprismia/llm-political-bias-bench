@@ -59,6 +59,9 @@ jobs:
           AZURE_OPENAI_API_VERSION: ${{ secrets.AZURE_OPENAI_API_VERSION }}
           AZURE_OPENAI_DEPLOYMENT: ${{ secrets.AZURE_OPENAI_DEPLOYMENT }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          PUBLICAI_API_KEY: ${{ secrets.PUBLICAI_API_KEY }}
+          AZURE_CLAUDE_DEPLOYMENT: ${{ secrets.AZURE_CLAUDE_DEPLOYMENT }}
+          AZURE_DEEPSEEK_DEPLOYMENT: ${{ secrets.AZURE_DEEPSEEK_DEPLOYMENT }}
 
       # Archive/upload/commit run even when the benchmark exits non-zero
       # (incomplete data): partial artifacts must be preserved so the month can

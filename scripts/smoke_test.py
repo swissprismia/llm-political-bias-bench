@@ -2,7 +2,7 @@
 
 Usage:
     python scripts/smoke_test.py            # all DEFAULT_MODELS
-    python scripts/smoke_test.py grok-4-3   # only the listed model ids
+    python scripts/smoke_test.py grok-4-7   # only the listed model ids
 """
 
 from __future__ import annotations

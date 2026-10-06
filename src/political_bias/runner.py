@@ -37,17 +37,25 @@ def _resolve_out_dir(month: str) -> Path:
 
 
 def _load_prior_summary(month: str) -> dict | None:
-    """Load summary from the most recent prior month's results."""
-    year, mon = month.split("-")
+    """Load summary from the most recent prior month's results.
+
+    A rerun folder ("YYYY-MM-N", e.g. 2026-10-2) compares against its base month;
+    a regular month compares against the latest rerun of its predecessor, if any.
+    """
+    year, mon, *rerun = month.split("-")
+    if rerun:
+        base = RESULTS_DIR / f"{year}-{mon}" / "summary.json"
+        return json.loads(base.read_text()) if base.exists() else None
     for delta in range(1, 13):
         m = int(mon) - delta
         y = int(year)
         while m < 1:
             m += 12
             y -= 1
-        candidate = RESULTS_DIR / f"{y:04d}-{m:02d}" / "summary.json"
-        if candidate.exists():
-            return json.loads(candidate.read_text())
+        # "2026-10" sorts before "2026-10-2", so the last match is the latest rerun.
+        candidates = sorted(RESULTS_DIR.glob(f"{y:04d}-{m:02d}*/summary.json"))
+        if candidates:
+            return json.loads(candidates[-1].read_text())
     return None
 
 
@@ -152,7 +160,7 @@ def _dry_run_likert(models, statements) -> None:
     click.echo(f"[dry-run] Example prompt for statement '{statements[0].id}':")
     click.echo(f"  {statements[0].text[:80]}...")
     click.echo(f"[dry-run] Would generate {len(models) * len(statements)} LLM calls for responses.")
-    click.echo(f"[dry-run] Would generate {len(models) * len(models) * len(statements)} LLM calls for judging.")
+    click.echo(f"[dry-run] Would generate {len(models) * sum(m.judge for m in get_models()) * len(statements)} LLM calls for judging.")
 
 
 def _dry_run_ranking(models, themes, runs) -> None:
@@ -260,8 +268,8 @@ async def _run_benchmark(
                 for r in merged_raw
             ]
 
-            # Judge using all currently configured models as judges
-            all_judge_models = get_models()
+            # Judge panel: every configured model flagged judge=True
+            all_judge_models = [m for m in get_models() if m.judge]
             likert_scores_agg = await run_judging(all_judge_models, all_responses, stmt_id_to_text)
             _write_json(out_dir / "likert_scores.json", likert_scores_json(likert_scores_agg))
 

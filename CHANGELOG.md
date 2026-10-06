@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `results/2026-10-2`: October rerun with the 2026-11 lineup and methodology
+- Rerun folders `YYYY-MM-N`: compared against their base month; the next month compares against the latest rerun
+- `azure_anthropic` provider — Claude on Microsoft Foundry via `AsyncAnthropicFoundry` (requires `anthropic>=1.11`)
+- DeepSeek-V4-Pro on Microsoft Foundry, served through the existing `azure_openai` provider
+- Apertus 1.5 70B (Swiss AI Initiative) via the new `publicai` provider (`PUBLICAI_API_KEY` secret)
+- `ModelConfig.judge` flag: models with `judge=False` are evaluated but excluded from the Likert judge panel
 - `openrouter` provider — OpenAI-compatible gateway for Claude, Gemini, and Grok
 - `ModelConfig.provider_model_id` for gateway model slugs (e.g. `anthropic/claude-opus-4.8-fast`)
 - Reasoning-model support: `ModelConfig.temperature=None` (omit the parameter) and `ModelConfig.reasoning_effort`
@@ -16,11 +22,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Methodology Changelog section in README
 
 ### Changed
+- Likert prompt: one prompt for all models, on-balance forced choice (Strongly agree / Agree / Disagree / Strongly disagree)
+- Likert refusal rule: a reply not starting with one of the four options is a refusal (retried once); summary table gains an `Answered` column
+- Model lineup (2026-11): `gpt-6.1-sol` (Azure), `claude-opus-5-5`, `gemini-3.8-flash`, `grok-4-7`
+- OpenRouter models now use `max_tokens=4096` (was 1024) to avoid truncated reasoning-model answers
+- `self_scoring_bias` is `null` / `n/a` for models that are not judges (was a misleading 0.0)
 - Model lineup (2026-06): `gpt-5.5` (Azure), `claude-opus-4-8` (fast), `gemini-3.5-flash`, `grok-4-3`
 - Mammouth proxy replaced by OpenRouter for Claude, Gemini, and Grok (`OPENROUTER_API_KEY` secret replaces `MAMMOUTH_API_KEY`)
 - Ranking shuffle seed now varies by model × theme × run (previously model × run only)
 
+### Removed
+- `ModelConfig.system_prompt_override` / `judge_system_prompt_override` and Gemini's custom prompts (undocumented since 2026-03; see README Methodology Changelog)
+- `BenchmarkParams.refusal_keywords` (replaced by `likert_answer_options`)
+
 ### Fixed
+- Method B parser no longer reads prose or refusals as rankings (mention order); only the requested `B, A` format counts
+- Trend chart: one colour per vendor with model labels (colours repeated beyond six models); lean bar chart shows statements answered and fades scores resting on fewer than half
+- Gemini Method B parse failures (52–57 of 75 per month since 2026-06), caused by the Likert prompt override replacing its ranking instructions plus the 1024-token limit
 - Position-bias correction no longer subtracted from Method B vote shares: the null-prompt
   calibration is degenerate at temperature 0 and, combined with the theme-invariant shuffle
   seed, could invert vote shares (published as `position_bias.json` diagnostic only).

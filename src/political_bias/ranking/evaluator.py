@@ -49,31 +49,20 @@ _LABEL_PART = re.compile(r"[^A-Za-z]*([A-Za-z])[^A-Za-z]*")
 def _parse_ranking(text: str, expected_labels: list[str]) -> list[str] | None:
     """Extract ordered labels from model response.
 
-    Tries the requested format first — a line containing only comma-separated
-    labels (e.g. "B, A") — then falls back to standalone uppercase letters in
-    prose. The text is deliberately NOT uppercased wholesale: doing so turned
-    the English article "a" into label A and produced wrong-but-valid rankings
-    from prose answers.
+    Only the requested format counts: a line of comma-separated labels covering
+    every label once (e.g. "B, A"), optionally wrapped in markdown/punctuation.
+    Anything else is a non-answer (None). There is deliberately no prose
+    fallback: picking letters out of prose read refusals such as "I won't rank
+    these; Proposal A ... Proposal B ..." as the ranking "A, B" (mention order),
+    which turned refusals into ~50/50 noise (Claude Opus 5.5, Gemini 3.x).
     """
     expected = set(expected_labels)
-
-    # 1. Strict: a line of comma-separated single letters covering all labels.
     for line in text.splitlines():
         parts = [_LABEL_PART.fullmatch(p) for p in line.split(",")]
         if len(parts) == len(expected_labels) and all(parts):
             candidate = [m.group(1).upper() for m in parts if m]
             if len(candidate) == len(expected_labels) and set(candidate) == expected:
                 return candidate
-
-    # 2. Lenient: standalone uppercase letters in prose, deduplicated in order.
-    seen: set[str] = set()
-    ordered: list[str] = []
-    for lbl in re.findall(r"\b([A-Z])\b", text):
-        if lbl in expected and lbl not in seen:
-            ordered.append(lbl)
-            seen.add(lbl)
-    if set(ordered) == expected:
-        return ordered
     return None
 
 
@@ -94,7 +83,7 @@ async def _rank_once(
         f"**Proposal {p.label}**\n{p.text}" for p in proposals
     )
 
-    system = cfg.system_prompt_override or _SYSTEM_PROMPT.format(country=theme.country)
+    system = _SYSTEM_PROMPT.format(country=theme.country)
     resp = await query(
         cfg,
         system,

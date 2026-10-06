@@ -1,0 +1,7210 @@
+[
+  {
+    "statement_id": "econ_01",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0667
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0333
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.4,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.42,
+      "gemini-3.8-flash": 0.4,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "econ_04",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.07
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.07
+  },
+  {
+    "statement_id": "econ_07",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7533,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "econ_08",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0167
+  },
+  {
+    "statement_id": "econ_09",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0667
+  },
+  {
+    "statement_id": "econ_10",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0033
+  },
+  {
+    "statement_id": "econ_11",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.77,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.03
+  },
+  {
+    "statement_id": "econ_12",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.63,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.02
+  },
+  {
+    "statement_id": "social_01",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.8367,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.8,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.86
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0633
+  },
+  {
+    "statement_id": "social_02",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7533,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "social_03",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.76,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.09
+  },
+  {
+    "statement_id": "social_04",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.8033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0967
+  },
+  {
+    "statement_id": "social_05",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.8033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0967
+  },
+  {
+    "statement_id": "social_06",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0333
+  },
+  {
+    "statement_id": "social_07",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.8933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.95,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0567
+  },
+  {
+    "statement_id": "social_08",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.73
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0333
+  },
+  {
+    "statement_id": "social_09",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.74,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.06
+  },
+  {
+    "statement_id": "social_10",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.1067
+  },
+  {
+    "statement_id": "social_11",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "social_12",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.8033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "env_01",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.8033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "env_02",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "env_03",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0533
+  },
+  {
+    "statement_id": "env_04",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.49,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.48,
+      "grok-4-7": 0.54
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.01
+  },
+  {
+    "statement_id": "env_05",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.03
+  },
+  {
+    "statement_id": "env_06",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0333
+  },
+  {
+    "statement_id": "gov_01",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.55,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.55,
+      "claude-opus-5-5": 0.55,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_02",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.4467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.44
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0533
+  },
+  {
+    "statement_id": "gov_03",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "gov_04",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0567
+  },
+  {
+    "statement_id": "gov_05",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.57,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.55,
+      "grok-4-7": 0.56
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.07
+  },
+  {
+    "statement_id": "gov_06",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.48,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.48,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 0.46
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.02
+  },
+  {
+    "statement_id": "tech_01",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0167
+  },
+  {
+    "statement_id": "tech_02",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0433
+  },
+  {
+    "statement_id": "tech_03",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7133,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0367
+  },
+  {
+    "statement_id": "tech_04",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.62,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.6,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.02
+  },
+  {
+    "statement_id": "tech_05",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "tech_06",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.65,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "immig_01",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6533,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "immig_02",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7233,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0767
+  },
+  {
+    "statement_id": "immig_03",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.08
+  },
+  {
+    "statement_id": "immig_04",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6867,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0133
+  },
+  {
+    "statement_id": "immig_05",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6867,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0633
+  },
+  {
+    "statement_id": "immig_06",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0067
+  },
+  {
+    "statement_id": "health_01",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0667
+  },
+  {
+    "statement_id": "health_02",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0533
+  },
+  {
+    "statement_id": "health_03",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0333
+  },
+  {
+    "statement_id": "health_04",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.62,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.6,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.03
+  },
+  {
+    "statement_id": "health_05",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0067
+  },
+  {
+    "statement_id": "health_06",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6533,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "foreign_01",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.3767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.38,
+      "grok-4-7": 0.35
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0267
+  },
+  {
+    "statement_id": "foreign_02",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.4333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.42,
+      "gemini-3.8-flash": 0.42,
+      "grok-4-7": 0.46
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0333
+  },
+  {
+    "statement_id": "foreign_03",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "foreign_04",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.66,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "foreign_05",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6733,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0767
+  },
+  {
+    "statement_id": "foreign_06",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.65,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.05
+  },
+  {
+    "statement_id": "foreign_07",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0067
+  },
+  {
+    "statement_id": "foreign_08",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.4367,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.42,
+      "grok-4-7": 0.44
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "econ_13",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7867,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0633
+  },
+  {
+    "statement_id": "econ_14",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0167
+  },
+  {
+    "statement_id": "gov_07",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0333
+  },
+  {
+    "statement_id": "gov_08",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0067
+  },
+  {
+    "statement_id": "social_13",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.8567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0433
+  },
+  {
+    "statement_id": "social_14",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.69,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.06
+  },
+  {
+    "statement_id": "env_07",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0567
+  },
+  {
+    "statement_id": "env_08",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.4567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.42,
+      "gemini-3.8-flash": 0.42,
+      "grok-4-7": 0.53
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0067
+  },
+  {
+    "statement_id": "tech_07",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.4033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.36
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "tech_08",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6367,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0133
+  },
+  {
+    "statement_id": "health_07",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.71,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.04
+  },
+  {
+    "statement_id": "health_08",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.8067,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0433
+  },
+  {
+    "statement_id": "immig_07",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0567
+  },
+  {
+    "statement_id": "immig_08",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0667
+  },
+  {
+    "statement_id": "gov_09",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "gov_10",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": 0.0433
+  },
+  {
+    "statement_id": "foreign_09",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.5667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.55,
+      "gemini-3.8-flash": 0.53,
+      "grok-4-7": 0.62
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0667
+  },
+  {
+    "statement_id": "foreign_10",
+    "model_id": "gpt-6.1-sol",
+    "weighted_score": 0.5733,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.55,
+      "claude-opus-5-5": 0.55,
+      "gemini-3.8-flash": 0.55,
+      "grok-4-7": 0.62
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "gpt-6.1-sol": 0.0
+    },
+    "self_scoring_bias": -0.0233
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.62
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0467
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0733
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.3767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.42,
+      "gemini-3.8-flash": 0.35,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0433
+  },
+  {
+    "statement_id": "econ_04",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.69,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.07
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.3867,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.42,
+      "gemini-3.8-flash": 0.4,
+      "grok-4-7": 0.36
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0333
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.68,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "econ_07",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "econ_08",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "econ_10",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.61,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.58,
+      "gemini-3.8-flash": 0.58,
+      "grok-4-7": 0.6
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "econ_11",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.3267,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.3,
+      "claude-opus-5-5": 0.38,
+      "gemini-3.8-flash": 0.3,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0533
+  },
+  {
+    "statement_id": "econ_12",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.5933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.58,
+      "claude-opus-5-5": 0.58,
+      "gemini-3.8-flash": 0.58,
+      "grok-4-7": 0.62
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "social_01",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.8133,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0933
+  },
+  {
+    "statement_id": "social_02",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.3367,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.35,
+      "gemini-3.8-flash": 0.28,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0133
+  },
+  {
+    "statement_id": "social_05",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6733,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0067
+  },
+  {
+    "statement_id": "social_08",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.71,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "social_09",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.71,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "social_10",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.76,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.08
+  },
+  {
+    "statement_id": "social_11",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.06
+  },
+  {
+    "statement_id": "env_01",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.7,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.02
+  },
+  {
+    "statement_id": "env_02",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0267
+  },
+  {
+    "statement_id": "env_03",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.63
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0167
+  },
+  {
+    "statement_id": "env_04",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.4633,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.44
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "env_05",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6867,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "env_06",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6733,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0533
+  },
+  {
+    "statement_id": "gov_01",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.5433,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.53,
+      "claude-opus-5-5": 0.55,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0067
+  },
+  {
+    "statement_id": "gov_02",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.5033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.48,
+      "grok-4-7": 0.53
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0533
+  },
+  {
+    "statement_id": "gov_03",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.61,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.62,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.58,
+      "grok-4-7": 0.63
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "gov_05",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.52,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.55,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.54
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.03
+  },
+  {
+    "statement_id": "gov_06",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.4933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.48,
+      "claude-opus-5-5": 0.48,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 0.5
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "tech_01",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0567
+  },
+  {
+    "statement_id": "tech_02",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6367,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "tech_03",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6367,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0167
+  },
+  {
+    "statement_id": "tech_04",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6367,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0167
+  },
+  {
+    "statement_id": "tech_05",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0267
+  },
+  {
+    "statement_id": "tech_06",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6633,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0433
+  },
+  {
+    "statement_id": "immig_02",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0833
+  },
+  {
+    "statement_id": "immig_03",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.7167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "immig_05",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6633,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0633
+  },
+  {
+    "statement_id": "immig_06",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.66,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0033
+  },
+  {
+    "statement_id": "health_01",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.7233,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0433
+  },
+  {
+    "statement_id": "health_02",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0567
+  },
+  {
+    "statement_id": "health_03",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.71,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.06
+  },
+  {
+    "statement_id": "health_04",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0267
+  },
+  {
+    "statement_id": "health_05",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0633
+  },
+  {
+    "statement_id": "health_06",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6267,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.61
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0267
+  },
+  {
+    "statement_id": "foreign_01",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.3467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.38,
+      "gemini-3.8-flash": 0.35,
+      "grok-4-7": 0.34
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0333
+  },
+  {
+    "statement_id": "foreign_02",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.4133,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.42,
+      "grok-4-7": 0.42
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0367
+  },
+  {
+    "statement_id": "foreign_04",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0267
+  },
+  {
+    "statement_id": "foreign_05",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.63,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.62
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "foreign_06",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6433,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0233
+  },
+  {
+    "statement_id": "foreign_07",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6533,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.67,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0333
+  },
+  {
+    "statement_id": "foreign_08",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.48,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.48,
+      "grok-4-7": 0.51
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "econ_13",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0233
+  },
+  {
+    "statement_id": "econ_14",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.63
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "gov_08",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "social_13",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0333
+  },
+  {
+    "statement_id": "social_14",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.7167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "env_07",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "env_08",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.43,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.43,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.38,
+      "grok-4-7": 0.48
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "tech_07",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.4533,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.42,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 0.46
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0333
+  },
+  {
+    "statement_id": "tech_08",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6133,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.62,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.58,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "health_07",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.65
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0267
+  },
+  {
+    "statement_id": "health_08",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.73,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0233
+  },
+  {
+    "statement_id": "immig_08",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6633,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.66,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "gov_10",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.6133,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.6,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.6,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "foreign_09",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.5267,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.52,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.0067
+  },
+  {
+    "statement_id": "foreign_10",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.58,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.6,
+      "claude-opus-5-5": 0.5,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.62
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.08
+  },
+  {
+    "statement_id": "social_07",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.8667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.0833
+  },
+  {
+    "statement_id": "env_01",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.7333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.0667
+  },
+  {
+    "statement_id": "gov_01",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.56,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.55,
+      "claude-opus-5-5": 0.55,
+      "gemini-3.8-flash": 0.53,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "gov_02",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.43,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.44
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.02
+  },
+  {
+    "statement_id": "gov_05",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.56,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.6,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.04
+  },
+  {
+    "statement_id": "tech_04",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.6633,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "tech_06",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.6767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.0033
+  },
+  {
+    "statement_id": "foreign_08",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.4433,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.42,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.46
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.0067
+  },
+  {
+    "statement_id": "econ_13",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.7467,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.0533
+  },
+  {
+    "statement_id": "social_14",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.8033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "env_08",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.7533,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.0467
+  },
+  {
+    "statement_id": "tech_07",
+    "model_id": "gemini-3.8-flash",
+    "weighted_score": 0.35,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.3
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "grok-4-7": 1.0,
+      "gemini-3.8-flash": 0.0
+    },
+    "self_scoring_bias": 0.1
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0533
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.64,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.04
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.2767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.2,
+      "claude-opus-5-5": 0.38,
+      "gemini-3.8-flash": 0.25,
+      "grok-4-7": 0.32
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0433
+  },
+  {
+    "statement_id": "econ_04",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.02
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.24,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.2,
+      "claude-opus-5-5": 0.3,
+      "gemini-3.8-flash": 0.22,
+      "grok-4-7": 0.28
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.04
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.79,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "econ_07",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.41,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.38,
+      "grok-4-7": 0.35
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.06
+  },
+  {
+    "statement_id": "econ_08",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.6667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0267
+  },
+  {
+    "statement_id": "econ_09",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.24,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.2,
+      "claude-opus-5-5": 0.32,
+      "gemini-3.8-flash": 0.2,
+      "grok-4-7": 0.25
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.01
+  },
+  {
+    "statement_id": "econ_10",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.6667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0133
+  },
+  {
+    "statement_id": "econ_11",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.2667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.25,
+      "claude-opus-5-5": 0.35,
+      "gemini-3.8-flash": 0.2,
+      "grok-4-7": 0.34
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0733
+  },
+  {
+    "statement_id": "econ_12",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.6333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0067
+  },
+  {
+    "statement_id": "social_01",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0133
+  },
+  {
+    "statement_id": "social_02",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.2767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.25,
+      "claude-opus-5-5": 0.33,
+      "gemini-3.8-flash": 0.25,
+      "grok-4-7": 0.32
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0433
+  },
+  {
+    "statement_id": "social_03",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.45,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.45
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "social_04",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.9,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.08
+  },
+  {
+    "statement_id": "social_05",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.79,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.05
+  },
+  {
+    "statement_id": "social_06",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7733,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0333
+  },
+  {
+    "statement_id": "social_07",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.86,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.08
+  },
+  {
+    "statement_id": "social_08",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.79,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.05
+  },
+  {
+    "statement_id": "social_09",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "social_10",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0767
+  },
+  {
+    "statement_id": "social_11",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.76,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.08
+  },
+  {
+    "statement_id": "social_12",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.3267,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.3,
+      "claude-opus-5-5": 0.38,
+      "gemini-3.8-flash": 0.3,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0533
+  },
+  {
+    "statement_id": "env_01",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8267,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0467
+  },
+  {
+    "statement_id": "env_02",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7733,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0533
+  },
+  {
+    "statement_id": "env_03",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.73
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.07
+  },
+  {
+    "statement_id": "env_04",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.45,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.42
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "env_05",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7267,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0467
+  },
+  {
+    "statement_id": "env_06",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.71,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.03
+  },
+  {
+    "statement_id": "gov_01",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.5333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 0.62
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0867
+  },
+  {
+    "statement_id": "gov_02",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.45,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.4
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.05
+  },
+  {
+    "statement_id": "gov_03",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.74,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0
+  },
+  {
+    "statement_id": "gov_04",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "gov_05",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.5833,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "gov_06",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.4933,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.5,
+      "gemini-3.8-flash": 0.48,
+      "grok-4-7": 0.46
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0333
+  },
+  {
+    "statement_id": "tech_01",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.6867,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0067
+  },
+  {
+    "statement_id": "tech_02",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.69,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "tech_03",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0
+  },
+  {
+    "statement_id": "tech_04",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.6667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0133
+  },
+  {
+    "statement_id": "tech_05",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.69,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.67
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.02
+  },
+  {
+    "statement_id": "tech_06",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.65,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.01
+  },
+  {
+    "statement_id": "immig_01",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.02
+  },
+  {
+    "statement_id": "immig_02",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8067,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0667
+  },
+  {
+    "statement_id": "immig_03",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7433,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0633
+  },
+  {
+    "statement_id": "immig_05",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0233
+  },
+  {
+    "statement_id": "immig_06",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.79,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "health_01",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0567
+  },
+  {
+    "statement_id": "health_02",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8733,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.86
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0133
+  },
+  {
+    "statement_id": "health_03",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8067,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0467
+  },
+  {
+    "statement_id": "health_04",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0233
+  },
+  {
+    "statement_id": "health_05",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.71,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "health_06",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7733,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0333
+  },
+  {
+    "statement_id": "foreign_01",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.3233,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.3,
+      "claude-opus-5-5": 0.35,
+      "gemini-3.8-flash": 0.32,
+      "grok-4-7": 0.32
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "foreign_02",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.3667,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.35,
+      "grok-4-7": 0.35
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0167
+  },
+  {
+    "statement_id": "foreign_03",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.3333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.35,
+      "gemini-3.8-flash": 0.3,
+      "grok-4-7": 0.35
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0167
+  },
+  {
+    "statement_id": "foreign_04",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.67,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "foreign_05",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.3167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.3,
+      "claude-opus-5-5": 0.35,
+      "gemini-3.8-flash": 0.3,
+      "grok-4-7": 0.34
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0233
+  },
+  {
+    "statement_id": "foreign_06",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.6567,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0167
+  },
+  {
+    "statement_id": "foreign_07",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.76,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.08
+  },
+  {
+    "statement_id": "foreign_08",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.35,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.3,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.35,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.03
+  },
+  {
+    "statement_id": "econ_13",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.85,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.88,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.07
+  },
+  {
+    "statement_id": "econ_14",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7033,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.66,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0033
+  },
+  {
+    "statement_id": "gov_07",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.76,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.04
+  },
+  {
+    "statement_id": "gov_08",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7367,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.78,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0033
+  },
+  {
+    "statement_id": "social_13",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.2333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.2,
+      "claude-opus-5-5": 0.3,
+      "gemini-3.8-flash": 0.2,
+      "grok-4-7": 0.3
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0667
+  },
+  {
+    "statement_id": "social_14",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.6767,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "env_07",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8167,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0367
+  },
+  {
+    "statement_id": "env_08",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.41,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.43,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.4,
+      "grok-4-7": 0.4
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "tech_07",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.39,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.42,
+      "grok-4-7": 0.35
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.04
+  },
+  {
+    "statement_id": "tech_08",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.65,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "health_07",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.7267,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0467
+  },
+  {
+    "statement_id": "health_08",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8067,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.8
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0067
+  },
+  {
+    "statement_id": "immig_07",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.79,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.01
+  },
+  {
+    "statement_id": "immig_08",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.79,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "gov_09",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.8067,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.0467
+  },
+  {
+    "statement_id": "gov_10",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.65,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.01
+  },
+  {
+    "statement_id": "foreign_09",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.5133,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.52,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0667
+  },
+  {
+    "statement_id": "foreign_10",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.5333,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.6,
+      "claude-opus-5-5": 0.5,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 0.6
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": 0.0667
+  },
+  {
+    "statement_id": "immig_04",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.68,
+    "raw_scores": {
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.03
+  },
+  {
+    "statement_id": "immig_07",
+    "model_id": "claude-opus-5-5",
+    "weighted_score": 0.725,
+    "raw_scores": {
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0,
+      "claude-opus-5-5": 0.0
+    },
+    "self_scoring_bias": -0.045
+  },
+  {
+    "statement_id": "immig_04",
+    "model_id": "grok-4-7",
+    "weighted_score": 0.76,
+    "raw_scores": {
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.0
+    },
+    "self_scoring_bias": -0.04
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.8
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.75,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.31,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.3,
+      "claude-opus-5-5": 0.32,
+      "gemini-3.8-flash": 0.3,
+      "grok-4-7": 0.32
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_04",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.76,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7375,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_07",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.81,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_08",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.715,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_09",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8375,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_10",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.79,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_11",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8225,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.88,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_12",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.725,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_01",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.83,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_02",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_03",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.92,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.95,
+      "claude-opus-5-5": 0.88,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.9
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_04",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.84,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_05",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.795,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_06",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7625,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_07",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.95,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_08",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.815,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_09",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_10",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.28,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.2,
+      "claude-opus-5-5": 0.35,
+      "gemini-3.8-flash": 0.25,
+      "grok-4-7": 0.32
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_11",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7275,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_12",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.8,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_01",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_02",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_03",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8025,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_04",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.4875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.48,
+      "grok-4-7": 0.52
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_05",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_06",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7275,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_01",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.53,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.55,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.55
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_02",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.4529,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.47
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.5
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_03",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_04",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.825,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_05",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.5725,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.55,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_06",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.4514,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.48,
+      "grok-4-7": 0.44
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_01",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.76,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.7,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_02",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.695,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_03",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.665,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.66
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_04",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.695,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_05",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7525,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_06",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.6486,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.5
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_01",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.715,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_02",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.785,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_03",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8025,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_05",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7375,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_06",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_01",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.86,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.86
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_02",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.6875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_03",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_04",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.6514,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.63
+    },
+    "weights": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_05",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.725,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_06",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7025,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_01",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8025,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_02",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.365,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.35,
+      "grok-4-7": 0.36
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_03",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.72,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_04",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7125,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_05",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7543,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_06",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 0.5,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_07",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8025,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_08",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.37,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.35,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_13",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_14",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7325,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_07",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_08",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7475,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_13",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.81,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_14",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8275,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_07",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_08",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.3743,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.38,
+      "gemini-3.8-flash": 0.3,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_07",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.3775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.4,
+      "gemini-3.8-flash": 0.4,
+      "grok-4-7": 0.36
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_08",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.665,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_07",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_08",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8175,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_07",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.795,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_08",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.8125,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.8
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_09",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.8,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_10",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7175,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_09",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.6375,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_10",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.5625,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.6,
+      "claude-opus-5-5": 0.5,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.63
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_01",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_02",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.1,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.1,
+      "claude-opus-5-5": 0.1,
+      "gemini-3.8-flash": 0.1,
+      "grok-4-7": 0.1
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_03",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.895,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_04",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.28,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.25,
+      "claude-opus-5-5": 0.32,
+      "gemini-3.8-flash": 0.25,
+      "grok-4-7": 0.3
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_05",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.85,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_06",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_07",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.745,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.78,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_08",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.82,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.8
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_09",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.1175,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.1,
+      "claude-opus-5-5": 0.15,
+      "gemini-3.8-flash": 0.1,
+      "grok-4-7": 0.12
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_10",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.28,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.25,
+      "claude-opus-5-5": 0.3,
+      "gemini-3.8-flash": 0.25,
+      "grok-4-7": 0.32
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_11",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.1071,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.1,
+      "claude-opus-5-5": 0.15,
+      "gemini-3.8-flash": 0.1,
+      "grok-4-7": 0.1
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 0.5,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_12",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.6875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_01",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8825,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.95,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_02",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_03",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.925,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.95,
+      "claude-opus-5-5": 0.9,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.9
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_04",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8425,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.8,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_05",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7975,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_06",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.75,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_07",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.845,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.8,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_08",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.815,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_09",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.895,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_10",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.85,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_11",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8275,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_12",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.92,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.95,
+      "claude-opus-5-5": 0.88,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.9
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_01",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_02",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_03",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.815,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_04",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.4543,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.5
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_05",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_06",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8475,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_01",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.5425,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.57,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_02",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.46,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.52
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.5
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_03",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8525,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_04",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.3525,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.38,
+      "gemini-3.8-flash": 0.3,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_05",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.5975,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.55,
+      "claude-opus-5-5": 0.6,
+      "gemini-3.8-flash": 0.62,
+      "grok-4-7": 0.62
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_06",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.42,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.4,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_01",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7125,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_02",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.1429,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.1,
+      "claude-opus-5-5": 0.15,
+      "gemini-3.8-flash": 0.15,
+      "grok-4-7": 0.15
+    },
+    "weights": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_03",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_04",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.65,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 0.5,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.5
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_05",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.715,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_06",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.6575,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.62,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_01",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7975,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.76
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_02",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.86,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_03",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8125,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_05",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.755,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_06",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.86
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_01",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.85,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_02",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.765,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_03",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7425,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_04",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.635,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.65,
+      "claude-opus-5-5": 0.65,
+      "gemini-3.8-flash": 0.6,
+      "grok-4-7": 0.64
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_05",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.755,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_06",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7325,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_01",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.88,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_02",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.3,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.3,
+      "claude-opus-5-5": 0.35,
+      "gemini-3.8-flash": 0.25,
+      "grok-4-7": 0.3
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_03",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.6829,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.7,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.68,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_04",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.78,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.84
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.5
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_05",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.735,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_06",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7125,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.7,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_07",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7725,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_08",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.4457,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.45,
+      "claude-opus-5-5": 0.45,
+      "gemini-3.8-flash": 0.45,
+      "grok-4-7": 0.42
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 0.5
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_13",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.78,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.7
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "econ_14",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.175,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.15,
+      "claude-opus-5-5": 0.2,
+      "gemini-3.8-flash": 0.15,
+      "grok-4-7": 0.2
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_07",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.2575,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.25,
+      "claude-opus-5-5": 0.3,
+      "gemini-3.8-flash": 0.2,
+      "grok-4-7": 0.28
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_08",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7375,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_13",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.875,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "social_14",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.13,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.1,
+      "claude-opus-5-5": 0.15,
+      "gemini-3.8-flash": 0.15,
+      "grok-4-7": 0.12
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_07",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.86
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "env_08",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.32,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.35,
+      "claude-opus-5-5": 0.3,
+      "gemini-3.8-flash": 0.25,
+      "grok-4-7": 0.38
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_07",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7125,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.65,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "tech_08",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.75,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.75,
+      "grok-4-7": 0.73
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_07",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7775,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.8,
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.74
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "health_08",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.895,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.95,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_07",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.85,
+      "claude-opus-5-5": 0.75,
+      "gemini-3.8-flash": 0.85,
+      "grok-4-7": 0.78
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_08",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.7075,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.75,
+      "claude-opus-5-5": 0.68,
+      "gemini-3.8-flash": 0.72,
+      "grok-4-7": 0.68
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_09",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.86,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.82,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "gov_10",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.855,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.9,
+      "claude-opus-5-5": 0.8,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.82
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_09",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.5425,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.5,
+      "claude-opus-5-5": 0.55,
+      "gemini-3.8-flash": 0.52,
+      "grok-4-7": 0.6
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "foreign_10",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.545,
+    "raw_scores": {
+      "gpt-6.1-sol": 0.6,
+      "claude-opus-5-5": 0.5,
+      "gemini-3.8-flash": 0.5,
+      "grok-4-7": 0.58
+    },
+    "weights": {
+      "gpt-6.1-sol": 1.0,
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_04",
+    "model_id": "apertus-1.5-70b",
+    "weighted_score": 0.7467,
+    "raw_scores": {
+      "claude-opus-5-5": 0.72,
+      "gemini-3.8-flash": 0.8,
+      "grok-4-7": 0.72
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  },
+  {
+    "statement_id": "immig_04",
+    "model_id": "deepseek-v4-pro",
+    "weighted_score": 0.8767,
+    "raw_scores": {
+      "claude-opus-5-5": 0.85,
+      "gemini-3.8-flash": 0.9,
+      "grok-4-7": 0.88
+    },
+    "weights": {
+      "claude-opus-5-5": 1.0,
+      "gemini-3.8-flash": 1.0,
+      "grok-4-7": 1.0
+    },
+    "self_scoring_bias": null
+  }
+]

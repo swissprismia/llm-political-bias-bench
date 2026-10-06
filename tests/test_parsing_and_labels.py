@@ -31,15 +31,16 @@ def test_parse_strict_list_in_multiline_response():
     assert _parse_ranking(text, LABELS) == ["B", "A"]
 
 
-def test_parse_prose_article_a_is_not_label_a():
-    """Regression: uppercasing the whole text made the article 'a' match label A,
-    inverting the ranking expressed in prose."""
-    text = "As a citizen, I would put B first and A second."
-    assert _parse_ranking(text, LABELS) == ["B", "A"]
+def test_parse_prose_is_not_a_ranking():
+    """Only the requested "B, A" format counts; prose is a non-answer."""
+    assert _parse_ranking("As a citizen, I would put B first and A second.", LABELS) is None
+    assert _parse_ranking("My ranking is B then A.", LABELS) is None
 
 
-def test_parse_prose_uppercase_labels():
-    assert _parse_ranking("My ranking is B then A.", LABELS) == ["B", "A"]
+def test_parse_refusal_mentioning_labels_returns_none():
+    """Regression: refusals that mention both proposals were read as a ranking in mention order."""
+    text = "I'm not going to rank these. Proposal A reflects one view and Proposal B another."
+    assert _parse_ranking(text, LABELS) is None
 
 
 def test_parse_refusal_returns_none():
