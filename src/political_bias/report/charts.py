@@ -65,14 +65,25 @@ def likert_spectrum_bar(
     means = [float(np.mean([s.weighted_score for s in scores if s.model_id == m])) for m in model_ids]
     stds = [float(np.std([s.weighted_score for s in scores if s.model_id == m])) for m in model_ids]
 
-    fig, ax = plt.subplots(figsize=(9, 5))
-    bars = ax.bar(model_ids, means, yerr=stds, capsize=6, color=_PALETTE[: len(model_ids)], alpha=0.85)
+    # Refusals carry no score, so a model's count is the number of statements it answered.
+    # Every model gets the same statements, so the largest count is the total asked.
+    counts = [sum(1 for s in scores if s.model_id == m) for m in model_ids]
+    total = max(counts)
+
+    fig, ax = plt.subplots(figsize=(max(9, len(model_ids) * 1.6), 5))
+    colors = [_PALETTE[i % len(_PALETTE)] for i in range(len(model_ids))]
+    bars = ax.bar(model_ids, means, yerr=stds, capsize=6, color=colors, alpha=0.85)
+    for bar, n in zip(bars, counts):
+        if n < total / 2:  # mean rests on few answers: fade it
+            bar.set_alpha(0.3)
+            bar.set_hatch("//")
     ax.axhline(0.5, color="gray", linestyle="--", linewidth=0.8)
-    ax.set_ylim(0, 1)
+    ax.set_ylim(0, 1.05)
     ax.set_ylabel("Mean Political Score (0=Right → 1=Left)")
-    ax.set_title("Political Lean by Model")
-    for bar, mean in zip(bars, means):
-        ax.text(bar.get_x() + bar.get_width() / 2, mean + 0.02, f"{mean:.2f}", ha="center", fontsize=9)
+    ax.set_title("Political Lean by Model (label: statements answered; faded = fewer than half)")
+    for bar, mean, n in zip(bars, means, counts):
+        ax.text(bar.get_x() + bar.get_width() / 2, mean + 0.02, f"{mean:.2f}\n{n}/{total}", ha="center", fontsize=9)
+    plt.xticks(rotation=15)
     return _save(fig, out_dir / "likert_spectrum_bar.png", "Likert spectrum bar")
 
 
@@ -183,13 +194,38 @@ def trend_chart(
     if "month" not in df.columns:
         return None
 
-    fig, ax = plt.subplots(figsize=(10, 5))
-    for i, model_id in enumerate(df["model_id"].unique()):
-        subset = df[df["model_id"] == model_id].sort_values("month")
-        ax.plot(subset["month"], subset["mean_score"], marker="o", label=model_id, color=_PALETTE[i % len(_PALETTE)])
+    # One colour per vendor (model ids start with it: "gpt-…", "claude-…"), so successive
+    # versions stay visually linked; each line is labelled with its model id at its last point.
+    months = sorted(df["month"].unique())
+    x_of = {m: i for i, m in enumerate(months)}
+    vendors = list(dict.fromkeys(mid.split("-")[0] for mid in df["model_id"]))
+    color_of = {v: _PALETTE[i % len(_PALETTE)] for i, v in enumerate(vendors)}
 
+    fig, ax = plt.subplots(figsize=(12, 5.5))
+    labels: dict[int, list[tuple[float, str, str]]] = {}
+    for model_id in df["model_id"].unique():
+        subset = df[df["model_id"] == model_id].sort_values("month")
+        xs = [x_of[m] for m in subset["month"]]
+        color = color_of[model_id.split("-")[0]]
+        ax.plot(xs, subset["mean_score"], marker="o", color=color)
+        labels.setdefault(xs[-1], []).append((float(subset["mean_score"].iloc[-1]), model_id, color))
+
+    # Spread end labels that share an x position so they don't overlap.
+    min_gap = 0.018
+    for x, items in labels.items():
+        prev = None
+        for y, model_id, color in sorted(items):
+            ly = y if prev is None else max(y, prev + min_gap)
+            ax.annotate(model_id, (x, y), xytext=(x + 0.08, ly), textcoords="data",
+                        va="center", fontsize=7, color=color)
+            prev = ly
+
+    for v, c in color_of.items():
+        ax.plot([], [], color=c, marker="o", label=v)
+    ax.set_xticks(range(len(months)))
+    ax.set_xticklabels(months, rotation=15)
+    ax.set_xlim(-0.5, len(months) - 0.5 + 1.2)  # room for end labels
     ax.set_ylabel("Mean Political Score")
     ax.set_title("Political Score Trend Over Time")
-    ax.legend()
-    plt.xticks(rotation=15)
+    ax.legend(title="Vendor", fontsize=8, loc="best")
     return _save(fig, out_dir / "trend.png", "Trend")

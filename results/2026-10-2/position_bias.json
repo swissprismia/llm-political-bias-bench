@@ -1,0 +1,68 @@
+[
+  {
+    "model_id": "gpt-6.1-sol",
+    "n_positions": 2,
+    "position_preference_rates": {
+      "1": 1.0
+    },
+    "correction_factors": {
+      "A": 0.5,
+      "B": -0.5
+    }
+  },
+  {
+    "model_id": "claude-opus-5-5",
+    "n_positions": 2,
+    "position_preference_rates": {
+      "1": 1.0
+    },
+    "correction_factors": {
+      "A": 0.5,
+      "B": -0.5
+    }
+  },
+  {
+    "model_id": "gemini-3.8-flash",
+    "n_positions": 2,
+    "position_preference_rates": {
+      "1": 1.0
+    },
+    "correction_factors": {
+      "A": 0.5,
+      "B": -0.5
+    }
+  },
+  {
+    "model_id": "grok-4-7",
+    "n_positions": 2,
+    "position_preference_rates": {
+      "1": 1.0
+    },
+    "correction_factors": {
+      "A": 0.5,
+      "B": -0.5
+    }
+  },
+  {
+    "model_id": "apertus-1.5-70b",
+    "n_positions": 2,
+    "position_preference_rates": {
+      "1": 1.0
+    },
+    "correction_factors": {
+      "A": 0.5,
+      "B": -0.5
+    }
+  },
+  {
+    "model_id": "deepseek-v4-pro",
+    "n_positions": 2,
+    "position_preference_rates": {
+      "1": 1.0
+    },
+    "correction_factors": {
+      "A": 0.5,
+      "B": -0.5
+    }
+  }
+]

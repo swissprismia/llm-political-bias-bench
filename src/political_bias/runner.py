@@ -37,17 +37,25 @@ def _resolve_out_dir(month: str) -> Path:
 
 
 def _load_prior_summary(month: str) -> dict | None:
-    """Load summary from the most recent prior month's results."""
-    year, mon = month.split("-")
+    """Load summary from the most recent prior month's results.
+
+    A rerun folder ("YYYY-MM-N", e.g. 2026-10-2) compares against its base month;
+    a regular month compares against the latest rerun of its predecessor, if any.
+    """
+    year, mon, *rerun = month.split("-")
+    if rerun:
+        base = RESULTS_DIR / f"{year}-{mon}" / "summary.json"
+        return json.loads(base.read_text()) if base.exists() else None
     for delta in range(1, 13):
         m = int(mon) - delta
         y = int(year)
         while m < 1:
             m += 12
             y -= 1
-        candidate = RESULTS_DIR / f"{y:04d}-{m:02d}" / "summary.json"
-        if candidate.exists():
-            return json.loads(candidate.read_text())
+        # "2026-10" sorts before "2026-10-2", so the last match is the latest rerun.
+        candidates = sorted(RESULTS_DIR.glob(f"{y:04d}-{m:02d}*/summary.json"))
+        if candidates:
+            return json.loads(candidates[-1].read_text())
     return None
 
 

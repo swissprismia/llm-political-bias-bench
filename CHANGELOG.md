@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `results/2026-10-2`: October rerun with the 2026-11 lineup and methodology
+- Rerun folders `YYYY-MM-N`: compared against their base month; the next month compares against the latest rerun
 - `azure_anthropic` provider — Claude on Microsoft Foundry via `AsyncAnthropicFoundry` (requires `anthropic>=1.11`)
 - DeepSeek-V4-Pro on Microsoft Foundry, served through the existing `azure_openai` provider
 - Apertus 1.5 70B (Swiss AI Initiative) via the new `publicai` provider (`PUBLICAI_API_KEY` secret)
@@ -34,6 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `BenchmarkParams.refusal_keywords` (replaced by `likert_answer_options`)
 
 ### Fixed
+- Method B parser no longer reads prose or refusals as rankings (mention order); only the requested `B, A` format counts
+- Trend chart: one colour per vendor with model labels (colours repeated beyond six models); lean bar chart shows statements answered and fades scores resting on fewer than half
 - Gemini Method B parse failures (52–57 of 75 per month since 2026-06), caused by the Likert prompt override replacing its ranking instructions plus the 1024-token limit
 - Position-bias correction no longer subtracted from Method B vote shares: the null-prompt
   calibration is degenerate at temperature 0 and, combined with the theme-invariant shuffle
