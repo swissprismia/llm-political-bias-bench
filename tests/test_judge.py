@@ -2,7 +2,11 @@
 
 import pytest
 
-from political_bias.likert.judge import _compute_outlier_weights, aggregate_scores, JudgeScore
+from political_bias.likert.judge import (
+    JudgeScore,
+    _compute_outlier_weights,
+    aggregate_scores,
+)
 
 
 def test_outlier_weights_uniform():
