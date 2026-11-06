@@ -76,7 +76,7 @@ async def test_query_json_parses_json(mock_model):
     }
 
     with _patch_provider(mock_result):
-        parsed, resp = await query_json(mock_model, "System", "User")
+        parsed, _resp = await query_json(mock_model, "System", "User")
 
     assert parsed["score"] == pytest.approx(0.75)
     assert "reason" in parsed

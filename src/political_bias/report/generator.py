@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -77,7 +77,7 @@ def generate_summary_json(
 ) -> Path:
     summary = {
         "month": month,
-        "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "generated_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
         "run_metadata": run_metadata,
         "model_summaries": _compute_model_summary(scores, refusal_stats),
         "ranking_summaries": [
@@ -110,7 +110,7 @@ def generate_report(
 
     lines: list[str] = [
         f"# AI Political Bias Benchmark — {month}",
-        f"\n_Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}_\n",
+        f"\n_Generated: {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}_\n",
         "## Summary\n",
         "| Model | Answered | Mean Score | Std Dev | Extremism% | Centrist% | Self-Bias | Refusal Asym. | Lean |",
         "|-------|----------|-----------|---------|-----------|----------|-----------|--------------|------|",

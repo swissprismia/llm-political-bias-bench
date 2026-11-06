@@ -14,7 +14,6 @@ from political_bias.ranking.evaluator import RankingResponse
 from political_bias.ranking.proposals import Proposal, Theme
 from political_bias.ranking.scorer import compute_vote_shares
 
-
 # ---------------------------------------------------------------------------
 # Shared factories (mirrors test_refusal.py)
 # ---------------------------------------------------------------------------

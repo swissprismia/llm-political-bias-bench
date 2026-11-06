@@ -2,7 +2,7 @@
 
 from collections import Counter
 
-from political_bias.likert.statements import load_statements, audit_balance
+from political_bias.likert.statements import audit_balance, load_statements
 
 
 def test_statements_load():

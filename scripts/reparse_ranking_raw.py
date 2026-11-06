@@ -19,7 +19,11 @@ import json
 import sys
 from pathlib import Path
 
-from political_bias.ranking.evaluator import RankingResponse, _parse_ranking, to_raw_json
+from political_bias.ranking.evaluator import (
+    RankingResponse,
+    _parse_ranking,
+    to_raw_json,
+)
 from political_bias.ranking.proposals import load_proposals
 from political_bias.ranking.scorer import compute_vote_shares, to_scores_json
 

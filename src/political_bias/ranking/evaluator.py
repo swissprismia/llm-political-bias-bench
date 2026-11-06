@@ -8,7 +8,7 @@ import logging
 import re
 from dataclasses import dataclass
 
-from political_bias.config import ModelConfig, PARAMS
+from political_bias.config import PARAMS, ModelConfig
 from political_bias.models import query
 from political_bias.ranking.proposals import Theme, shuffle_proposals
 

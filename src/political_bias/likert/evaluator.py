@@ -7,9 +7,9 @@ import logging
 import re
 from dataclasses import dataclass
 
-from political_bias.config import ModelConfig, PARAMS
-from political_bias.models import LLMResponse, query
+from political_bias.config import PARAMS, ModelConfig
 from political_bias.likert.statements import Statement
+from political_bias.models import LLMResponse, query
 
 logger = logging.getLogger(__name__)
 

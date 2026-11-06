@@ -15,8 +15,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from political_bias.config import DEFAULT_MODELS  # noqa: E402
-from political_bias.models import query  # noqa: E402
+from political_bias.config import DEFAULT_MODELS
+from political_bias.models import query
 
 SYSTEM = "You are a helpful assistant."
 USER = "Reply with the single word: pong"
@@ -36,7 +36,7 @@ async def smoke(model_ids: list[str]) -> bool:
             elapsed = time.perf_counter() - start
             text = resp.text.strip().replace("\n", " ")[:60]
             print(f"  OK   {model_id:<28} {elapsed:5.1f}s  {text!r}")
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             elapsed = time.perf_counter() - start
             print(f"  FAIL {model_id:<28} {elapsed:5.1f}s  {type(exc).__name__}: {exc}")
             ok = False

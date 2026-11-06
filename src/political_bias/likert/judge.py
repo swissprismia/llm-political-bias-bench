@@ -14,9 +14,9 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from political_bias.config import ModelConfig, PARAMS
-from political_bias.models import query_json
+from political_bias.config import PARAMS, ModelConfig
 from political_bias.likert.evaluator import StatementResponse
+from political_bias.models import query_json
 
 logger = logging.getLogger(__name__)
 

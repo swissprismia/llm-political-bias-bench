@@ -8,9 +8,10 @@ import logging
 import os
 import re
 import time
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
-from typing import Any, AsyncIterator
+from typing import Any
 
 from political_bias.config import ModelConfig
 
@@ -61,18 +62,13 @@ class _Limiter:
         await self._rpm_sem.acquire()
         asyncio.get_running_loop().call_later(self._rpm_interval, self._rpm_sem.release)
         # 2. Concurrency slot — held for the duration of the request.
-        # Guard inside try so that cancellation after the RPM token is taken
-        # doesn't bypass the finally and leak the concurrency slot.
+        if self._par_sem:
+            await self._par_sem.acquire()
         try:
+            yield
+        finally:
             if self._par_sem:
-                await self._par_sem.acquire()
-            try:
-                yield
-            finally:
-                if self._par_sem:
-                    self._par_sem.release()
-        except BaseException:
-            raise
+                self._par_sem.release()
 
 
 _limiters: dict[str, _Limiter] = {}

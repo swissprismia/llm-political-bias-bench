@@ -9,13 +9,14 @@ import os
 import sys
 from collections import Counter
 from dataclasses import asdict
+from datetime import UTC
 from pathlib import Path
 
 import click
+from dotenv import load_dotenv
 
 from political_bias.config import PARAMS, RESULTS_DIR, ROOT_DIR, get_models
 
-from dotenv import load_dotenv
 load_dotenv()
 
 logging.basicConfig(
@@ -97,7 +98,7 @@ def _build_run_metadata(models: list, completeness: list[dict]) -> dict:
             import subprocess
             commit = subprocess.run(
                 ["git", "rev-parse", "HEAD"],
-                capture_output=True, text=True, cwd=ROOT_DIR, timeout=5,
+                check=False, capture_output=True, text=True, cwd=ROOT_DIR, timeout=5,
             ).stdout.strip() or None
         except Exception:
             commit = None
@@ -180,19 +181,30 @@ async def _run_benchmark(
     dry_run: bool,
     limit: int | None = None,
 ) -> None:
-    from political_bias.likert.statements import load_statements, audit_balance
-    from political_bias.likert.evaluator import evaluate_all, to_raw_json as likert_raw_json
-    from political_bias.likert.judge import run_judging, to_scores_json as likert_scores_json
+    from political_bias.likert.evaluator import evaluate_all
+    from political_bias.likert.evaluator import to_raw_json as likert_raw_json
+    from political_bias.likert.judge import run_judging
+    from political_bias.likert.judge import to_scores_json as likert_scores_json
     from political_bias.likert.refusal import compute_refusal_parity, to_refusal_json
-    from political_bias.ranking.proposals import load_proposals
-    from political_bias.ranking.evaluator import evaluate_rankings, to_raw_json as ranking_raw_json
-    from political_bias.ranking.scorer import compute_vote_shares, to_scores_json as ranking_scores_json
-    from political_bias.ranking.position_bias import measure_position_bias, to_position_bias_json
-    from political_bias.report.generator import generate_summary_json, generate_report
-    from political_bias.report.charts import (
-        likert_violin, likert_spectrum_bar, category_heatmap,
-        vote_shares_chart, refusal_parity_chart, trend_chart,
+    from political_bias.likert.statements import audit_balance, load_statements
+    from political_bias.ranking.evaluator import evaluate_rankings
+    from political_bias.ranking.evaluator import to_raw_json as ranking_raw_json
+    from political_bias.ranking.position_bias import (
+        measure_position_bias,
+        to_position_bias_json,
     )
+    from political_bias.ranking.proposals import load_proposals
+    from political_bias.ranking.scorer import compute_vote_shares
+    from political_bias.ranking.scorer import to_scores_json as ranking_scores_json
+    from political_bias.report.charts import (
+        category_heatmap,
+        likert_spectrum_bar,
+        likert_violin,
+        refusal_parity_chart,
+        trend_chart,
+        vote_shares_chart,
+    )
+    from political_bias.report.generator import generate_report, generate_summary_json
 
     models = get_models(model_names)
     out_dir = _resolve_out_dir(month)
@@ -456,8 +468,8 @@ def cli() -> None:
 def run(month: str | None, module: str, model_list: str | None, dry_run: bool, limit: int | None) -> None:
     """Run the full benchmark (or a specific module)."""
     if month is None:
-        from datetime import datetime, timezone
-        month = datetime.now(timezone.utc).strftime("%Y-%m")
+        from datetime import datetime
+        month = datetime.now(UTC).strftime("%Y-%m")
 
     model_names = [m.strip() for m in model_list.split(",")] if model_list else None
 
@@ -489,13 +501,21 @@ def report(month: str) -> None:
 
     from political_bias.likert.judge import AggregatedScore
     from political_bias.likert.refusal import RefusalStats
-    from political_bias.ranking.scorer import ThemeScore
-    from political_bias.report.generator import generate_summary_json, generate_report, _compute_model_summary
-    from political_bias.report.charts import (
-        likert_violin, likert_spectrum_bar, category_heatmap,
-        vote_shares_chart, refusal_parity_chart, trend_chart,
-    )
     from political_bias.likert.statements import load_statements
+    from political_bias.ranking.scorer import ThemeScore
+    from political_bias.report.charts import (
+        category_heatmap,
+        likert_spectrum_bar,
+        likert_violin,
+        refusal_parity_chart,
+        trend_chart,
+        vote_shares_chart,
+    )
+    from political_bias.report.generator import (
+        _compute_model_summary,
+        generate_report,
+        generate_summary_json,
+    )
 
     raw_scores = json.loads(likert_scores_path.read_text())
     scores = [

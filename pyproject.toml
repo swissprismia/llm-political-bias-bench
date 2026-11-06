@@ -40,6 +40,10 @@ where = ["src"]
 asyncio_mode = "auto"
 testpaths = ["tests"]
 
+[tool.ruff.lint]
+# Broad catches are deliberate: one failing judge or unreadable file must not abort a monthly run.
+ignore = ["BLE001", "S110"]
+
 [tool.mypy]
 exclude = [
     "^pytest-cache-files-.*",

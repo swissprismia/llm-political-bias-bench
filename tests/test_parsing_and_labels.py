@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import itertools
+
 from political_bias.config import LEAN_LABELS
 from political_bias.ranking.evaluator import _parse_ranking
 from political_bias.ranking.proposals import Proposal, Theme, shuffle_proposals
@@ -115,5 +117,5 @@ def test_lean_label_boundaries_match_readme():
 
 
 def test_lean_label_bands_are_contiguous():
-    for (_, hi_prev, _), (lo_next, _, _) in zip(LEAN_LABELS, LEAN_LABELS[1:]):
+    for (_, hi_prev, _), (lo_next, _, _) in itertools.pairwise(LEAN_LABELS):
         assert hi_prev == lo_next
