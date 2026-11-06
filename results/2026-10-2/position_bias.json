@@ -44,7 +44,7 @@
     }
   },
   {
-    "model_id": "apertus-1.5-70b",
+    "model_id": "deepseek-v4-pro",
     "n_positions": 2,
     "position_preference_rates": {
       "1": 1.0
@@ -55,7 +55,7 @@
     }
   },
   {
-    "model_id": "deepseek-v4-pro",
+    "model_id": "apertus-1.5-70b",
     "n_positions": 2,
     "position_preference_rates": {
       "1": 1.0

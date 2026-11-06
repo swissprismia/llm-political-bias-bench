@@ -123,3 +123,31 @@ async def test_query_answer_pattern_flags_non_answer(mock_model):
         assert (await query(mock_model, "S", "U", answer_pattern=_ANSWER)).refused is True
     with _patch_provider({"text": "**Strongly disagree.** Because...", "input_tokens": 1, "output_tokens": 1}):
         assert (await query(mock_model, "S", "U", answer_pattern=_ANSWER)).refused is False
+
+
+@pytest.mark.asyncio
+async def test_apertus_routes_to_infomaniak(monkeypatch):
+    """Apertus must go to Infomaniak: Public AI's gateway silently served other models."""
+    from types import SimpleNamespace
+
+    from political_bias.config import DEFAULT_MODELS
+
+    cfg = DEFAULT_MODELS["apertus-1.5-70b"]
+    assert cfg.provider == "infomaniak"
+    monkeypatch.setenv(cfg.api_key_env, "test-key")
+    monkeypatch.setenv("INFOMANIAK_PRODUCT_ID", "1234")
+    _models_module._clients.clear()
+    completion = SimpleNamespace(
+        choices=[SimpleNamespace(message=SimpleNamespace(content="Agree"))],
+        usage=SimpleNamespace(prompt_tokens=3, completion_tokens=1),
+    )
+    with patch("openai.AsyncOpenAI") as client_cls:
+        client_cls.return_value.chat.completions.create = AsyncMock(return_value=completion)
+        out = await _models_module._call_infomaniak(cfg, "S", "U")
+    _models_module._clients.clear()
+
+    assert client_cls.call_args.kwargs["base_url"] == "https://api.infomaniak.com/2/ai/1234/openai/v1"
+    sent = client_cls.return_value.chat.completions.create.call_args.kwargs
+    assert sent["model"] == "swiss-ai/Apertus-v1.5-70B"
+    assert sent["messages"][0]["role"] == "system"
+    assert out == {"text": "Agree", "input_tokens": 3, "output_tokens": 1}

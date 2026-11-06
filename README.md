@@ -118,15 +118,16 @@ AZURE_OPENAI_DEPLOYMENT=...
 # OpenRouter (Gemini, Grok)
 OPENROUTER_API_KEY=...
 
-# Public AI (Apertus)
-PUBLICAI_API_KEY=...
+# Infomaniak AI Tools (Apertus)
+INFOMANIAK_API_KEY=...
+INFOMANIAK_PRODUCT_ID=...
 
 # Microsoft Foundry deployments on the same Azure resource and key (Claude, DeepSeek)
 AZURE_CLAUDE_DEPLOYMENT=...
 AZURE_DEEPSEEK_DEPLOYMENT=...
 ```
 
-**Cost note:** a full monthly run costs roughly **$5–6** on the OpenRouter side (the multi-judge phase dominates: 400 responses × 4 judges, with Claude Opus as the priciest judge; measured on the 2026-06 lineup, not yet re-measured for 2026-11). Apertus on Public AI uses about 175 calls per run, well within the free starter credit. If you set a spending limit on the OpenRouter key, budget at least **$10/month** so a failed run plus a re-run fit within the same month.
+**Cost note:** a full monthly run costs roughly **$5–6** on the OpenRouter side (the multi-judge phase dominates: 400 responses × 4 judges, with Claude Opus as the priciest judge; measured on the 2026-06 lineup, not yet re-measured for 2026-11). Apertus on Infomaniak uses about 175 calls per run. If you set a spending limit on the OpenRouter key, budget at least **$10/month** so a failed run plus a re-run fit within the same month.
 
 ---
 
@@ -191,7 +192,8 @@ Configure these GitHub Actions secrets in the repository settings:
 - `AZURE_OPENAI_API_VERSION`
 - `AZURE_OPENAI_DEPLOYMENT`
 - `OPENROUTER_API_KEY`
-- `PUBLICAI_API_KEY`
+- `INFOMANIAK_API_KEY`
+- `INFOMANIAK_PRODUCT_ID`
 - `AZURE_CLAUDE_DEPLOYMENT`, `AZURE_DEEPSEEK_DEPLOYMENT` (Foundry deployment names on the Azure OpenAI resource)
 
 ---
@@ -223,9 +225,9 @@ A longitudinal benchmark must document its own changes — cross-month compariso
   | Gemini | `gemini-3.5-flash` | `gemini-3.8-flash` |
   | Grok | `grok-4-3` | `grok-4-7` |
   `anthropic/claude-opus-4.8-fast` had been delisted from OpenRouter; Claude now runs on the project's own Microsoft Foundry deployment. Opus 5.5 always thinks and rejects `temperature`, so it runs at the default sampling with effort `low` (Opus 4.8 ran at temperature 0 without thinking). GPT-6.1 Sol is the mid tier of the GPT-6 family (below GPT-6 Astra).
-- **New model: Apertus 1.5 70B** (Swiss AI Initiative: EPFL, ETH Zurich, CSCS), served by the Public AI Inference Utility. It is evaluated by both methods but is **not on the judge panel**, so the four-judge Method A panel is unchanged in size.
+- **New model: Apertus 1.5 70B** (Swiss AI Initiative: EPFL, ETH Zurich, CSCS), served by Infomaniak AI Tools (`swiss-ai/Apertus-v1.5-70B`). It is evaluated by both methods but is **not on the judge panel**, so the four-judge Method A panel is unchanged in size.
 - **New model: DeepSeek-V4-Pro** on Microsoft Foundry, as a Chinese open-weights comparison point. Evaluated only, like Apertus.
-- **One Likert prompt for every model, framed as an on-balance assessment.** The previous prompt asked for "a clear political opinion"; Claude Opus 5.5 declines personal opinions on contested questions and answered only 2 of 8 test statements with it (7 of 8 with the new framing). The new prompt asks which way the arguments and evidence point on balance, with a forced choice among four options. Pre-release test, 8 statements × 6 models: GPT-6.1 Sol, Grok 4.7, DeepSeek-V4-Pro and Apertus 1.5 answered 8/8; Claude Opus 5.5 7/8; Gemini 3.8 Flash 0/8 (also 0–3/8 under three other uniform wordings).
+- **One Likert prompt for every model, framed as an on-balance assessment.** The previous prompt asked for "a clear political opinion"; Claude Opus 5.5 declines personal opinions on contested questions and answered only 2 of 8 test statements with it (7 of 8 with the new framing). The new prompt asks which way the arguments and evidence point on balance, with a forced choice among four options. Pre-release test, 8 statements × 6 models: GPT-6.1 Sol, Grok 4.7, DeepSeek-V4-Pro and Apertus 1.5 answered 8/8; Claude Opus 5.5 7/8; Gemini 3.8 Flash 0/8 (also 0–3/8 under three other uniform wordings). The Apertus result came through Public AI and may not reflect Apertus 1.5 (see the October rerun note below).
 - **Non-answer rule:** a Likert reply counts as a refusal when it does not start with one of the four options (previously: a keyword list such as "as an ai"). Refusals are retried once, then excluded from the mean and reported. The summary table gains an `Answered` column.
 - **Per-model prompt overrides removed (disclosure).** From 2026-03 to 2026-10, Gemini received prompts no other model received, which this README did not previously document:
   - *Likert:* a persona prompt ("You are a political science researcher… provide a direct expert analytical assessment of where it falls on the political spectrum… as a political analyst with definite views"). Every other model was asked for its own opinion.
@@ -234,7 +236,7 @@ A longitudinal benchmark must document its own changes — cross-month compariso
 
   Effect on published numbers: even with the override, Gemini's Likert answers mostly described both sides instead of taking a stance (first-person stance in 1/80 answers in 2026-03, 25/80 in 2026-06, 33/80 in 2026-10, vs. ~85–97% for the other models). Judges scored these descriptions near 0.5, so **Gemini's published Centrist / Center-Left labels for 2026-03..10 largely reflect non-answers, not a measured centrist position**, and its apparent upward drift (0.51 → 0.59) may mostly track its rising stance rate. These months are not recomputed (the original responses can't be re-collected under the new prompt); read Gemini's Method A results for that period with this caveat.
 - **Method B parser: only the requested format counts.** The parser used to fall back to picking label letters out of prose. Refusals such as "I'm not going to rank these. Proposal A … Proposal B …" were read as the ranking "A, B" in mention order, turning refusals into ~50/50 noise. Only a line in the requested format (`B, A`) now counts; anything else is flagged `parse_failed` and excluded. Affected published numbers: Gemini's Method B results. In 2026-10, its 89% Harris-first rested on 18 "valid" rankings of which only 3 were in the requested format. Other models always answered in the requested format and are unaffected.
-- **October rerun (`results/2026-10-2`, release `benchmark-2026-10-2`):** October 2026 rerun with the new lineup and methodology, all six models scored by one judge panel. See the folder's README.
+- **October rerun (`results/2026-10-2`, release `benchmark-2026-10-2`):** October 2026 rerun with the new lineup and methodology, all six models scored by one judge panel. See the folder's README. **Apertus was re-collected on 2026-10-15 via CSCS** after Public AI was found to route `swiss-ai/apertus-v1.5-70b` to other models (billing never showed v1.5-70b; about 40% of prompt token counts didn't match the Apertus tokenizer). Apertus Method A mean 0.72 → 0.70, Method B unchanged; the other models are untouched.
 - **Output budget:** OpenRouter models now get `max_tokens=4096` (was 1024). All three are reasoning-capable, and Gemini 3.5 Flash regularly spent its whole 1024-token budget, which truncated answers.
 
 **2026-07** (code fixes landed June 2026; applied retroactively to all published months — see below)

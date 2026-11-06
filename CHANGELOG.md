@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rerun folders `YYYY-MM-N`: compared against their base month; the next month compares against the latest rerun
 - `azure_anthropic` provider — Claude on Microsoft Foundry via `AsyncAnthropicFoundry` (requires `anthropic>=1.11`)
 - DeepSeek-V4-Pro on Microsoft Foundry, served through the existing `azure_openai` provider
-- Apertus 1.5 70B (Swiss AI Initiative) via the new `publicai` provider (`PUBLICAI_API_KEY` secret)
+- Apertus 1.5 70B (Swiss AI Initiative) via the new `infomaniak` provider (`INFOMANIAK_API_KEY` and `INFOMANIAK_PRODUCT_ID` secrets, model `swiss-ai/Apertus-v1.5-70B`)
 - `ModelConfig.judge` flag: models with `judge=False` are evaluated but excluded from the Likert judge panel
 - `openrouter` provider — OpenAI-compatible gateway for Claude, Gemini, and Grok
 - `ModelConfig.provider_model_id` for gateway model slugs (e.g. `anthropic/claude-opus-4.8-fast`)
@@ -36,6 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `BenchmarkParams.refusal_keywords` (replaced by `likert_answer_options`)
 
 ### Fixed
+- Apertus moved from Public AI to CSCS: Public AI's gateway routed `swiss-ai/apertus-v1.5-70b` to other models. The `publicai` provider and `PUBLICAI_API_KEY` secret are removed; `results/2026-10-2` Apertus re-collected via CSCS on 2026-10-15 (Method A 0.72 → 0.70, Method B unchanged; other models untouched)
+- Apertus moved from CSCS to Infomaniak AI Tools on 2026-11-06: the CSCS key was revoked (403). Infomaniak serves the same model: prompt token counts matched CSCS on 10/10 replayed prompts and 9/10 temperature-0 answers were identical. The `cscs` provider and `CSCS_API_KEY` secret are removed
 - Method B parser no longer reads prose or refusals as rankings (mention order); only the requested `B, A` format counts
 - Trend chart: one colour per vendor with model labels (colours repeated beyond six models); lean bar chart shows statements answered and fades scores resting on fewer than half
 - Gemini Method B parse failures (52–57 of 75 per month since 2026-06), caused by the Likert prompt override replacing its ranking instructions plus the 1024-token limit

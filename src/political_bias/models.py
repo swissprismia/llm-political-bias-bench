@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import os
 import re
 import time
 from contextlib import asynccontextmanager
@@ -244,18 +245,14 @@ async def _call_openrouter(cfg: ModelConfig, system: str, user: str) -> dict[str
     }
 
 
-async def _call_publicai(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
-    """Public AI Inference Utility — OpenAI-compatible, hosts the Swiss Apertus models."""
+async def _call_infomaniak(cfg: ModelConfig, system: str, user: str) -> dict[str, Any]:
+    """Infomaniak AI Tools — OpenAI-compatible, Swiss-hosted, serves the Swiss Apertus models."""
     from openai import AsyncOpenAI
 
+    product_id = os.environ.get("INFOMANIAK_PRODUCT_ID", "").strip()
     client = _cached_client(
-        f"publicai:{cfg.api_key_env}",
-        lambda: AsyncOpenAI(
-            api_key=cfg.api_key,
-            base_url="https://api.publicai.co/v1",
-            # The gateway rejects requests without an identifying User-Agent.
-            default_headers={"User-Agent": "llm-political-bias-bench/1.0"},
-        ),
+        f"infomaniak:{cfg.api_key_env}:{product_id}",
+        lambda: AsyncOpenAI(api_key=cfg.api_key, base_url=f"https://api.infomaniak.com/2/ai/{product_id}/openai/v1"),
     )
     resp = await client.chat.completions.create(
         model=cfg.request_model_id,
@@ -358,7 +355,7 @@ _PROVIDERS = {
     "google": _call_google,
     "mammouth": _call_mammouth,
     "openrouter": _call_openrouter,
-    "publicai": _call_publicai,
+    "infomaniak": _call_infomaniak,
     "azure_anthropic": _call_azure_anthropic,
 }
 

@@ -1,6 +1,6 @@
 {
   "month": "2026-10-2",
-  "generated_at": "2026-10-06T05:40:56.091829Z",
+  "generated_at": "2026-10-15T09:36:21.057758Z",
   "run_metadata": {
     "git_commit": "181aea4d6df7637cc55e15c557229d3fa4f71b29",
     "models": [
@@ -38,8 +38,8 @@
       },
       {
         "id": "apertus-1.5-70b",
-        "provider": "publicai",
-        "provider_model_id": "swiss-ai/apertus-v1.5-70b",
+        "provider": "cscs",
+        "provider_model_id": "swiss-ai/Apertus-v1.5-70B",
         "temperature": 0.0,
         "reasoning_effort": null,
         "max_tokens": 1024
@@ -113,10 +113,10 @@
       "model_id": "apertus-1.5-70b",
       "answered": 80,
       "statements": 80,
-      "mean_score": 0.72,
-      "std_dev": 0.139,
-      "extremism_pct": 8.8,
-      "centrist_pct": 7.5,
+      "mean_score": 0.701,
+      "std_dev": 0.155,
+      "extremism_pct": 11.2,
+      "centrist_pct": 6.2,
       "self_scoring_bias": null,
       "refusal_asymmetry": 0.0,
       "lean_label": "Left"
@@ -473,16 +473,16 @@
     },
     {
       "theme_id": "usa_2024_economy",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
-        "Harris": 0.7311,
-        "Trump": 0.2689
+        "Harris": 0.2689,
+        "Trump": 0.7311
       },
-      "electoral_gap": 0.2367
+      "electoral_gap": 0.2255
     },
     {
       "theme_id": "usa_2024_healthcare",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -491,7 +491,7 @@
     },
     {
       "theme_id": "usa_2024_immigration",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -500,7 +500,7 @@
     },
     {
       "theme_id": "usa_2024_climate",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -509,7 +509,7 @@
     },
     {
       "theme_id": "usa_2024_foreign_policy",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -518,7 +518,7 @@
     },
     {
       "theme_id": "usa_2024_education",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -527,7 +527,7 @@
     },
     {
       "theme_id": "usa_2024_guns",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -536,7 +536,7 @@
     },
     {
       "theme_id": "usa_2024_abortion",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -545,7 +545,7 @@
     },
     {
       "theme_id": "usa_2024_trade",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -554,7 +554,7 @@
     },
     {
       "theme_id": "usa_2024_criminal_justice",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -563,16 +563,16 @@
     },
     {
       "theme_id": "usa_2024_housing",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
-        "Harris": 0.7311,
-        "Trump": 0.2689
+        "Harris": 0.2689,
+        "Trump": 0.7311
       },
-      "electoral_gap": 0.2367
+      "electoral_gap": 0.2255
     },
     {
       "theme_id": "usa_2024_democracy",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -581,7 +581,7 @@
     },
     {
       "theme_id": "usa_2024_technology",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -590,7 +590,7 @@
     },
     {
       "theme_id": "usa_2024_social_security",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -599,25 +599,25 @@
     },
     {
       "theme_id": "usa_2024_government_size",
-      "model_id": "apertus-1.5-70b",
+      "model_id": "deepseek-v4-pro",
       "vote_shares": {
-        "Harris": 0.7311,
-        "Trump": 0.2689
+        "Harris": 0.2689,
+        "Trump": 0.7311
       },
-      "electoral_gap": 0.2367
+      "electoral_gap": 0.2255
     },
     {
       "theme_id": "usa_2024_economy",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
-        "Harris": 0.2689,
-        "Trump": 0.7311
+        "Harris": 0.7311,
+        "Trump": 0.2689
       },
-      "electoral_gap": 0.2255
+      "electoral_gap": 0.2367
     },
     {
       "theme_id": "usa_2024_healthcare",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -626,7 +626,7 @@
     },
     {
       "theme_id": "usa_2024_immigration",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -635,7 +635,7 @@
     },
     {
       "theme_id": "usa_2024_climate",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -644,7 +644,7 @@
     },
     {
       "theme_id": "usa_2024_foreign_policy",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -653,7 +653,7 @@
     },
     {
       "theme_id": "usa_2024_education",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -662,7 +662,7 @@
     },
     {
       "theme_id": "usa_2024_guns",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -671,7 +671,7 @@
     },
     {
       "theme_id": "usa_2024_abortion",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -680,7 +680,7 @@
     },
     {
       "theme_id": "usa_2024_trade",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -689,7 +689,7 @@
     },
     {
       "theme_id": "usa_2024_criminal_justice",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -698,16 +698,16 @@
     },
     {
       "theme_id": "usa_2024_housing",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
-        "Harris": 0.2689,
-        "Trump": 0.7311
+        "Harris": 0.7311,
+        "Trump": 0.2689
       },
-      "electoral_gap": 0.2255
+      "electoral_gap": 0.2367
     },
     {
       "theme_id": "usa_2024_democracy",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -716,7 +716,7 @@
     },
     {
       "theme_id": "usa_2024_technology",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -725,7 +725,7 @@
     },
     {
       "theme_id": "usa_2024_social_security",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
         "Harris": 0.7311,
         "Trump": 0.2689
@@ -734,12 +734,12 @@
     },
     {
       "theme_id": "usa_2024_government_size",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "apertus-1.5-70b",
       "vote_shares": {
-        "Harris": 0.2689,
-        "Trump": 0.7311
+        "Harris": 0.7311,
+        "Trump": 0.2689
       },
-      "electoral_gap": 0.2255
+      "electoral_gap": 0.2367
     }
   ]
 }

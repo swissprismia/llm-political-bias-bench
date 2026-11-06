@@ -19,7 +19,7 @@ class ModelConfig:
     """Configuration for a single LLM."""
 
     id: str
-    provider: str  # "openai" | "azure_openai" | "azure_foundry" | "anthropic" | "google" | "mammouth" | "openrouter" | "publicai" | "azure_anthropic"
+    provider: str  # "openai" | "azure_openai" | "azure_foundry" | "anthropic" | "google" | "mammouth" | "openrouter" | "infomaniak" | "azure_anthropic"
     display_name: str
     api_key_env: str
     provider_model_id: str | None = None
@@ -137,10 +137,13 @@ DEFAULT_MODELS: dict[str, ModelConfig] = {
     # judge panel keeps Method A scores comparable with the 4-judge months.
     "apertus-1.5-70b": ModelConfig(
         id="apertus-1.5-70b",
-        provider="publicai",
+        # Infomaniak, not Public AI: Public AI's gateway routed this name to other models.
+        # CSCS (used for the 2026-10-2 re-collection) revoked our hackathon key in 2026-11;
+        # Infomaniak matched CSCS prompt_tokens on 10/10 replayed prompts (same tokenizer).
+        provider="infomaniak",
         display_name="Apertus 1.5 70B",
-        api_key_env="PUBLICAI_API_KEY",
-        provider_model_id="swiss-ai/apertus-v1.5-70b",
+        api_key_env="INFOMANIAK_API_KEY",  # plus INFOMANIAK_PRODUCT_ID for the endpoint
+        provider_model_id="swiss-ai/Apertus-v1.5-70B",
         judge=False,
         requests_per_minute=20,  # free/starter tier — limits not published
         max_parallel_requests=4,

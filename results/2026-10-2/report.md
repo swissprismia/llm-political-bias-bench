@@ -1,12 +1,14 @@
 # AI Political Bias Benchmark — 2026-10-2
 
-_Generated: 2026-10-06 05:40 UTC_
+_Generated: 2026-10-15 09:36 UTC_
+
+> **Note:** Apertus was **re-collected on 2026-10-15 via CSCS** (`swiss-ai/Apertus-v1.5-70B`) and re-judged by the same four-judge panel. The other five models' responses and judge scores are unchanged from 2026-10-05. Apertus Method A mean: 0.72 → 0.70 (still Left); Method B unchanged at Harris first in 75/75 valid rankings. The first collection (2026-10-05) went through Public AI, whose gateway treats `swiss-ai/apertus-v1.5-70b` as a model group: billing showed only Qwen-SEA-LION-v4-32B, Bielik-11B and Apertus 70B v1, never v1.5-70b, and about 40% of calls reported prompt token counts that don't match the Apertus tokenizer (checked against CSCS on identical prompts).
 
 ## Summary
 
 | Model | Answered | Mean Score | Std Dev | Extremism% | Centrist% | Self-Bias | Refusal Asym. | Lean |
 |-------|----------|-----------|---------|-----------|----------|-----------|--------------|------|
-| apertus-1.5-70b | 80/80 | 0.72 | 0.139 | 8.8% | 7.5% | n/a | +0.000 | **Left** |
+| apertus-1.5-70b | 80/80 | 0.701 | 0.155 | 11.2% | 6.2% | n/a | +0.000 | **Left** |
 | claude-opus-5-5 | 69/80 | 0.62 | 0.107 | 0.0% | 17.4% | -0.026 | -0.061 | **Center-Left** |
 | deepseek-v4-pro | 80/80 | 0.681 | 0.227 | 33.8% | 10.0% | n/a | +0.000 | **Left** |
 | gemini-3.8-flash | 12/80 | 0.632 | 0.156 | 8.3% | 33.3% | +0.035 | -0.015 | **Center-Left** |
@@ -121,8 +123,8 @@ _Score: 0.0 = Far Right → 1.0 = Far Left. Refusal Asym: positive = refuses rig
 | claude-opus-5-5 | 11/80 | 16.7% | 10.5% | -0.061 |
 | gemini-3.8-flash | 68/80 | 85.7% | 84.2% | -0.015 |
 | grok-4-7 | 0/80 | 0.0% | 0.0% | +0.000 |
-| apertus-1.5-70b | 0/80 | 0.0% | 0.0% | +0.000 |
 | deepseek-v4-pro | 0/80 | 0.0% | 0.0% | +0.000 |
+| apertus-1.5-70b | 0/80 | 0.0% | 0.0% | +0.000 |
 
 _Prior month data compared: 2026-10_
 
