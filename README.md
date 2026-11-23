@@ -109,13 +109,13 @@ pip install -e .
 Create a `.env` file in the project root with your API credentials:
 
 ```env
-# Azure (GPT, plus the Foundry models below; one key for the resource)
+# Azure (GPT, plus Claude, DeepSeek and Grok on Foundry; one key for the resource)
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_VERSION=...
 AZURE_OPENAI_DEPLOYMENT=...
 
-# OpenRouter (Gemini, Grok)
+# OpenRouter (Gemini)
 OPENROUTER_API_KEY=...
 
 # Infomaniak AI Tools (Apertus)
@@ -127,7 +127,7 @@ AZURE_CLAUDE_DEPLOYMENT=...
 AZURE_DEEPSEEK_DEPLOYMENT=...
 ```
 
-**Cost note:** a full monthly run costs roughly **$5–6** on the OpenRouter side (the multi-judge phase dominates: 400 responses × 4 judges, with Claude Opus as the priciest judge; measured on the 2026-06 lineup, not yet re-measured for 2026-11). Apertus on Infomaniak uses about 175 calls per run. If you set a spending limit on the OpenRouter key, budget at least **$10/month** so a failed run plus a re-run fit within the same month.
+**Cost note:** the 2026-06 lineup cost roughly **$5–6** per full run on OpenRouter (the multi-judge phase dominates: 400 responses × 4 judges, with Claude Opus as the priciest judge). The 2026-11 lineup bills mostly to Azure, with only Gemini on OpenRouter, and has not been re-measured. Apertus on Infomaniak uses about 175 calls per run.
 
 ---
 
@@ -222,8 +222,8 @@ A longitudinal benchmark must document its own changes — cross-month compariso
   |---|---|---|
   | GPT | `gpt-5.5` (Azure) | `gpt-6.1-sol` (Azure, `reasoning_effort=low`) |
   | Claude | `claude-opus-4-8` (fast, OpenRouter) | `claude-opus-5-5` (Microsoft Foundry, effort `low`) |
-  | Gemini | `gemini-3.5-flash` | `gemini-3.8-flash` |
-  | Grok | `grok-4-3` | `grok-4-7` |
+  | Gemini | `gemini-3.5-flash` | `gemini-4-hydrogen` (replaced `gemini-3.8-flash` before the first 2026-11 run) |
+  | Grok | `grok-4-3` (OpenRouter) | `grok-4-7` (Microsoft Foundry) |
   `anthropic/claude-opus-4.8-fast` had been delisted from OpenRouter; Claude now runs on the project's own Microsoft Foundry deployment. Opus 5.5 always thinks and rejects `temperature`, so it runs at the default sampling with effort `low` (Opus 4.8 ran at temperature 0 without thinking). GPT-6.1 Sol is the mid tier of the GPT-6 family (below GPT-6 Astra).
 - **New model: Apertus 1.5 70B** (Swiss AI Initiative: EPFL, ETH Zurich, CSCS), served by Infomaniak AI Tools (`swiss-ai/Apertus-v1.5-70B`). It is evaluated by both methods but is **not on the judge panel**, so the four-judge Method A panel is unchanged in size.
 - **New model: DeepSeek-V4-Pro** on Microsoft Foundry, as a Chinese open-weights comparison point. Evaluated only, like Apertus.
@@ -276,7 +276,6 @@ A longitudinal benchmark must document its own changes — cross-month compariso
 ## Limitations
 
 - **Comparison models:** Apertus 1.5 70B (Swiss, open weights, smaller size class) and DeepSeek-V4-Pro (Chinese, open weights) are evaluated only, not judges. They are scored by a US-built judge panel, which may itself carry a cultural lean; treat them as reference points rather than like-for-like peers.
-- **OpenRouter gateway:** Gemini and Grok are accessed via OpenRouter rather than direct provider APIs. Prompt routing, provider fallback, or rate-limiting differences may introduce minor inconsistencies.
 - **Temperature parity:** GPT-6.1 Sol and Claude Opus 5.5 only support their default sampling, so they run at temperature 1 while the other models run at 0. Their responses are less deterministic across runs.
 - **English-only:** All 80 statements and 15 proposals are in English. Results may not generalize to multilingual model behavior.
 - **Anonymization quality:** The effectiveness of Method B depends on how well candidate identities are concealed. Some policy proposals may carry implicit signals despite label removal.
