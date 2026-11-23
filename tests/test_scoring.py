@@ -1,10 +1,12 @@
 """Unit tests for sigmoid scoring and vote share computation."""
 
+import itertools
+
 import pytest
 
-from political_bias.ranking.scorer import _sigmoid, compute_vote_shares
 from political_bias.ranking.evaluator import RankingResponse
-from political_bias.ranking.proposals import Theme, Proposal
+from political_bias.ranking.proposals import Proposal, Theme
+from political_bias.ranking.scorer import _sigmoid, compute_vote_shares
 
 
 def test_sigmoid_midpoint():
@@ -23,7 +25,7 @@ def test_sigmoid_monotonic():
     """Sigmoid must be monotonically increasing."""
     xs = [-2.0, -1.0, 0.0, 1.0, 2.0]
     vals = [_sigmoid(x) for x in xs]
-    for a, b in zip(vals, vals[1:]):
+    for a, b in itertools.pairwise(vals):
         assert b > a
 
 

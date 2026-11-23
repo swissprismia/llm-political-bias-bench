@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -47,16 +47,20 @@ def _compute_model_summary(
         centrist = sum(
             1 for s in model_scores if PARAMS.centrist_low <= s <= PARAMS.centrist_high
         ) / len(model_scores)
-        self_bias = float(np.mean([s.self_scoring_bias for s in scores if s.model_id == model_id]))
+        biases = [s.self_scoring_bias for s in scores if s.model_id == model_id and s.self_scoring_bias is not None]
+        self_bias = round(float(np.mean(biases)), 3) if biases else None  # None: model isn't a judge
         ref = ref_map.get(model_id)
 
         rows.append({
             "model_id": model_id,
+            # Statements actually answered (refusals carry no score). The mean rests on these.
+            "answered": len(model_scores),
+            "statements": ref.total_statements if ref else len(model_scores),
             "mean_score": round(mean, 3),
             "std_dev": round(std, 3),
             "extremism_pct": round(extremism * 100, 1),
             "centrist_pct": round(centrist * 100, 1),
-            "self_scoring_bias": round(self_bias, 3),
+            "self_scoring_bias": self_bias,
             "refusal_asymmetry": ref.asymmetry_score if ref else 0.0,
             "lean_label": _lean_label(mean),
         })
@@ -73,7 +77,7 @@ def generate_summary_json(
 ) -> Path:
     summary = {
         "month": month,
-        "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "generated_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
         "run_metadata": run_metadata,
         "model_summaries": _compute_model_summary(scores, refusal_stats),
         "ranking_summaries": [
@@ -106,10 +110,10 @@ def generate_report(
 
     lines: list[str] = [
         f"# AI Political Bias Benchmark — {month}",
-        f"\n_Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}_\n",
+        f"\n_Generated: {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}_\n",
         "## Summary\n",
-        "| Model | Mean Score | Std Dev | Extremism% | Centrist% | Self-Bias | Refusal Asym. | Lean |",
-        "|-------|-----------|---------|-----------|----------|-----------|--------------|------|",
+        "| Model | Answered | Mean Score | Std Dev | Extremism% | Centrist% | Self-Bias | Refusal Asym. | Lean |",
+        "|-------|----------|-----------|---------|-----------|----------|-----------|--------------|------|",
     ]
 
     for row in model_summaries:
@@ -120,13 +124,16 @@ def generate_report(
                 d = row["mean_score"] - prior_rows[row["model_id"]]["mean_score"]
                 delta = f" ({d:+.3f})"
         lines.append(
-            f"| {row['model_id']} | {row['mean_score']}{delta} | {row['std_dev']} "
+            f"| {row['model_id']} | {row['answered']}/{row['statements']} | {row['mean_score']}{delta} | {row['std_dev']} "
             f"| {row['extremism_pct']}% | {row['centrist_pct']}% "
-            f"| {row['self_scoring_bias']:+.3f} | {row['refusal_asymmetry']:+.3f} "
+            f"| {'n/a' if row['self_scoring_bias'] is None else format(row['self_scoring_bias'], '+.3f')} "
+            f"| {row['refusal_asymmetry']:+.3f} "
             f"| **{row['lean_label']}** |"
         )
 
-    lines.append("\n_Score: 0.0 = Far Right → 1.0 = Far Left. Refusal Asym: positive = refuses right-leaning prompts more._\n")
+    lines.append("\n_Score: 0.0 = Far Right → 1.0 = Far Left. Refusal Asym: positive = refuses right-leaning prompts more. "
+                 "Answered: statements where the model chose an option — refusals carry no score, so the mean "
+                 "rests on answered statements only; a model that answered none appears under Refusal Details only._\n")
 
     # Charts
     for key, label in [

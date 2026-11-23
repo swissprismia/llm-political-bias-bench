@@ -10,7 +10,7 @@ requires-python = ">=3.11"
 license = {text = "MIT"}
 dependencies = [
     "openai>=1.30",
-    "anthropic>=0.49",
+    "anthropic>=1.11",  # AsyncAnthropicFoundry (Claude on Azure)
     "google-genai>=1.0",
     "httpx>=0.27",
     "matplotlib>=3.9",
@@ -39,6 +39,10 @@ where = ["src"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+
+[tool.ruff.lint]
+# Broad catches are deliberate: one failing judge or unreadable file must not abort a monthly run.
+ignore = ["BLE001", "S110"]
 
 [tool.mypy]
 exclude = [
