@@ -25,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Likert prompt: one prompt for all models, on-balance forced choice (Strongly agree / Agree / Disagree / Strongly disagree)
 - Likert refusal rule: a reply not starting with one of the four options is a refusal (retried once); summary table gains an `Answered` column
 - Model lineup (2026-11): `gpt-6.1-sol` (Azure), `claude-opus-5-5`, `gemini-3.8-flash`, `grok-4-7`
+- Grok 4.7 moved from OpenRouter to the Azure Foundry deployment `grok-4.7` (same Azure key; `provider_model_id` now doubles as the Azure deployment name)
+- Gemini 3.8 Flash replaced by Gemini 4 Hydrogen (`google/gemini-4-hydrogen` on OpenRouter)
 - OpenRouter models now use `max_tokens=4096` (was 1024) to avoid truncated reasoning-model answers
 - `self_scoring_bias` is `null` / `n/a` for models that are not judges (was a misleading 0.0)
 - Model lineup (2026-06): `gpt-5.5` (Azure), `claude-opus-4-8` (fast), `gemini-3.5-flash`, `grok-4-3`

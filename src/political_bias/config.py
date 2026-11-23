@@ -61,8 +61,8 @@ class ModelConfig:
     @property
     def azure_deployment(self) -> str | None:
         if self.azure_deployment_env:
-            return os.environ.get(self.azure_deployment_env) or self.id
-        return self.id
+            return os.environ.get(self.azure_deployment_env) or self.request_model_id
+        return self.request_model_id
 
 
 # ---------------------------------------------------------------------------
@@ -96,12 +96,12 @@ DEFAULT_MODELS: dict[str, ModelConfig] = {
         requests_per_minute=30,
         max_parallel_requests=10,
     ),
-    "gemini-3.8-flash": ModelConfig(
-        id="gemini-3.8-flash",
+    "gemini-4-hydrogen": ModelConfig(
+        id="gemini-4-hydrogen",
         provider="openrouter",
-        display_name="Gemini 3.8 Flash",
+        display_name="Gemini 4 Hydrogen",
         api_key_env="OPENROUTER_API_KEY",
-        provider_model_id="google/gemini-3.8-flash",
+        provider_model_id="google/gemini-4-hydrogen",
         max_tokens=4096,
         rate_limit_key="openrouter",
         requests_per_minute=30,
@@ -109,13 +109,14 @@ DEFAULT_MODELS: dict[str, ModelConfig] = {
     ),
     "grok-4-7": ModelConfig(
         id="grok-4-7",
-        provider="openrouter",
+        provider="azure_openai",  # Foundry deployment on the same Azure OpenAI endpoint
         display_name="Grok 4.7",
-        api_key_env="OPENROUTER_API_KEY",
-        provider_model_id="x-ai/grok-4.7",
+        api_key_env="AZURE_OPENAI_API_KEY",
+        azure_endpoint_env="AZURE_OPENAI_ENDPOINT",
+        azure_api_version_env="AZURE_OPENAI_API_VERSION",
+        provider_model_id="grok-4.7",  # Azure deployment name
         max_tokens=4096,
-        rate_limit_key="openrouter",
-        requests_per_minute=30,
+        requests_per_minute=60,
         max_parallel_requests=10,
     ),
     # Chinese open-weights frontier model, for a non-US comparison. Evaluated only,
